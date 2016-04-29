@@ -1,0 +1,71 @@
+site:
+  title: Jamling's Blog and Project Site
+  subtitle: Jamling's Blog & Open Project 
+  description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
+  
+project:
+  oerview: Overview
+  download: Downloads
+  get_started: Get started
+  docs: Docs
+  api: APIs
+
+page:
+  contents: Table Of Contents
+  back_to_top: Back to Top
+  improve: Improve this doc
+  prev: Prev
+  next: Next
+  last_updated: "Last updated: %s"
+
+  
+tag:
+  name: &tag.name Tags
+  label: *tag.name
+  empty: No tags
+  loading: Loading tags...
+
+category:
+  name: &category.name Category
+  label: *category.name
+  empty: No categories
+  loading: Loading categories...
+  
+archive:
+  name: &archive.name Archives
+  empty: No posts
+
+widget:
+  recent: Recents
+  search: Search
+  
+menu:
+  home: Home
+  project: Projects
+  category: *category.name
+  tag: *tag.name
+  archive: *archive.name
+  about: About
+  donate: Donate
+  
+donate:
+  name: Donate
+  page: # page / post / article
+    title: Donate
+    close: Close
+    desc: Dear reader, if you feel this good, could you rewark me a bread as awark? Thank you very much~
+  main: # donate list main (records)
+    title: Donate Records
+    index: Index
+    name: Name
+    amount: Amount
+    date: Date
+  aside: # donate list aside
+    count: Top Count
+    sum: Top Amount
+    prj_count: Top Project Count
+    prj_sum: Top Project Amount
+  th: # donate list thead name
+    count: Counts
+    sum: Amount
+    project: Project

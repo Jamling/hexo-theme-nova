@@ -1,0 +1,72 @@
+site:
+  title: 静勤居
+  subtitle: 谓静者，凡事三思而后行；谓勤者，凡事三行而后知！
+  description: Jamling's 技术博客文章.
+
+project:
+  overview: 概览
+  download: 下载
+  get_started: 开始使用
+  docs: 文档
+  api: APIs
+
+page:
+  contents: 目录
+  back_to_top: 回到顶部
+  improve: 改进本文
+  prev: 上一页
+  next: 下一页
+  last_updated: 最后更新：%s
+
+  
+tag:
+  name: &tag.name 标签
+  label: *tag.name
+  empty: 暂无标签
+  loading: 标签加载中...
+
+category:
+  name: &category.name 分类
+  label: *category.name
+  empty: 暂无分类
+  loading: 分类加载中...
+  
+archive:
+  name: &archive.name 归档
+  empty: 暂无文章
+
+widget:
+  recent: 最近文章
+  search: 搜索
+  
+menu:
+  home: 主页
+  project: 项目
+  category: *category.name
+  tag: *tag.name
+  archive: *archive.name
+  about: 关于
+  donate: 捐赠墙
+  
+donate:
+  name: 捐赠
+  page: # page / post / article
+    title: 打赏
+    close: 关闭
+    #如果您觉得本文不错，
+    desc: 各位看官，鄙人借网络这块宝地在此献丑，望有钱的捧个钱场（打赏任意金额），没钱的捧个人场（分享）
+  main: # donate list main (records)
+    title: 捐赠/打赏记录
+    index: 序号
+    name: 姓名（账号）
+    amount: 金额
+    date: 日期
+  aside: # donate list aside
+    count: 捐赠次数排行
+    sum: 捐赠金额排行
+    prj_count: 捐赠项目次数排行
+    prj_sum: 捐赠项目金额排行
+  th: # donate list thead name
+    count: 次数
+    sum: 总金额
+    project: 项目

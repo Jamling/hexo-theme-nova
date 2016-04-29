@@ -1,0 +1,111 @@
+# theme setting access with theme.xxx
+# script and css
+js_css:
+- url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js
+- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css
+- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css
+- url: //cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js
+- url: //cdn.bootcss.com/highlight.js/9.2.0/styles/railscasts.min.css
+- url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
+- url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
+- url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
+- url: css/nova.css
+- url: js/script.js
+# menu, all menu name must be translated 
+menu:
+- name: home
+  url: /
+- name: project
+  url: /p/
+- name: category
+  url: /categories/
+- name: archive
+  url: /archives/
+- name: about
+  url: /about/
+- name: donate
+  url: /donate/
+
+# post widgets. see layout/post/widget_xxx.swig
+post_widgets:
+  - search
+  - category
+  - tag
+  - archive
+  - recent
+post_widgets_ajax: true # TODO
+post_widgets_show_count: true
+post_widgets_recent_count: 5
+
+# archive
+archive:
+  type: yearly #yearly|monthly(defaut) see list_archives options
+  order: -1 # 1(asc)|-1(desc) defaut desc
+  format: YYYY
+  show_count: false # true|false, defaut true
+  amount: 5 # amount in post widgets
+
+# toc
+toc:
+  post: true
+  project: true
+  page: true
+# donate
+donate:
+  title: Donate
+  close: Close
+  desc: I will thank you very much
+  data_url: http://ot.ieclipse.cn/ot/index.php/Home/Donate/index
+  main:
+    title: Donate Records
+    index: Index
+    name: Name
+    amount: Amount
+    date: Date
+  top:
+    count: Top count
+    sum: Top amount
+  th:
+    count: counts
+    sum: amount
+  
+# github
+gh:
+  user: Jamling
+  token: 961ebbc13a8917f9bf95da79cb078959a5931e42 #
+  repos: 
+    - Android-ORM
+    - adt-extensions
+    - eclipse-explorer
+    - hexo-theme-nova
+    - jarsigner
+ 
+##评论功能设置,目前支持disqus和duoshuo/uyan,需要在上面的modules中进行要应的设置
+# show_count 是否显示文章的评论数量
+# short_name 对应的short_name
+# 需要的其它参数也可以加在下面,然后自己修改模板来使用.theme.comments.xxxxxx来调用
+#
+# 
+comments:
+  uyan:
+    su: path #path|source
+
+## 站点分析统计代码功能组件
+# 加载在站点的footer位置
+analytics:
+  # google-analytics UA
+  google: true
+  baidu: true
+
+# ajax_widgets是否使用jquery.load动态加载widget的内容,
+# 注: 部份小工具,像标签,分类,最近文章等,这些工具的内容在所有页面都是一样的,这时它就支持动态加载
+# 所谓的动态加载,就是把这些内容从文章中分离出来独立存在,并采用ajax技术动态加载到指定位置.
+# 使用动态加载,更新文章时,就不会因为分类或标签等内容的更改,导致所有页面都需要更新.
+#
+ajax_widgets: true
+
+## ICP备案编号
+Beian:
+
+rss: atom.xml
+

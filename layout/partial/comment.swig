@@ -1,0 +1,1 @@
+{{ partial('comment_uyan')}}
