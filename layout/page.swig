@@ -1,7 +1,5 @@
 {% if page.type === 'categories' %}
 {{ partial('page/categories', {}) }}
-{% elseif page.type === 'projects' %}
-{{ partial('page/projects', {}) }}
 {% elseif page.type === 'donates' %}
 {{ partial('page/donates', {}) }}
 {% else %}

@@ -49,13 +49,14 @@ SyncGithubAPI.prototype.reqSync = function(path, options){
     
     console.log('rate limit:%d,remaining:%d,reset:%s', limit, remain, reset);
     if (!res.statusCode == 200){
-      console.error(res.data);
+      console.error(res);
       return res.message;
     }
     return res.data;
 }
 SyncGithubAPI.prototype.setToken = function(token){
-  this.opts.data.access_token = token;
+  // token error will response 401
+  //this.opts.data.access_token = token;
 }
 
 var gh = new SyncGithubAPI();

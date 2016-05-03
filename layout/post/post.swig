@@ -13,7 +13,7 @@
     {{ post.content }}
   </div>
   <footer class="article-footer">
-    <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>
+    <!--<time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>-->
   </footer>
 </article>
 <div>

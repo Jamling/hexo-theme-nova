@@ -39,7 +39,7 @@ div.article-container {
 #toc .nav .active:focus a {
   font-weight: bold;
   padding-left: 0px;
-  border-left: 2px solid black;
+  border-left: 0px solid black;
 }
 
 blockquote.donate {
