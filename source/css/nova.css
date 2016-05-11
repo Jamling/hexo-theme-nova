@@ -33,13 +33,23 @@ div.article-container {
     padding-left:0px;
     margin-left:0px;
 }
-#toc .nav > li > a{padding-left:0px;padding-top:0px;}
-#toc .nav .active a,
-#toc .nav .active:hover a,
-#toc .nav .active:focus a {
+#toc .nav > li > a{padding-left:4px;padding-top:2px;padding-bottom:2px;color: #337ab7;}
+/*
+#toc .nav > li > a:last-child{padding-bottom:0px;}
+#toc .nav > li > a:first-child{padding-top:0px;}
+*/
+#toc .nav > li.active > a,
+#toc .nav > li.active:hover > a,
+#toc .nav > li.active:focus > a {
   font-weight: bold;
-  padding-left: 0px;
-  border-left: 0px solid black;
+  border-left: 2px solid #23527c;
+  color: #23527c;
+}
+#toc .nav .nav {
+    display:none;
+}
+#toc .nav .active ul {
+    display:block;
 }
 
 blockquote.donate {

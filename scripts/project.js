@@ -63,7 +63,9 @@ var gh = new SyncGithubAPI();
 
 hexo.extend.helper.register('gh_opts', function(options){
   var gh = this.page.gh;
-  
+  if (!gh.user){
+    gh.user = this.theme.gh.user;
+  }
 
     var o = options || {};
     var path_index = o.hasOwnProperty('index') ? o.index : 1;
@@ -80,9 +82,30 @@ hexo.extend.helper.register('gh_opts', function(options){
     if (gh.type === 'get_contents'){
       
     }
-    
+  console.log(gh);
   return gh;
   
+});
+
+hexo.extend.helper.register('gh_time', function(str, format){
+  if (!str){
+    return 'invalid date';
+  }
+  return str.replace(/T.+/,'');
+  //var d = new Date(str.replace(/T/, ' ').replace(/Z/, ''));
+  //return this.date(d, format);
+});
+
+hexo.extend.helper.register('gh_file_size', function(bytes){
+  if (bytes >= (1<<20)){
+    var f = (bytes/ (1<<20)).toFixed(2);
+    return f + " M";
+  }
+  if (bytes >= (1<<10)){
+    var f = (bytes/ (1<<10)).toFixed(2);
+    return f + " K";
+  }
+  return bytes + " B";
 });
 
 hexo.extend.helper.register('gh_repos', function(options){
@@ -176,8 +199,8 @@ hexo.extend.tag.register('gh_tag_contents', function(args, context){
 });
 hexo.extend.helper.register('gh_repo_releases', function(options){
   var o = options || {}
-  var user = o.hasOwnProperty('user') ? o.user : this.theme.gh.user;
-  var name = o.hasOwnProperty('name') ? o.name : null;
+  var user = o.hasOwnProperty('user') ? o.user : this.page.gh.user;
+  var name = o.hasOwnProperty('repo') ? o.name : this.page.gh.repo;
   
   if (name === undefined) {
     return '';

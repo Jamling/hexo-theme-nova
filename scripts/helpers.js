@@ -23,16 +23,22 @@ hexo.extend.helper.register('i18n', function(key){
 hexo.extend.helper.register('head_title', function(){
   var p = this.page;
   var ret = '';
-  if (p.layout == 'index') {
-    return this.i18n('site.title');
-  }
+  var sub = '';
   if (p.title2) {
-    return this.i18n(p.title2);
+    sub = this.i18n(p.title2);
   }
-  if (p.title) {
-    return p.title;
+  else if (p.title){
+    sub = p.title;
   }
-  return this.config.title;
+  ret = this.i18n('site.title');
+  if (!ret){
+    ret = this.config.title
+  }
+  if (sub){
+    return sub + '|' + ret;
+  } else {
+    return ret;
+  }
 });
 
 // load <head> js and css
@@ -57,7 +63,8 @@ hexo.extend.helper.register('head_keywords', function(){
   var _self = this;
   var ret = '';
   // for post
-  if (this.is_post()){
+  // if (this.is_post())
+  
     var kw = [];
     var cats = this.page.categories;
     if (cats) {
@@ -71,17 +78,26 @@ hexo.extend.helper.register('head_keywords', function(){
         kw.push(item.name);
       });
     }
+    
+    if (this.page.title2){
+      kw.push(this.i18n(this.page.title2))
+    }
+    if (this.page.title){
+      kw.push(this.page.title);
+    }
+    
     return kw.join(',');
-  }
+  
   // for page
   // TODO
-  return ret;
 });
 
 // load <head> description
 hexo.extend.helper.register('head_description', function(){
   var ret = '';
-  ret = this.config.description;
+  var kw = [];
+  kw.push(this.i18n('site.description'));
+  kw.push(this.config.description);
   return ret;
 });
 
@@ -194,6 +210,32 @@ hexo.extend.helper.register('page_uid', function(options){
     return ret;
   }
   return this.page.path;
+});
+
+// show toc
+hexo.extend.helper.register('page_toc', function(options){
+  var p = this.page;
+  if (p.layout == 'post'){// p.toc default off;
+    return this.is_post() && this.theme.toc.post && p.toc;
+  }
+  else if (p.layout == 'page'){
+    if (!this.theme.toc.page){
+      return false; 
+    }
+    if (typeof(p.toc) == 'undefined'){
+      return true;
+    }
+    return p.toc;
+  }
+  else if (p.layout == 'project'){
+    if (!this.theme.toc.project){
+      return false;
+    }
+    if (typeof(p.toc) == 'undefined'){
+      return true;
+    }
+    return p.toc;
+  }
 });
 
 hexo.extend.helper.register('page_nav', function(){

@@ -6,6 +6,8 @@ site:
 project:
   overview: 概览
   download: 下载
+  userguide: 用户指南
+  develop: 开发
   get_started: 开始使用
   docs: 文档
   api: APIs

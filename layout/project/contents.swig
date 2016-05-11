@@ -1,33 +1,9 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2" role="navigation" style="padding-left:10px;">
-    <aside>
-      {% set prj_name = page.canonical_path.split('/')[1] %}
-      {# partial('sidebar', {prj:site.data.projects[prj_name], name:prj_name}) #}
-      <div id="project_tree"></div>
-      {# css('//cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css') #}
-      {{ js('//cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js')}}
-      <script>
-      $('#project_tree').treeview({
-        enableLinks: true,
-        color: '#428bca',
-        expandIcon: 'glyphicon glyphicon-chevron-right',
-        collapseIcon: 'glyphicon glyphicon-chevron-down',
-        //levels: 3,
-        //node-icon: '',
-        //selectedColor: '#ff0000',
-        onNodeSelected: function(event, data) {
-          if (data.state.selected){
-            return;
-          }
-        },
-        data: {{ p_nav({parent_color:'#337ab7'}) }}
-      });
-      
-      </script>
-    </aside>
+  <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2" role="navigation">
+    {{ partial('sidebar', {}) }}
   </div>
-  <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container" data-spy="scroll" data-target="#toc" style="height:100%">
+  <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container">
     <article itemscope itemtype="http://schema.org/Article">
       <header class="article-header">
         <h1 class="article-title" itemprop="name">{{ page.title }}</h1>
@@ -51,7 +27,8 @@
   </div>
   <!-- aside -->
   <div id="article-toc" role="complementary" class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-    <aside> 
+  {%- if page_toc() %}
+    <aside id="navbar-toc">
       <nav id="toc" class="hidden-print hidden-xs hidden-sm well" data-spy="affix">
         <h4 class="toc-title"><a role="button" data-toggle="collapse" href="#toc-body" aria-expanded="true">
           {{ __('page.contents') }}
@@ -62,6 +39,10 @@
         </footer>
       </nav>
     </aside>
+      <script>
+      $('body').scrollspy({ target: '#navbar-toc' });
+      </script>
+  {%- endif %}
   </div>
 </div>
 </div>

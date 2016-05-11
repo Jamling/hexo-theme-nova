@@ -11,7 +11,7 @@ js_css:
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
 - url: css/nova.css
 - url: js/script.js
-# menu, all menu name must be translated 
+# menu, all menu name must be translated, see language/lang.yml
 menu:
 - name: home
   url: /
@@ -33,7 +33,10 @@ post_widgets:
   - tag
   - archive
   - recent
-post_widgets_ajax: true # TODO
+# TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
+# used ajax to get widget_xxx contents dynamicly to avoid change all pages.
+# 
+post_widgets_ajax: true
 post_widgets_show_count: true
 post_widgets_recent_count: 5
 
@@ -52,29 +55,15 @@ toc:
   page: true
 # donate
 donate:
-  title: Donate
-  close: Close
-  desc: I will thank you very much
   data_url: http://ot.ieclipse.cn/ot/index.php/Home/Donate/index
-  main:
-    title: Donate Records
-    index: Index
-    name: Name
-    amount: Amount
-    date: Date
-  top:
-    count: Top count
-    sum: Top amount
-  th:
-    count: counts
-    sum: amount
   
 # github
 gh:
   user: Jamling
-  token: 961ebbc13a8917f9bf95da79cb078959a5931e42 #
+  token: 961ebbc13a8917f9bf95da79cb078959a5931e42
   repos: 
     - Android-ORM
+    - QuickAF
     - adt-extensions
     - eclipse-explorer
     - hexo-theme-nova
@@ -97,11 +86,6 @@ analytics:
   google: true
   baidu: true
 
-# ajax_widgets是否使用jquery.load动态加载widget的内容,
-# 注: 部份小工具,像标签,分类,最近文章等,这些工具的内容在所有页面都是一样的,这时它就支持动态加载
-# 所谓的动态加载,就是把这些内容从文章中分离出来独立存在,并采用ajax技术动态加载到指定位置.
-# 使用动态加载,更新文章时,就不会因为分类或标签等内容的更改,导致所有页面都需要更新.
-#
 ajax_widgets: true
 
 ## ICP备案编号

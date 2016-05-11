@@ -12,8 +12,8 @@
   </div>
   <!-- aside -->
   <div class="col-sx-6 col-sm-4 col-md-3 col-lg-3">
-    <aside>
-      {%- if show_toc %}
+    <aside id="navbar-toc">
+      {%- if page_toc() %}
       <nav id="toc" class="hidden-print hidden-xs hidden-sm well" data-spy="affix">
         <h4 class="toc-title"><a role="button" data-toggle="collapse" href="#toc-body" aria-expanded="true">
           {{ __('page.contents') }}
@@ -25,6 +25,9 @@
           <a role="button" href="#" id="article-toc-top">{{ __('page.back_to_top') }}</a>
         </footer>
       </nav>
+      <script>
+      $('body').scrollspy({ target: '#navbar-toc' });
+      </script>
       {% else %}
       {% for widget in theme.post_widgets %}
       {# partial('post/widget_' + widget) #}
