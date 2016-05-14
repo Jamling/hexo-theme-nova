@@ -1,12 +1,12 @@
 (function($){
   // Caption
-  $('.article-entry').each(function(i){
+  $('.article').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
 
       var alt = this.alt;
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      if (alt) $(this).after('<span class="funcybox-caption">' + alt + '</span>');
 
       $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
     });
@@ -23,11 +23,11 @@
   // highlight
   hljs.initHighlightingOnLoad();
   //hljs.configure
-  /*
+  
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-  */
+  
   //$('article-container').style.height = $('article-container').height();
   
   $.fn.chk_userlanguage = function() {

@@ -4,10 +4,13 @@
     {{ partial('sidebar', {}) }}
   </div>
   <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container">
-    <article itemscope itemtype="http://schema.org/Article">
+    <article class="article project" itemscope itemtype="http://schema.org/Article">
       <header class="article-header">
-        <h1 class="article-title" itemprop="name">{{ page.title }}</h1>
-          <a href="{{ raw_link(page.source) }}" class="article-edit-link" title="{{ __('page.improve') }}"><i class="fa fa-pencil"></i></a>
+        <h1 class="article-title" itemprop="name">{{ page.title }}
+        {%- if page.gh %}
+        <a href="{{ gh_raw_link(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+        {%- endif %}
+        </h1>
       </header>
       <div class="article-content" itemprop="articleBody">
         

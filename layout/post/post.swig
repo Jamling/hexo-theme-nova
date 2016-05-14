@@ -1,5 +1,6 @@
 <article class="article post" itemscope itemtype="http://schema.org/Article">
   <header class="article-header">
+    {{ page_path(post)}}
     {% if is_post() %}
       <h1 class="article-title" itemprop="name">{{ post.title }}</h1>
     {% else %}
@@ -7,7 +8,10 @@
         <a href="{{ url_for(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
       </h1>
     {% endif %}
+    <div class="article-date">
     <a href="{{ url_for(post.path) }}" class="article-date">{{ time_tag(post.date) }}</a>
+    {{ post_tags(post) }}
+    </div>
   </header>
   <div class="article-content" itemprop="articleBody" id="post-content">
     {{ post.content }}

@@ -25,11 +25,11 @@
         <ul class="nav navbar-nav navbar-right">
           <!--<li><a href="#">Link</a></li>-->
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__('page.language')}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               {%- for lang in config.language %}
               {%- if lang !== 'default' %}
-              <li><a href="#">{{ lang_name(lang) }}</a></li>
+              <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
               {%- endif %}
               {%- endfor %}
             </ul>

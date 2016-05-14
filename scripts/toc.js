@@ -49,30 +49,40 @@ function tocHelper(str, options) {
       min = level;
     }
   });
-  //console.log(items);
+  // console.log(items);
   
   var root = new MyNode(min-1);
   var last = root;
+  var parent = root;
   
-  items.forEach(function(item){
-    if (item.l == last.l){
-      var t = last == root ? root : last.parent;
-      t.add(item);
+  items.forEach(function(item){//console.log('--------------'); console.log(item.l+ "." + last.id); console.log(last.l + "." + last.id); console.log(parent.l + "." + parent.id);
+    if (item.l == last.l){// console.log("eq");
+      parent.add(item);
     }
-    else {
-      if (item.l < last.l){
-        last = root;
-      }
+    else if (item.l > last.l){//console.log("sub");//sub
+		last.add(item);
+		parent = last;
+	}
+    else if (item.l < last.l){//console.log("super");//super
+		while(parent) {
+		  if (parent.l < item.l){
+			parent.add(item);
+			break;
+		  }
+		  parent = parent.parent;
+		}
+        // last = root;
+	  /*
       for(var j= last.l;j<item.l - 1;j++){
         var n = new MyNode(j+1);
         last.add(n);
         last = n;
       }
-      last.add(item);
+      last.add(item);*/
     }
     last = item;
   });
-  //console.log(root);
+  // console.log(root);
   function node(item){
     if (item.l - root.l > deep) {
       return;

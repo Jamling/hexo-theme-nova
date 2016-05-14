@@ -10,7 +10,7 @@ js_css:
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
 - url: css/nova.css
-- url: js/script.js
+#- url: js/script.js
 # menu, all menu name must be translated, see language/lang.yml
 menu:
 - name: home

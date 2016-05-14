@@ -15,7 +15,7 @@ function SyncGithubAPI(opts){
   // this.user = this.theme.gh.user;
   this.opts = opts || {
     dataType: 'json',
-    timeout: 10000,
+    timeout: 15000,
     data: {
       
     }
@@ -66,11 +66,14 @@ hexo.extend.helper.register('gh_opts', function(options){
   if (!gh.user){
     gh.user = this.theme.gh.user;
   }
-
+  var pIndex = 1;
+  if (this.page.lang !== this.default_lang()){
+    pIndex++;
+  }
     var o = options || {};
-    var path_index = o.hasOwnProperty('index') ? o.index : 1;
+    var path_index = o.hasOwnProperty('index') ? o.index : pIndex;
     if (!_.isNumber(path_index)){
-      path_index = 1;
+      path_index = pIndex;
     }
     var paths = this.page.path.split('/');
     var name = paths[path_index];
@@ -78,10 +81,12 @@ hexo.extend.helper.register('gh_opts', function(options){
     if (!gh.repo){
       gh.repo = name;
     }
-    
-    if (gh.type === 'get_contents'){
-      
+    /*
+    if (!gh.file){
+      gh.file = file;
     }
+    */
+    
   console.log(gh);
   return gh;
   
@@ -223,20 +228,26 @@ hexo.extend.helper.register('p_nav_i18n', function(key){
   return this.__(key);
 });
 
+// 
+hexo.extend.helper.register('gh_raw_link', function(options){
+  var o = options || {}
+  var user = o.hasOwnProperty('user') ? o.user : this.theme.gh.user;
+  var name = o.hasOwnProperty('repo') ? o.repo : null;
+  var path = o.hasOwnProperty('path') ? o.path : "README.md";
+  var ref = o.hasOwnProperty('ref') ? o.ref : 'master';
+  return util.format('https://github.com/%s/%s/edit/%s/%s', user, name, ref, path);
+});
+
 // project layout left nav tree
 hexo.extend.helper.register('p_nav', function(options){
   var o = options || {};
-  var path_index = o.hasOwnProperty('index') ? o.index : 1;
-  if (!_.isNumber(path_index)){
-    path_index = 1;
-  }
   var parent_color = o.hasOwnProperty('parent_color') ? o.parent_color : null;
   var child_color = o.hasOwnProperty('child_color') ? o.child_color : null;
   
   var _self = this;
   
   var paths = this.page.path.split('/');
-  var name = paths[path_index];
+  var name = this.page.gh? this.page.gh.repo : paths[paths.length - 2];
   var file = paths[paths.length - 1];
   var p = this.site.data.projects[name];
   

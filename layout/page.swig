@@ -6,13 +6,9 @@
 <div class="container container-fluid">
   <div class="row">
     <div id="content-inner" class="col-sx-12 col-sm-8 col-md-9 col-lg-9">
-      <article class="article-container" itemscope itemtype="http://schema.org/Article">
-        <div class="article-inner">
-          <div class="article" class="col-sx-12 col-sm-8 col-md-9 col-lg-9">
-            <div class="inner">
+      <article class="article page" itemscope itemtype="http://schema.org/Article">
               <header class="article-header">
                 <h1 class="article-title" itemprop="name">{{ page.title }}</h1>
-                <a href="{{ raw_link(page.source) }}" class="article-edit-link" title="{{ __('page.improve') }}"><i class="fa fa-pencil"></i></a>
               </header>
               <div class="article-content" itemprop="articleBody">
               {% block content %}
@@ -22,9 +18,6 @@
               <footer class="article-footer">
                 <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>
               </footer>
-            </div>
-          </div>
-        </div>
       </article>
       <div>
 	<nav>{{ nova_paginator2() }}</nav>

@@ -6,6 +6,8 @@ site:
 project:
   oerview: Overview
   download: Downloads
+  userguide: User Guide
+  develop: Developer
   get_started: Get started
   docs: Docs
   api: APIs
@@ -17,7 +19,9 @@ page:
   prev: Prev
   next: Next
   last_updated: "Last updated: %s"
-
+  more: Read more
+  blog: Blog
+  language: Language
   
 tag:
   name: &tag.name Tags

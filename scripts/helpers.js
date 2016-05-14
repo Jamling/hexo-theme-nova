@@ -34,6 +34,25 @@ hexo.extend.helper.register('head_title', function(){
   if (!ret){
     ret = this.config.title
   }
+  if (p.layout == 'project') {
+    if (!(p.gh && p.gh.type == "get_repos")){
+      var paths = this.page.path.split('/');
+      // get repo
+      if (p.gh){
+        ret = this.gh_opts().repo;
+      } else {
+        if (paths.length >= 2){
+          ret = paths[paths.length - 2];
+        }
+      }
+      // get path
+      var f = paths[paths.length - 1];
+      var tmp = this.__('project.' + f);
+      if (tmp !== 'project.' + f) {
+        sub = tmp;
+      }
+    }
+  }
   if (sub){
     return sub + '|' + ret;
   } else {
@@ -119,7 +138,57 @@ hexo.extend.helper.register('header_menu', function(className){
   return result;
 });
 
-// load category of post
+// insert page path nav bar.
+hexo.extend.helper.register('page_path', function(post){
+  var _self = this;
+  var ret = '';
+  if (this.is_post()) {
+    // ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;';
+    ret += _self.__('page.path') + '';
+    ret += '<ol class="breadcrumb path">';
+    ret += '<li><a class="" href="' + _self.url_for('/') + '">' + this.__('page.blog') + '</a></li>';
+    var cats = post.categories;
+    if (cats == null || cats.length == 0) {
+      ret += '</ol>';
+      return ret;
+    }
+    
+    cats.forEach(function(item){
+      ret += '<li><a class="" href="' + _self.url_for(item.path) + '">' + item.name + '</a></li>';
+    });
+    ret += '</ol>';
+  }
+  /*
+  else if(post.layout == 'project') {
+    var m = this.theme.menu[1];
+    ret += _self.__('page.path') + '';
+    ret += '<ol class="breadcrumb path">';
+    ret += '<li><a class="" href="' + _self.url_for(m.url) + '">' + this.__('menu.' + m.name) + '</a></li>';
+    var paths = this.page.path.split('/');
+    // get repo
+    var repo;
+    if (this.page.gh){
+      repo = this.gh_opts().repo;
+    } else {
+      if (paths.length >= 2){
+        repo = paths[paths.length - 2];
+      }
+    }
+    ret += '<li><a class="" href="' + _self.url_for(m.url+'/' + repo) + '">' + repo + '</a></li>';
+    // get path
+    var f = paths[paths.length - 1];
+    var tmp = this.__('project.' + f);
+    if (tmp == 'project.' + f) {
+      tmp = this.page.title2 ? this.__(this.page.title2) : this.page.title;
+    }
+    ret += '<li>' + tmp + '</li>';
+    ret += '</ol>';
+  }*/
+  
+  return ret;
+});
+
+// insert category of post
 hexo.extend.helper.register('post_cates', function(post){
   var cats = post.categories;
   var _self = this;
@@ -136,6 +205,7 @@ hexo.extend.helper.register('post_cates', function(post){
   return ret;
 });
 
+// insert tag of post
 hexo.extend.helper.register('post_tags', function(post){
   var cats = post.tags;
   var _self = this;
@@ -194,7 +264,7 @@ hexo.extend.helper.register('widget_recents', function(posts, options){
   return this.nova_list_posts(posts, options);
 });
 
-// page uid, used for comments
+// page unique id, used for comments
 hexo.extend.helper.register('page_uid', function(options){
   if (this.is_post()) {
     return this.page.path;
@@ -212,7 +282,7 @@ hexo.extend.helper.register('page_uid', function(options){
   return this.page.path;
 });
 
-// show toc
+// return page show toc or not
 hexo.extend.helper.register('page_toc', function(options){
   var p = this.page;
   if (p.layout == 'post'){// p.toc default off;
@@ -303,24 +373,38 @@ hexo.extend.helper.register('default_lang', function(){
   return ret;
 });
 
-hexo.extend.helper.register('canonical_url', function(lang){console.log(lang);
+hexo.extend.helper.register('switch_lang', function(lang){
+  var l = this.default_lang();
+  var p = this.page.path;
+  if (startsWith(p, this.page.lang)) {
+    p = p.substring(this.page.lang.length);
+  }
+  if (!startsWith(p, '/')){
+    p = '/' + p;
+  }
+  var ret = '';
+  if (l == lang) {
+    ret = p;
+  } else {
+    ret = '/' + lang + p;
+  }
+  return ret;
+});
+
+hexo.extend.helper.register('canonical_url', function(lang){
   var path = this.page.canonical_path;
   if (lang && lang !== this.default_lang()) path = lang + '/' + path;
 
   return this.config.url + '/' + path;
 });
 
-hexo.extend.helper.register('url_for_lang', function(path){
-  var lang = this.page.lang;
+hexo.extend.helper.register('url_for_lang', function(path, language){
+  var lang = language ? language : this.page.lang;
   var url = this.url_for(path);
 
   if (lang !== this.default_lang() && url[0] === '/') url = '/' + lang + url;
 
   return url;
-});
-
-hexo.extend.helper.register('raw_link', function(path){
-  return 'https://github.com/Jamling/hexo-site/edit/master/source/' + path;
 });
 
 hexo.extend.helper.register('page_anchor', function(str){
