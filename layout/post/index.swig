@@ -29,6 +29,7 @@
             {{ post_tags(post) }}
           </footer>
         </article>
+	  <hr>
         {% endfor %}
       </div>
     </div>

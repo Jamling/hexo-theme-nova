@@ -76,7 +76,7 @@ function paginatorHelper(options){
     var rightEnd = total - current <= endSize ? current + 1 : total - endSize + 1;
     var leftMid = current - midSize <= endSize ? current - midSize + endSize : current - midSize;
     var rightMid = current + midSize + endSize > total ? current + midSize - endSize : current + midSize;
-    var spaceHtml = '<span class="space">' + space + '</span>';
+    var spaceHtml = '<li><span class="space">' + space + '</span></li>';
 
     // Display pages on the left edge
     for (i = 1; i <= leftEnd; i++){

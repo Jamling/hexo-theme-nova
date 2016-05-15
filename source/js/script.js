@@ -2,6 +2,9 @@
   // Caption
   $('.article').each(function(i){
     $(this).find('img').each(function(){
+      if (!$(this).hasClass('img-responsive')) {
+      $(this).addClass('img-responsive')
+      }
       if ($(this).parent().hasClass('fancybox')) return;
 
       var alt = this.alt;
