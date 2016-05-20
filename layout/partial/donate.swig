@@ -5,7 +5,7 @@
   </button>-->
   <p>
   <a href="#" role="button" data-toggle="modal" data-target="#DonateModal">{{ image_tag('/image/donate_button.png') }}
-  {{ __('donate.page.desc') }}</a>
+  <span>{{ __('donate.page.desc') }}</span></a>
   </p>
 </blockquote>
 <!-- Modal -->

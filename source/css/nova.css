@@ -48,7 +48,20 @@ nav.well {
 blockquote.donate {
     border-left-color: #f96;
     background-color: #f0f0f0;
+    display: table;
+    vertical-align:middle;
 }
+
+blockquote.donate img{
+    vertical-align:middle;
+    margin-right: 10px;
+    display: block;
+    float: left;
+}
+blockquote.donate span{
+    line-height: 32px;
+}
+
 img.donate {
     width: 200px;
     height: 200px;
@@ -173,6 +186,7 @@ footer.article-footer {
     padding-top: 0px;
     padding-bottom: 8px;
 }
+
 pre {
     /*background: none;
     border: none;*/
@@ -181,6 +195,12 @@ pre {
 }
 pre code {
     margin: -10px;
+}
+
+.fancybox img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 span.funcybox-caption {
     display: block;

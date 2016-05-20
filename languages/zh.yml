@@ -10,6 +10,7 @@ project:
   develop: 开发
   get_started: 开始使用
   docs: 文档
+  change: 更新日志
   api: APIs
 
 page:
@@ -75,3 +76,8 @@ donate:
     count: 次数
     sum: 总金额
     project: 项目
+
+hexo-theme-nova:
+  userguide:
+    layouts: 布局
+    helpers: 辅助函数

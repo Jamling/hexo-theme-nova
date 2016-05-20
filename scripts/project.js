@@ -61,13 +61,14 @@ SyncGithubAPI.prototype.setToken = function(token){
 
 var gh = new SyncGithubAPI();
 
-hexo.extend.helper.register('gh_opts', function(options){
-  var gh = this.page.gh;
+hexo.extend.helper.register('gh_opts', function(page, options){
+  var page = page ? page : this.page;
+  var gh = page.gh;
   if (!gh.user){
     gh.user = this.theme.gh.user;
   }
   var pIndex = 1;
-  if (this.page.lang !== this.default_lang()){
+  if (page.lang !== this.default_lang()){
     pIndex++;
   }
     var o = options || {};
@@ -75,7 +76,7 @@ hexo.extend.helper.register('gh_opts', function(options){
     if (!_.isNumber(path_index)){
       path_index = pIndex;
     }
-    var paths = this.page.path.split('/');
+    var paths = page.path.split('/');
     var name = paths[path_index];
     var file = paths[paths.length - 1];  
     if (!gh.repo){
@@ -86,10 +87,7 @@ hexo.extend.helper.register('gh_opts', function(options){
       gh.file = file;
     }
     */
-    
-  console.log(gh);
   return gh;
-  
 });
 
 hexo.extend.helper.register('gh_time', function(str, format){
@@ -134,7 +132,14 @@ hexo.extend.helper.register('gh_repos', function(options){
 	var url = util.format('users/%s/repos', user);
   
   gh.setToken(this.theme.gh.token);
-  var repos = gh.reqSync(url);
+  var repos;
+  var cache = (_self.gh_read_cache(this.page));
+  if (cache){
+    repos = JSON.parse(cache);
+  }
+  else {
+    repos = gh.reqSync(url);
+  }
   console.log('%s has %d repos', user, repos.length);
         repos.forEach(function(repo){
           if (!filter_repo(repo))
@@ -282,7 +287,7 @@ hexo.extend.helper.register('p_nav', function(options){
   function i18n(key){
     var last = key.split('.').pop();
     var i18n = _self.__('project.' + last);
-    if (last !== i18n){
+    if (('project.' + last) !== i18n){
       return i18n;
     }
     return _self.__(key);
@@ -291,10 +296,10 @@ hexo.extend.helper.register('p_nav', function(options){
   var data = [];
   var mis = [];
   
-  function iterate(item, pnode){
+  function iterate(item, pnode, pk){
     _.each(item, function(value, key){
       var n = new Node();
-      n.text = i18n(key);
+      n.text = i18n(pk + "." + key);
       if (_.isString(value)){
         n.selectable = false;
         n.href = value;
@@ -303,12 +308,15 @@ hexo.extend.helper.register('p_nav', function(options){
           //n.state.expanded = true;
           //n.state.disabled = true;
           n.selectable = false;
+          if (pnode && pnode.state){
+            pnode.state.expanded = true;
+          }
         }
         mis.push(value);
       } else {
         n.color = parent_color;
         n.text = '<b>' + n.text + '</b>';
-        iterate(value, n);
+        iterate(value, n, pk + '.' + key);
       }
       if (_.isArray(pnode)){
         pnode.push(n);
@@ -321,7 +329,7 @@ hexo.extend.helper.register('p_nav', function(options){
     });
   }
   
-  iterate(p, data);
+  iterate(p, data, name);
   var i = mis.indexOf(file);
   if (i>0){
     this.page.prev = mis[i-1];
@@ -333,3 +341,91 @@ hexo.extend.helper.register('p_nav', function(options){
   }
   return JSON.stringify(data);
 });
+
+// --------------- 
+var fs = require('fs');
+var GitHubApi = require("github");
+ 
+var github = new GitHubApi({
+    // required 
+    version: "3.0.0",
+    // optional 
+    debug: true,
+    protocol: "https",
+    host: "api.github.com", // should be api.github.com for GitHub 
+    pathPrefix: "", // for some GHEs; none for GitHub 
+    timeout: 15000,
+    headers: {
+        "user-agent": "hexo-theme-nova" // GitHub is happy with a unique user agent 
+    }
+});
+
+hexo.extend.helper.register('gh_read_cache', function(page){
+  if (!page){
+    page = this.page;
+  }
+  var path = pathFn.join("./", this.theme.gh.cache_dir, page.path);
+  if (fs.existsSync(path)){
+    return fs.readFileSync(path);
+  }
+  return undefined;
+});
+
+hexo.extend.helper.register('gh_generate', function(options){
+  var cache_dir = this.theme.gh.cache_dir;
+  var source_dir = this.theme.gh.source_dir;
+  var pages = this.site.pages;
+  var _self = this;
+  
+  var cacheDir = pathFn.join("./", cache_dir);
+  if (!fs.existsSync(cacheDir)){
+    mkdirsSync(cacheDir);
+  }
+  console.log(cacheDir);
+  
+  pages.forEach(function(item){
+    if (item.gh){
+      var path = pathFn.join(cacheDir, item.path);
+      if (fs.existsSync(path)){
+        return;
+      }
+      var dir = pathFn.dirname(path);console.log(dir);
+      mkdirsSync(dir);
+      
+      var gh = _self.gh_opts(item);
+      if (gh.type === 'get_contents'){
+        
+      } else if (gh.type === 'get_releases'){
+        
+      } else if (gh.type === 'get_repos'){
+        github.repos.getFromUser({
+          user: gh.user
+        }, function(err, res){
+          fs.writeFileSync(path, JSON.stringify(res));
+        });
+      }
+    }
+  });
+  
+  
+});
+
+function mkdirsSync(dirpath, mode) { 
+    if (!fs.existsSync(dirpath)) {
+        var pathtmp;
+        dirpath.split(pathFn.sep).forEach(function(dirname) {
+            if (pathtmp) {
+                pathtmp = pathFn.join(pathtmp, dirname);
+            }
+            else {
+                pathtmp = dirname;
+            }
+            if (!fs.existsSync(pathtmp)) {
+                if (!fs.mkdirSync(pathtmp, mode)) {
+                    return false;
+                }
+            }
+        });
+    }
+    return true; 
+}

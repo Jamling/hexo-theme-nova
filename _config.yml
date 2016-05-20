@@ -1,4 +1,14 @@
 # theme setting access with theme.xxx
+# default language, must in hexo root/_config.yml. used to generate multi-lang sites.
+# 1st, generate other lang, change hexo root/_config.yml language order and public_dir
+# e.g 
+# language = [en, zh]
+# public_dir = public/en
+# run hexo g to generate english site.
+# 2st, generate default lang (zh).
+# language change to [zh, en]; public_dir = public;
+# run hexo g to generate default language site (zh) 
+lang: zh
 # script and css
 js_css:
 - url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js
@@ -59,6 +69,8 @@ donate:
   
 # github
 gh:
+  source_dir: /p/
+  cache_dir: gh_cache
   user: Jamling
   token: 961ebbc13a8917f9bf95da79cb078959a5931e42
   repos: 

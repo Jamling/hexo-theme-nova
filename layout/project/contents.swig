@@ -6,7 +6,7 @@
   <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container">
     <article class="article project" itemscope itemtype="http://schema.org/Article">
       <header class="article-header">
-        <h1 class="article-title" itemprop="name">{{ page.title }}
+        <h1 class="article-title" itemprop="name">{{ page_title() }}
         {%- if page.gh %}
         <a href="{{ gh_raw_link(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
         {%- endif %}

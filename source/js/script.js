@@ -2,9 +2,9 @@
   // Caption
   $('.article').each(function(i){
     $(this).find('img').each(function(){
-      if (!$(this).hasClass('img-responsive')) {
+      /*if (!$(this).hasClass('img-responsive')) {
       $(this).addClass('img-responsive')
-      }
+      }*/
       if ($(this).parent().hasClass('fancybox')) return;
 
       var alt = this.alt;
@@ -16,6 +16,13 @@
 
     $(this).find('.fancybox').each(function(){
       $(this).attr('rel', 'article' + i);
+    });
+    
+    $(this).find('table').each(function(){
+      if (!$(this).hasClass('table-bordered')) {
+        $(this).addClass('table');
+        $(this).addClass('table-bordered');
+      }
     });
   });
 

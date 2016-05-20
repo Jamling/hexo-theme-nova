@@ -45,7 +45,7 @@ hexo.extend.helper.register('head_title', function(){
           ret = paths[paths.length - 2];
         }
       }
-      // get path
+      // get path, has bugs
       var f = paths[paths.length - 1];
       var tmp = this.__('project.' + f);
       if (tmp !== 'project.' + f) {
@@ -136,6 +136,22 @@ hexo.extend.helper.register('header_menu', function(className){
   });
   
   return result;
+});
+
+// return page title.
+hexo.extend.helper.register('page_title', function(){
+  var p = this.page;
+  var ret = '';
+  if (p.title2) {
+    ret = this.i18n(p.title2);
+  }
+  else if (p.title){
+    ret = p.title;
+  }
+  else {
+    ret = '';
+  }
+  return ret;
 });
 
 // insert page path nav bar.
@@ -370,6 +386,9 @@ hexo.extend.helper.register('default_lang', function(){
       ret = l;
     }
   }
+  
+  // rewrite
+  ret = this.theme.lang;
   return ret;
 });
 

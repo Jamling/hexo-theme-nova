@@ -10,6 +10,7 @@ project:
   develop: Developer
   get_started: Get started
   docs: Docs
+  change: Change logs
   api: APIs
 
 page:
@@ -73,3 +74,8 @@ donate:
     count: Counts
     sum: Amount
     project: Project
+
+hexo-theme-nova:
+  userguide:
+    layouts: Layouts
+    helpers: Helpers
