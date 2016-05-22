@@ -61,6 +61,7 @@ SyncGithubAPI.prototype.setToken = function(token){
 
 var gh = new SyncGithubAPI();
 
+// return full github options
 hexo.extend.helper.register('gh_opts', function(page, options){
   var page = page ? page : this.page;
   var gh = page.gh;
@@ -90,6 +91,7 @@ hexo.extend.helper.register('gh_opts', function(page, options){
   return gh;
 });
 
+// return github api time
 hexo.extend.helper.register('gh_time', function(str, format){
   if (!str){
     return 'invalid date';
@@ -99,6 +101,7 @@ hexo.extend.helper.register('gh_time', function(str, format){
   //return this.date(d, format);
 });
 
+// return github api size in well format
 hexo.extend.helper.register('gh_file_size', function(bytes){
   if (bytes >= (1<<20)){
     var f = (bytes/ (1<<20)).toFixed(2);
@@ -110,7 +113,7 @@ hexo.extend.helper.register('gh_file_size', function(bytes){
   }
   return bytes + " B";
 });
-
+// return github user's repos.
 hexo.extend.helper.register('gh_repos', function(options){
   var o = options || {};
   var user = o.hasOwnProperty('user') ? o.user : this.theme.gh.user;
@@ -129,7 +132,7 @@ hexo.extend.helper.register('gh_repos', function(options){
   }
 
   var ret = [];
-	var url = util.format('users/%s/repos', user);
+  var url = util.format('users/%s/repos', user);
   
   gh.setToken(this.theme.gh.token);
   var repos;
@@ -139,6 +142,7 @@ hexo.extend.helper.register('gh_repos', function(options){
   }
   else {
     repos = gh.reqSync(url);
+	this.gh_write_cache(this.gh_cache_dir(this.page, JSON.stringify(repo)));
   }
   console.log('%s has %d repos', user, repos.length);
         repos.forEach(function(repo){
@@ -164,7 +168,7 @@ hexo.extend.helper.register('gh_repo', function(options){
   var repo = gh.reqSync(url);
   return repo;
 });
-
+// get contents from github
 hexo.extend.helper.register('gh_repo_contents', function(options){
   var o = options || {}
   var user = o.hasOwnProperty('user') ? o.user : this.theme.gh.user;
@@ -176,12 +180,19 @@ hexo.extend.helper.register('gh_repo_contents', function(options){
     return '';
   }
   
+  var cache = (this.gh_read_cache(this.page));
+  if (cache){
+	  return cache;
+  }
+  
   gh.setToken(this.theme.gh.token);
   var url = util.format('repos/%s/%s/contents/%s', user, name, path);
   var repo = gh.reqSync(url, {data:{'ref': ref}});
-  if (repo.content){
+  if (repo && repo.content){
     var md = new Buffer(repo.content, repo.encoding).toString();
-    return this.markdown(md);
+    var content = this.markdown(md);
+	this.gh_write_cache(this.gh_cache_dir(this.page, content));
+	return content;
   }
   return '';
 });
@@ -192,21 +203,6 @@ hexo.extend.helper.register('md_test', function(){
   return ret;
 });
 
-hexo.extend.tag.register('gh_tag_contents', function(args, context){
-  var user = args.shift();
-  var name = args.shift();
-  var path = args.shift();
-  var ref = args.length>0 ? args.shift() : 'master';
-  var gh = new SyncGithubAPI();
-  var url = util.format('repos/%s/%s/contents/%s', user, name, path);
-  //gh.setToken(this.theme.gh.token);
-  var repo = gh.reqSync(url, {data:{'ref': ref}});
-  if (repo.content){
-    return new Buffer(repo.content, repo.encoding);
-  }
-  return '';
-  
-});
 hexo.extend.helper.register('gh_repo_releases', function(options){
   var o = options || {}
   var user = o.hasOwnProperty('user') ? o.user : this.page.gh.user;
@@ -215,11 +211,15 @@ hexo.extend.helper.register('gh_repo_releases', function(options){
   if (name === undefined) {
     return '';
   }
+  var cache = (this.gh_read_cache(this.page));
+  if (cache){
+	  return JSON.parse(cache);
+  }
   
   gh.setToken(this.theme.gh.token);
   var url = util.format('repos/%s/%s/releases', user, name);
   var repo = gh.reqSync(url);
-  
+  this.gh_write_cache(this.gh_cache_dir(this.page, JSON.stringify(repo)));
   return repo;
 });
 
@@ -359,18 +359,30 @@ var github = new GitHubApi({
         "user-agent": "hexo-theme-nova" // GitHub is happy with a unique user agent 
     }
 });
-
-hexo.extend.helper.register('gh_read_cache', function(page){
+// return github cache dir
+hexo.extend.helper.register('gh_cache_dir', function(page){
   if (!page){
     page = this.page;
   }
   var path = pathFn.join("./", this.theme.gh.cache_dir, page.path);
+  return path;
+});
+
+// read github from cache
+hexo.extend.helper.register('gh_read_cache', function(page){
+  var path = this.gh_cache_dir(page);
   if (fs.existsSync(path)){
     return fs.readFileSync(path);
   }
   return undefined;
 });
-
+// write to github cache
+hexo.extend.helper.register('gh_write_cache', function(path, content){console.log(path);
+  if (content) {
+    fs.writeFileSync(path, content);
+  }
+});
+// generate project page(github)
 hexo.extend.helper.register('gh_generate', function(options){
   var cache_dir = this.theme.gh.cache_dir;
   var source_dir = this.theme.gh.source_dir;
@@ -394,9 +406,25 @@ hexo.extend.helper.register('gh_generate', function(options){
       
       var gh = _self.gh_opts(item);
       if (gh.type === 'get_contents'){
-        
+        github.repos.getContent({
+          user: gh.user,
+		  repo: gh.repo,
+		  ref: gh.ref ? gh.ref : 'master',
+		  path: gh.path ? gh.path : 'README.md'
+        }, function(err, res){
+		  //var url = util.format('repos/%s/%s/contents/%s', user, name, path);
+		  if (res && res.content){
+			var md = new Buffer(res.content, res.encoding).toString();
+            fs.writeFileSync(path, _self.markdown(md));
+		  }
+        });
       } else if (gh.type === 'get_releases'){
-        
+        github.releases.listReleases({
+          owner: gh.user,
+		  repo: gh.repo
+        }, function(err, res){
+          fs.writeFileSync(path, JSON.stringify(res));
+        });
       } else if (gh.type === 'get_repos'){
         github.repos.getFromUser({
           user: gh.user
