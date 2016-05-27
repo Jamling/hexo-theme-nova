@@ -10,6 +10,7 @@ The theme provided three layouts to demonstrate the page.
  3. `page` for other pages
 
 Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar. 
+
 Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the demo.
 
 ## layouts ##
@@ -17,14 +18,7 @@ Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the d
 Similar to most hexo theme, nova has index, archive, widgets layout. The difference is nova rewrite archive list helpers and provided two paginator helpers.
 
 ### project
-Project layout is aimed to demonstrate the github projects info. For project layout, a `gh` front-maker is nessary in your page.
-
-- gh.user the github user, default is the user in theme <var>_config.yml</var>
-- gh.repo the github repo, default is fetched from url
-- gh.type 
-    - get_repos get repositories from github
-    - get_contents get markdown file under repository
-    - get_releases get releases under repository
+Project layout is aimed to demonstrate the github projects info. The [hexo-generator-github] plugin used to generate project pages.
 
 The projects sidebar is configurated in <var>_data</var>/<var>projects.yml</var>
 
@@ -69,23 +63,15 @@ menu:
   url: /donate/
 ```
 **the <var>name</var> will be translated.**
-### gh
-Github info.
-```yml
-# github
-gh:
-  user: Jamling
-  # Keep private to others
-  token:
-  repos: 
-    - Android-ORM
-    - QuickAF
-    - adt-extensions
-    - eclipse-explorer
-    - hexo-theme-nova
-    - jarsigner
-```
 
 ## helpers
 
 Please see [nova helpers](https://github.com/Jamling/hexo-theme-nova/blob/master/helpers.md)
+
+## plugins
+[hexo-generator-github] helps to generator project pages.
+[hexo-generator-github](https://github.com/Jamling/hexo-generator-i18) helps to generate multi-language sites.
+
+[hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
+
+
