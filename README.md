@@ -69,9 +69,12 @@ menu:
 Please see [nova helpers](https://github.com/Jamling/hexo-theme-nova/blob/master/helpers.md)
 
 ## plugins
+
 [hexo-generator-github] helps to generator project pages.
-[hexo-generator-github](https://github.com/Jamling/hexo-generator-i18) helps to generate multi-language sites.
+
+[hexo-generator-i18n] helps to generate multi-language sites.
+
 
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
-
+[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18/
 
