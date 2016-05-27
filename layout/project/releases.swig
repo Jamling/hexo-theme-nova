@@ -80,8 +80,8 @@
   </div>
   <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container">
     <div class="release-timeline">
-    {% for p in gh_repo_releases() %}
-      <div class="release label-latest">
+    {% for p in gh_releases() %}
+      <div class="release label-latest hidden-xs" >
         <div class="release-meta">
           <ul class="tag-references">
             <li>
@@ -118,8 +118,8 @@
       <div class="release-body commit open">
         <div class="release-header">
           <h1 class="release-title">
-            <a href="#">{{p.name}}</a>
-            <a name="{{p.tag_name}}"></a>
+            <a href="{{p.html_url}}">{{p.name}}</a>
+            <small>({{p.tag_name}})</small></a>
           </h1>
           <p class="release-authorship">
             <img alt="@{{p.author.login}}" class="avatar" src="https://avatars2.githubusercontent.com/u/{{p.author.id}}?v=3&amp;s=40" height="20" width="20">
@@ -171,7 +171,7 @@
         </a></h4>
         {# nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) #}
         <ul class="nav toc-ul">
-        {%- for p in gh_repo_releases() %}
+        {%- for p in gh_releases() %}
           <li><a href="#{{p.tag_name}}">{{p.name}}</a></li>
         {%- endfor %}
         </ul>

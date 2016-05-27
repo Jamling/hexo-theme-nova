@@ -67,19 +67,7 @@ toc:
 donate:
   data_url: http://ot.ieclipse.cn/ot/index.php/Home/Donate/index
   
-# github
-gh:
-  source_dir: /p/
-  cache_dir: gh_cache
-  user: Jamling
-  token: 961ebbc13a8917f9bf95da79cb078959a5931e42
-  repos: 
-    - Android-ORM
-    - QuickAF
-    - adt-extensions
-    - eclipse-explorer
-    - hexo-theme-nova
-    - jarsigner
+# github removed see hexo-generator-github.
  
 ##评论功能设置,目前支持disqus和duoshuo/uyan,需要在上面的modules中进行要应的设置
 # show_count 是否显示文章的评论数量

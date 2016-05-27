@@ -8,7 +8,7 @@
       <header class="article-header">
         <h1 class="article-title" itemprop="name">{{ page_title() }}
         {%- if page.gh %}
-        <a href="{{ gh_raw_link(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+        <a href="{{ gh_edit(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
         {%- endif %}
         </h1>
       </header>

@@ -47,7 +47,7 @@ hexo.extend.helper.register('head_title', function(){
       }
       // get path, has bugs
       var f = paths[paths.length - 1];
-      var tmp = this.__('project.' + f);
+      var tmp = this.i18n('project.' + f);
       if (tmp !== 'project.' + f) {
         sub = tmp;
       }
@@ -388,7 +388,7 @@ hexo.extend.helper.register('default_lang', function(){
   }
   
   // rewrite
-  ret = this.theme.lang;
+  // ret = this.theme.lang;
   return ret;
 });
 
