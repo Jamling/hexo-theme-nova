@@ -170,18 +170,3 @@ Option | Description | Default
 ``` js
 {{ nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) }}
 ```
-
-## Github
-
-### gh_timee
-
-Display date of github api, `yyyy-MM-dd` format
-
-
-### gh_file_size
-
-Display formated file size
-
-``` js
-{{gh_file_size(bytes)}}
-```
