@@ -4,9 +4,9 @@
         <article class="article post" itemscope itemtype="http://schema.org/Article">
           <header class="article-header">
               <h1>
-                <a href="{{ url_for(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
+                <a href="{{ url_for_lang(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
               </h1>
-            <a href="{{ url_for(post.path) }}" class="article-date">{{ time_tag(post.date) }}</a>
+            <a href="{{ url_for_lang(post.path) }}" class="article-date">{{ time_tag(post.date) }}</a>
           </header>
           <section class="article-content" itemprop="articleBody">
             {% if post.excerpt %}
@@ -15,7 +15,7 @@
           </section>
 	  <div class="content-more">
             {% if post.excerpt %}
-            <a href="{{ url_for(post.path) }}"><span>
+            <a href="{{ url_for_lang(post.path) }}" class="btn"><span>
 	    {{__('page.more')}}<svg aria-hidden="true" class="octicon" width="16" height="10" y="0px"
 	     viewBox="0 0 298.678 298.678" style="fill:currentColor; line-height:1;" >
 	    <polygon points="59.421,0.839 0,0.839 118.842,148.439 0,297.839 59.421,297.839 178.263,148.439 	"/>

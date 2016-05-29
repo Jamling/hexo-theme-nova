@@ -215,7 +215,7 @@ hexo.extend.helper.register('post_cates', function(post){
   ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;' + _self.__('category.label') + '';
   ret += '<ol class="breadcrumb category">';
   cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for(item.path) + '">' + item.name + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
   });
   ret += '</ol>';
   return ret;
@@ -232,7 +232,7 @@ hexo.extend.helper.register('post_tags', function(post){
   ret += '<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;' + _self.__('tag.label');
   ret += '<ol class="breadcrumb tag">';
   cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for(item.path) + '">' + item.name + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
   });
   ret += '</ol>';
   return ret;
@@ -417,6 +417,7 @@ hexo.extend.helper.register('canonical_url', function(lang){
   return this.config.url + '/' + path;
 });
 
+/* use hexo-generator-i18n url_for_lang
 hexo.extend.helper.register('url_for_lang', function(path, language){
   var lang = language ? language : this.page.lang;
   var url = this.url_for(path);
@@ -425,6 +426,7 @@ hexo.extend.helper.register('url_for_lang', function(path, language){
 
   return url;
 });
+*/
 
 hexo.extend.helper.register('page_anchor', function(str){
   var $ = cheerio.load(str, {decodeEntities: false});
