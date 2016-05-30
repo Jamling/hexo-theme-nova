@@ -17,6 +17,8 @@ Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the d
 See [Plugins](#Plugins)
 
 ```npm
+npm install lodash --save
+npm install cheerio --save
 npm install hexo-generate-github --save
 npm install hexo-generate-i18n --save
 ```
@@ -93,6 +95,8 @@ Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
 
 ## Plugins
 
+- [lodash] 
+- [cheerio] 
 - [hexo-generator-github] helps to generator project pages.
 - [hexo-generator-i18n] helps to generate multi-language sites.
 
