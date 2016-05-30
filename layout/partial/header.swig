@@ -23,10 +23,8 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form-->
         <ul class="nav navbar-nav navbar-right">
-              {%- for lang in config.language %}
-              {%- if lang !== 'default' %}
+              {%- for lang in get_langs() %}
               <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
-              {%- endif %}
               {%- endfor %}<!--
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__('page.language')}} <span class="caret"></span></a>

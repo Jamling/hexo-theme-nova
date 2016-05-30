@@ -36,7 +36,7 @@ function listPostsHelper(posts, options){
 
       result += '<li class="' + className + '-item">';
 
-      result += '<a class="' + className + '-link" href="' + self.url_for(post.path) + '">';
+      result += '<a class="' + className + '-link" href="' + self.url_for_lang(post.path) + '">';
       result += transform ? transform(title) : title;
       result += '</a>';
 
@@ -50,7 +50,7 @@ function listPostsHelper(posts, options){
 
       var title = post.title || post.slug;
 
-      result += '<a class="' + className + '-link" href="' + self.url_for(post.path) + '">';
+      result += '<a class="' + className + '-link" href="' + self.url_for_lang(post.path) + '">';
       result += transform ? transform(title) : title;
       result += '</a>';
     });

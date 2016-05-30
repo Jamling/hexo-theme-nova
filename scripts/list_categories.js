@@ -70,7 +70,7 @@ function listCategoriesHelper(categories, options) {
 
       result += '<li class="' + className + '-item' + additionalClassName + '">';
 
-      result += '<a class="' + className + '-link' + (isCurrent ? ' active' : '') + '" href="' + self.url_for(cat.path) + '">';
+      result += '<a class="' + className + '-link' + (isCurrent ? ' active' : '') + '" href="' + self.url_for_lang(cat.path) + '">';
       result += transform ? transform(cat.name) : cat.name;
       result += '</a>';
 
@@ -94,7 +94,7 @@ function listCategoriesHelper(categories, options) {
     prepareQuery(parent).forEach(function(cat, i) {
       if (i || level) result += separator;
 
-      result += '<a class="' + className + '-link" href="' + self.url_for(cat.path) + '">';
+      result += '<a class="' + className + '-link" href="' + self.url_for_lang(cat.path) + '">';
       result += transform ? transform(cat.name) : cat.name;
 
       if (showCount) {

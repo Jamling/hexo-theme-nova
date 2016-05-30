@@ -41,7 +41,7 @@ function paginatorHelper(options){
     '</span>';
 
   function link(i){
-    return self.url_for(i === 1 ? base : base + format.replace('%d', i));
+    return self.url_for_lang(i === 1 ? base : base + format.replace('%d', i));
   }
 
   function pageLink(i){
@@ -139,12 +139,12 @@ hexo.extend.helper.register('nova_paginator2', function(options){
     if (page.prev){
       var n = showName ? page.prev.title : this.__('page.prev');
       page.prev_link = page.prev.path ? page.prev.path : page.prev_link;
-      ret += '<li class="previous"><a href="' + this.url_for(page.prev_link) + '"><span aria-hidden="true">&larr;</span>' + n + '</a></li>';
+      ret += '<li class="previous"><a href="' + this.url_for_lang(page.prev_link) + '"><span aria-hidden="true">&larr;</span>' + n + '</a></li>';
     }
     if (page.next){
       var n = showName ? page.next.title : this.__('page.next');
       page.next_link = page.next.path ? page.next.path : page.next_link;
-      ret += '<li class="next"><a href="' + this.url_for(page.next_link) + '"><span aria-hidden="true">&rarr;</span>' + n + '</a></li>';
+      ret += '<li class="next"><a href="' + this.url_for_lang(page.next_link) + '"><span aria-hidden="true">&rarr;</span>' + n + '</a></li>';
     }
     ret += '</ul>';
   }

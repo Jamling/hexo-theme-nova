@@ -5,11 +5,11 @@
       <h1 class="article-title" itemprop="name">{{ post.title }}</h1>
     {% else %}
       <h1>
-        <a href="{{ url_for(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
+        <a href="{{ url_for_lang(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
       </h1>
     {% endif %}
     <div class="article-date">
-    <a href="{{ url_for(post.path) }}" class="article-date">{{ time_tag(post.date) }}</a>
+    <a href="{{ url_for_lang(post.path) }}" class="article-date">{{ time_tag(post.date) }}</a>
     {{ post_tags(post) }}
     </div>
   </header>

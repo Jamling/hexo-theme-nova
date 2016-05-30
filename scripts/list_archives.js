@@ -68,7 +68,7 @@ hexo.extend.helper.register('nova_archives', function(options){
       url += item.month + '/';
     }
 
-    return self.url_for(url);
+    return self.url_for_lang(url);
   }
 
   var item, i, len;
@@ -95,7 +95,7 @@ hexo.extend.helper.register('nova_archives', function(options){
       for (j = 0; j < plimit && j < posts.length; j++){
         result += '<article class="' + className + '-article archive-type-' + posts[j].layout + '">';
         result += '<header class="' + className + '-article-header">';
-        result += '<h3><a href="' + self.url_for(posts[j].path) + '">' + posts[j].title + ' <small>' + posts[j].date.format('YYYY-MM-DD') + '</small></a></h3>';
+        result += '<h3><a href="' + self.url_for_lang(posts[j].path) + '">' + posts[j].title + ' <small>' + posts[j].date.format('YYYY-MM-DD') + '</small></a></h3>';
         result += '</header>';
         result += '</article>';
       }
@@ -169,7 +169,7 @@ function listArchivesHelper(options){
       url += item.month + '/';
     }
 
-    return self.url_for(url);
+    return self.url_for_lang(url);
   }
 
   var item, i, len;
@@ -216,7 +216,7 @@ function listArchivesHelper(options){
       var posts = item.posts;
       var j = 0;
       for (j = 0; j < plimit && j < posts.length; j++){
-        result += '<p><a href="' + self.url_for(posts[j].path) + '">' + posts[j].title + '</a></p>';
+        result += '<p><a href="' + self.url_for_lang(posts[j].path) + '">' + posts[j].title + '</a></p>';
       }
       result += '</div>';
 

@@ -3,18 +3,6 @@
 var pathFn = require('path');
 var _ = require('lodash');
 var url = require('url');
-//var cheerio = require('cheerio');
-//var lunr = require('lunr');
-
-var localizedPath = ['docs', 'api'];
-
-function startsWith(str, start){
-  return str.substring(0, start.length) === start;
-}
-
-function endWith(str, end){
-  return _.endsWith(str, end);
-}
 
 hexo.extend.helper.register('i18n', function(key){
     return this.__(key);
@@ -66,9 +54,9 @@ hexo.extend.helper.register('head_jscss', function(){
   var _self = this;
   var ret = '';
   _.each(jc, function(item){
-    if (endWith(item.url, 'js')){
+    if (_.endsWith(item.url, 'js')){
       ret += _self.js(item.url);
-    } else if (endWith(item.url, 'css')){
+    } else if (_.endsWith(item.url, 'css')){
       ret += _self.css(item.url);
     } else {
       // do nothing
@@ -290,7 +278,7 @@ hexo.extend.helper.register('page_uid', function(options){
   if (this.config.language.indexOf(lang) >= 0) {
     paths.shift();
     var ret = paths.join('/');
-    if (endWith(this.page.path, '/')) {
+    if (_.endsWith(this.page.path, '/')) {
       ret += '/';
     }
     return ret;
@@ -324,99 +312,6 @@ hexo.extend.helper.register('page_toc', function(options){
   }
 });
 
-hexo.extend.helper.register('page_nav', function(){
-  var type = this.page.canonical_path.split('/')[0];
-  var sidebar = this.site.data.sidebar[type];
-  var path = pathFn.basename(this.path);
-  var list = {};
-  var prefix = 'sidebar.' + type + '.';
-
-  for (var i in sidebar){
-    for (var j in sidebar[i]){
-      list[sidebar[i][j]] = j;
-    }
-  }
-
-  var keys = Object.keys(list);
-  var index = keys.indexOf(path);
-  var result = '';
-
-  if (index > 0){
-    result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(prefix + list[keys[index - 1]]) + '">' +
-      '<i class="fa fa-chevron-left"></i><span>' + this.__('page.prev') + '</span></a>';
-  }
-
-  if (index < keys.length - 1){
-    result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(prefix + list[keys[index + 1]]) + '">' +
-      '<span>' + this.__('page.next') + '</span><i class="fa fa-chevron-right"></i></a>';
-  }
-
-  return result;
-});
-
-hexo.extend.helper.register('doc_sidebar', function(className){
-  var type = this.page.canonical_path.split('/')[0];
-  var sidebar = this.site.data.sidebar[type];
-  var path = pathFn.basename(this.path);
-  var result = '';
-  var self = this;
-  var prefix = 'sidebar.' + type + '.';
-
-  _.each(sidebar, function(menu, title){
-    result += '<strong class="' + className + '-title">' + self.__(prefix + title) + '</strong>';
-
-    _.each(menu, function(link, text){
-      var itemClass = className + '-link';
-      if (link === path) itemClass += ' current';
-
-      result += '<a href="' + link + '" class="' + itemClass + '">' + self.__(prefix + text) + '</a>';
-    })
-  });
-
-  return result;
-});
-
-hexo.extend.helper.register('default_lang', function(){
-  var l = this.config.language;
-  var ret = '';
-  if (l) {
-    if (l.hasOwnProperty('length')) {
-      ret = l[0];
-    } else {
-      ret = l;
-    }
-  }
-  
-  // rewrite
-  // ret = this.theme.lang;
-  return ret;
-});
-
-hexo.extend.helper.register('switch_lang', function(lang){
-  var l = this.default_lang();
-  var p = this.page.path;
-  if (startsWith(p, this.page.lang)) {
-    p = p.substring(this.page.lang.length);
-  }
-  if (!startsWith(p, '/')){
-    p = '/' + p;
-  }
-  var ret = '';
-  if (l == lang) {
-    ret = p;
-  } else {
-    ret = '/' + lang + p;
-  }
-  return ret;
-});
-
-hexo.extend.helper.register('canonical_url', function(lang){
-  var path = this.page.canonical_path;
-  if (lang && lang !== this.default_lang()) path = lang + '/' + path;
-
-  return this.config.url + '/' + path;
-});
-
 /* use hexo-generator-i18n url_for_lang
 hexo.extend.helper.register('url_for_lang', function(path, language){
   var lang = language ? language : this.page.lang;
@@ -428,41 +323,14 @@ hexo.extend.helper.register('url_for_lang', function(path, language){
 });
 */
 
-hexo.extend.helper.register('page_anchor', function(str){
-  var $ = cheerio.load(str, {decodeEntities: false});
-  var headings = $('h1, h2, h3, h4, h5, h6');
-
-  if (!headings.length) return str;
-
-  headings.each(function(){
-    var id = $(this).attr('id');
-
-    $(this)
-      .addClass('article-heading')
-      .append('<a class="article-anchor" href="#' + id + '" aria-hidden="true"></a>');
-  });
-
-  return $.html();
-});
-
-hexo.extend.helper.register('canonical_path_for_nav', function(){
+hexo.extend.helper.register('canonical_url', function(lang){
   var path = this.page.canonical_path;
+  if (lang && lang !== this.default_lang()) path = lang + '/' + path;
 
-  if (startsWith(path, 'docs/') || startsWith(path, 'api/')){
-    return path;
-  } else {
-    return '';
-  }
+  return this.config.url + '/' + path;
 });
 
 hexo.extend.helper.register('lang_name', function(lang){
   var data = this.site.data.languages[lang];
   return data.name || data;
-});
-
-hexo.extend.helper.register('disqus_lang', function(){
-  var lang = this.page.lang;
-  var data = this.site.data.languages[lang];
-
-  return data.disqus_lang || lang;
 });
