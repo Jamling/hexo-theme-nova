@@ -14,7 +14,7 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 ## 依赖
 请参考 [插件](#Plugins)
 
-```npm
+```powershell
 npm install lodash --save
 npm install cheerio --save
 npm install hexo-generate-github --save
