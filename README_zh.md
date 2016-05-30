@@ -15,6 +15,8 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 请参考 [插件](#Plugins)
 
 ```npm
+npm install lodash --save
+npm install cheerio --save
 npm install hexo-generate-github --save
 npm install hexo-generate-i18n --save
 ```
@@ -91,7 +93,8 @@ toc:
 请参考[nova layouts](https://ieclipse.cn/p/hexo-theme-nova/layouts.html)
 
 ## 插件
-
+- [lodash]
+- [cheerio]
 - [hexo-generator-github] 用于辅助生成github项目相关的页面。
 - [hexo-generator-i18n] 用于辅助生成多语言站点页页。
 
