@@ -13,20 +13,14 @@ Nova also provided lots of helper scripts as plugins to co-work with the theme, 
 
 Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the demo.
 
+## Dependencies
+See [Plugins](#Plugins)
 
-### post
-Similar to most hexo theme, nova has index, archive, widgets layout. The difference is nova rewrite archive list helpers and provided two paginator helpers.
-
-### project
-Project layout is aimed to demonstrate the github projects info. The [hexo-generator-github] plugin used to generate project pages.
-
-The projects sidebar is configurated in <var>_data</var>/<var>projects.yml</var>
-
-### page
-A `type` front-maker is used to mark special pages.
-
-- categories: Categories page
-- donates: Donate list page
+```npm
+npm install hexo-generate-github --save
+npm install hexo-generate-i18n --save
+```
+<var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
 
 ## Config
 First, change site <var>_config.yml</var> set `theme: nova` to use the theme
@@ -90,19 +84,19 @@ toc:
   project: true
   page: true
 ```
-## layouts ##
+## Layouts ##
 Please see [nova layouts](https://ieclipse.cn/en/p/hexo-theme-nova/layouts.html)
 
-## helpers
+## Helpers
 
 Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
 
-## plugins
+## Plugins
 
 - [hexo-generator-github] helps to generator project pages.
 - [hexo-generator-i18n] helps to generate multi-language sites.
 
 
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
-[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18/
+[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
 
