@@ -13,7 +13,7 @@ Nova also provided lots of helper scripts as plugins to co-work with the theme, 
 
 Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the demo.
 
-## layouts ##
+
 ### post
 Similar to most hexo theme, nova has index, archive, widgets layout. The difference is nova rewrite archive list helpers and provided two paginator helpers.
 
@@ -27,13 +27,6 @@ A `type` front-maker is used to mark special pages.
 
 - categories: Categories page
 - donates: Donate list page
-
-### other
-- comment: Page comment, default is uyan comment
-- toc: Table of contents suffix
-- share: Baidu share component
-- analytics: Baidu analytics component
-- donate: page donate component
 
 ## Config
 First, change site <var>_config.yml</var> set `theme: nova` to use the theme
@@ -64,15 +57,50 @@ menu:
 ```
 **the <var>name</var> will be translated.**
 
+### post widgets
+```yaml
+# post widgets. see layout/post/widget_xxx.swig
+post_widgets:
+  - search
+  - category
+  - tag
+  - archive
+  - recent
+
+post_widgets_show_count: true
+post_widgets_recent_count: 5
+```
+
+### archive
+```yaml
+# archive
+archive:
+  type: yearly #yearly|monthly(defaut) see list_archives options
+  order: -1 # 1(asc)|-1(desc) defaut desc
+  format: YYYY
+  show_count: false # true|false, defaut true
+  amount: 5 # amount in post widgets
+```
+
+### toc
+```yaml
+# toc
+toc:
+  post: true
+  project: true
+  page: true
+```
+## layouts ##
+Please see [nova layouts](https://ieclipse.cn/en/p/hexo-theme-nova/layouts.html)
+
 ## helpers
 
-Please see [nova helpers](https://github.com/Jamling/hexo-theme-nova/blob/master/helpers.md)
+Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
 
 ## plugins
 
-[hexo-generator-github] helps to generator project pages.
-
-[hexo-generator-i18n] helps to generate multi-language sites.
+- [hexo-generator-github] helps to generator project pages.
+- [hexo-generator-i18n] helps to generate multi-language sites.
 
 
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
