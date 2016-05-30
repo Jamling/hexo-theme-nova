@@ -25,14 +25,14 @@ npm install hexo-generate-i18n --save
 
 ### js_css
 配置全局css样式及js脚本，示例：
-```yml
+```yaml
 js_css:
 - url: css/nova.css
 - url: js/script.js
 ```
 ### menu
 配置站点菜单栏，示例：
-```yml
+```yaml
 menu:
 - name: home
   url: /
@@ -48,6 +48,40 @@ menu:
   url: /donate/
 ```
 **the <var>name</var> 将会被国际化输出**
+
+### post widgets
+```yaml
+# post widgets. see layout/post/widget_xxx.swig
+post_widgets:
+  - search
+  - category
+  - tag
+  - archive
+  - recent
+
+post_widgets_show_count: true
+post_widgets_recent_count: 5
+```
+
+### archive
+```yaml
+# archive
+archive:
+  type: yearly #yearly|monthly(defaut) see list_archives options
+  order: -1 # 1(asc)|-1(desc) defaut desc
+  format: YYYY
+  show_count: false # true|false, defaut true
+  amount: 5 # amount in post widgets
+```
+
+### toc
+```yaml
+# toc
+toc:
+  post: true
+  project: true
+  page: true
+```
 
 ## 辅助函数
 
