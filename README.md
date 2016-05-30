@@ -29,14 +29,14 @@ First, change site <var>_config.yml</var> set `theme: nova` to use the theme
 
 ### js_css
 Add global js and css sample:
-```yml
+```yaml
 js_css:
 - url: css/nova.css
 - url: js/script.js
 ```
 ### menu
 Configurate the site menus
-```yml
+```yaml
 menu:
 - name: home
   url: /
