@@ -3,50 +3,35 @@
 
 nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方便快速地创建为github项目创建一个简单的静态网站，如[Github-Pages]。
 
-The theme provided three layouts to demonstrate the page.
+本主题主要使用以下三种布局来展现页面：
 
- 1. `post` for blog
- 2. `project` for github project
- 3. `page` for other pages
+ 1. `post` 用于博客文章
+ 2. `project` 用于github项目页面
+ 3. `page` 用于其它页面，如关于我
 
-Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar. 
+本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](http://ieclipse.cn) (http://ieclipse.cn)。
 
-Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the demo.
+## 依赖
+请参考 [插件](#Plugins)
 
-## layouts ##
-### post
-Similar to most hexo theme, nova has index, archive, widgets layout. The difference is nova rewrite archive list helpers and provided two paginator helpers.
+```npm
+npm install hexo-generate-github --save
+npm install hexo-generate-i18n --save
+```
+<var>hexo-generator-github</var>不是必需的，如果sources中没有`project`布局页面，则可以不安装此插件。
 
-### project
-Project layout is aimed to demonstrate the github projects info. The [hexo-generator-github] plugin used to generate project pages.
-
-The projects sidebar is configurated in <var>_data</var>/<var>projects.yml</var>
-
-### page
-A `type` front-maker is used to mark special pages.
-
-- categories: Categories page
-- donates: Donate list page
-
-### other
-- comment: Page comment, default is uyan comment
-- toc: Table of contents suffix
-- share: Baidu share component
-- analytics: Baidu analytics component
-- donate: page donate component
-
-## Config
-First, change site <var>_config.yml</var> set `theme: nova` to use the theme
+## 配置
+首先，请在站点<var>_config.yml</var> 配置文件中设置 `theme: nova` 来使用nova主题。
 
 ### js_css
-Add global js and css sample:
+配置全局css样式及js脚本，示例：
 ```yml
 js_css:
 - url: css/nova.css
 - url: js/script.js
 ```
 ### menu
-Configurate the site menus
+配置站点菜单栏，示例：
 ```yml
 menu:
 - name: home
@@ -62,20 +47,20 @@ menu:
 - name: donate
   url: /donate/
 ```
-**the <var>name</var> will be translated.**
+**the <var>name</var> 将会被国际化输出**
 
-## helpers
+## 辅助函数
 
-Please see [nova helpers](https://github.com/Jamling/hexo-theme-nova/blob/master/helpers.md)
+请参考[nova helpers](https://ieclipse.cn/p/hexo-theme-nova/helpers.html)
 
-## plugins
+## 布局 ##
+请参考[nova layouts](https://ieclipse.cn/p/hexo-theme-nova/layouts.html)
 
-[hexo-generator-github] helps to generator project pages.
+## 插件
 
-[hexo-generator-i18n] helps to generate multi-language sites.
+- [hexo-generator-github] 用于辅助生成github项目相关的页面。
+- [hexo-generator-i18n] 用于辅助生成多语言站点页页。
 
-[hexo]: https://hexo.io
-[Github-Pages]: https://pages.github.com/
+
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
 [hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18/
-
