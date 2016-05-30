@@ -97,4 +97,4 @@ toc:
 
 
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
-[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18/
+[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
