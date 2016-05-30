@@ -13,27 +13,14 @@ Nova also provided lots of helper scripts as plugins to co-work with the theme, 
 
 Welcome to visit [My blog](http://ieclipse.cn) (http://ieclipse.cn) to see the demo.
 
-## layouts ##
-### post
-Similar to most hexo theme, nova has index, archive, widgets layout. The difference is nova rewrite archive list helpers and provided two paginator helpers.
+## Dependencies
+See [Plugins](#Plugins)
 
-### project
-Project layout is aimed to demonstrate the github projects info. The [hexo-generator-github] plugin used to generate project pages.
-
-The projects sidebar is configurated in <var>_data</var>/<var>projects.yml</var>
-
-### page
-A `type` front-maker is used to mark special pages.
-
-- categories: Categories page
-- donates: Donate list page
-
-### other
-- comment: Page comment, default is uyan comment
-- toc: Table of contents suffix
-- share: Baidu share component
-- analytics: Baidu analytics component
-- donate: page donate component
+```npm
+npm install hexo-generate-github --save
+npm install hexo-generate-i18n --save
+```
+<var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
 
 ## Config
 First, change site <var>_config.yml</var> set `theme: nova` to use the theme
@@ -64,17 +51,52 @@ menu:
 ```
 **the <var>name</var> will be translated.**
 
-## helpers
+### post widgets
+```yaml
+# post widgets. see layout/post/widget_xxx.swig
+post_widgets:
+  - search
+  - category
+  - tag
+  - archive
+  - recent
 
-Please see [nova helpers](https://github.com/Jamling/hexo-theme-nova/blob/master/helpers.md)
+post_widgets_show_count: true
+post_widgets_recent_count: 5
+```
 
-## plugins
+### archive
+```yaml
+# archive
+archive:
+  type: yearly #yearly|monthly(defaut) see list_archives options
+  order: -1 # 1(asc)|-1(desc) defaut desc
+  format: YYYY
+  show_count: false # true|false, defaut true
+  amount: 5 # amount in post widgets
+```
 
-[hexo-generator-github] helps to generator project pages.
+### toc
+```yaml
+# toc
+toc:
+  post: true
+  project: true
+  page: true
+```
+## Layouts ##
+Please see [nova layouts](https://ieclipse.cn/en/p/hexo-theme-nova/layouts.html)
 
-[hexo-generator-i18n] helps to generate multi-language sites.
+## Helpers
+
+Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
+
+## Plugins
+
+- [hexo-generator-github] helps to generator project pages.
+- [hexo-generator-i18n] helps to generate multi-language sites.
 
 
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
-[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18/
+[hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
 
