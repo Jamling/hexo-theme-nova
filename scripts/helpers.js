@@ -150,7 +150,7 @@ hexo.extend.helper.register('page_path', function(post){
     // ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;';
     ret += _self.__('page.path') + '';
     ret += '<ol class="breadcrumb path">';
-    ret += '<li><a class="" href="' + _self.url_for('/') + '">' + this.__('page.blog') + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang('/') + '">' + this.__('page.blog') + '</a></li>';
     var cats = post.categories;
     if (cats == null || cats.length == 0) {
       ret += '</ol>';
@@ -158,7 +158,7 @@ hexo.extend.helper.register('page_path', function(post){
     }
     
     cats.forEach(function(item){
-      ret += '<li><a class="" href="' + _self.url_for(item.path) + '">' + item.name + '</a></li>';
+      ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
     });
     ret += '</ol>';
   }
@@ -167,7 +167,7 @@ hexo.extend.helper.register('page_path', function(post){
     var m = this.theme.menu[1];
     ret += _self.__('page.path') + '';
     ret += '<ol class="breadcrumb path">';
-    ret += '<li><a class="" href="' + _self.url_for(m.url) + '">' + this.__('menu.' + m.name) + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang(m.url) + '">' + this.__('menu.' + m.name) + '</a></li>';
     var paths = this.page.path.split('/');
     // get repo
     var repo;
@@ -178,7 +178,7 @@ hexo.extend.helper.register('page_path', function(post){
         repo = paths[paths.length - 2];
       }
     }
-    ret += '<li><a class="" href="' + _self.url_for(m.url+'/' + repo) + '">' + repo + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang(m.url+'/' + repo) + '">' + repo + '</a></li>';
     // get path
     var f = paths[paths.length - 1];
     var tmp = this.__('project.' + f);
@@ -238,7 +238,7 @@ hexo.extend.helper.register('widget_cates', function(options){
   }
   ret += '<ul class="list-group">';
   cats.forEach(function(item){ //console.log(item)
-    ret += '<li class="list-group-item"><a href="' + _self.url_for(item.path) + '">' + item.name + '</a>';
+    ret += '<li class="list-group-item"><a href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
     if (show_count){
       ret += '<span class="badge">' + item.posts.length + '</span>';
     }
@@ -258,7 +258,7 @@ hexo.extend.helper.register('widget_tags', function(){
   }
   ret += '<ul class="list-group">';
   cats.forEach(function(item){
-    ret += '<li class="list-group-item"><a href="' + _self.url_for(item.path) + '">' + item.name + '</a></li>';
+    ret += '<li class="list-group-item"><a href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
   });
   ret += '</ul>';
   return ret;
