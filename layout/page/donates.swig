@@ -8,7 +8,7 @@
       $.each(data.all_list, function(key, val) {
         var d = new Date();
         d.setTime(val.time * 1000);
-        var newRow = ('<tr><td>' + (key + 1) + '</td><td>' + val.name + '</td><td>' + val.value + '</td><td>' + d.toLocaleDateString() + '</td></tr>');
+        var newRow = ('<tr><td>' + (key + 1) + '</td><td>' + val.name + '</td><td>￥' + val.value + '</td><td>' + d.toLocaleDateString() + '</td></tr>');
         $("#tb-main tr:last").after(newRow);
       });
       
@@ -141,7 +141,7 @@
   <div class="jumbotron">
     <h2>{{ __('donate.page.title')}}</h2>
     <p>
-      鄙人是一名技术宅，一直致力于相关技术的研究与探索，托管在github上的相关工程，全部为本人放弃休息，奋战若干个日日夜夜的结果，最长的项目甚至从09年就已经开始，如果您对相关项目感兴趣，非常欢迎您在github fork或star，如果您与我的兴趣相同，如果您愿意，可以对我打赏一个小肉包或是一枝烟，您的打赏将是我最大的动力~
+      鄙人是一名技术宅，一直致力于相关技术的研究与探索，托管在github上的相关项目，全部为本人放弃休息，奋战若干个日日夜夜的结果，最长的项目甚至从09年就已经开始，如果您对相关项目感兴趣，非常欢迎您在github fork或star，您的star或fork将是我最大的动力！如果您愿意的话，也可以对相关项目进行捐赠，让免费开源之路能够走得更远~
       <br>
       
     </p>
@@ -286,8 +286,8 @@
         <div class="col-md-7">
         <h5>扫描左侧的二维码进行捐赠（捐赠金额随意，1分也是爱~）</h5>
         
-        <label>捐赠到账之后，本站会及时更新捐献记录及相关的榜单（约2个工作日内）</label>
-        <label class="text-warning">感谢~</label>
+        <label>捐赠到账之后，本站会及时更新捐赠/打赏记录及相关的榜单</label>
+        <label class="text-warning">再次诚挚感谢您的支持~</label>
         </div>
         </div>
         </div>

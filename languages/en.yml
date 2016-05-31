@@ -58,7 +58,7 @@ donate:
   page: # page / post / article
     title: Donate
     close: Close
-    desc: Dear reader, if you feel this good, could you rewark me a bread as awark? Thank you very much~
+    desc: Dear reader, if you feel this good, could you rewark me a `bread` as awark? Thank you very much~
   main: # donate list main (records)
     title: Donate Records
     index: Index

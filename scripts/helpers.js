@@ -114,12 +114,8 @@ hexo.extend.helper.register('header_menu', function(className){
   var menu = this.theme.menu;
   var result = '';
   var _self = this;
-  //var lang = this.page.lang;
-  //var isEnglish = lang === 'en';
 
   _.each(menu, function(m){
-    // if (!isEnglish && ~localizedPath.indexOf(m.name)) path = lang + path;
-
     result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + _self.__('menu.' + m.name) + '</a></li>';
   });
   
@@ -135,9 +131,6 @@ hexo.extend.helper.register('page_title', function(){
   }
   else if (p.title){
     ret = p.title;
-  }
-  else {
-    ret = '';
   }
   return ret;
 });
