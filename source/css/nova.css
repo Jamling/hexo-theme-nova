@@ -140,6 +140,12 @@ img.donate {
     padding-bottom: 10px;
     border-top: 0px;
 }
+.node-project_tree a {/*
+	position: relative;
+	display: block;
+	float: left;
+	width: 70%;*/
+}
 
 div.article-container {
     transition:border linear .2s,box-shadow linear .5s;
@@ -183,8 +189,11 @@ footer.article-footer {
 }
 
 .content-more {
-    padding-top: 0px;
+    padding-top: 5px;
     padding-bottom: 8px;
+    border: solid 1px #337ab7;
+    border-radius: 4px;
+    display: inline;
 }
 
 pre {
@@ -230,4 +239,11 @@ code.has-numbering {
 }
 span.funcybox-caption {
     display: block;
+}
+
+.content-more {
+
+}
+footer.post-item-footer {
+	margin-top: 10px;
 }

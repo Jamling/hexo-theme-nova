@@ -16,8 +16,21 @@
             return;
           }
         },
+		onNodeExpanded: function(event, data) {
+		  $('.node-project_tree').each(function(i){
+            $(this).attr('onclick', 'pnav(this)');
+		  });
+		},
         data: {{ p_nav({parent_color:'#337ab7'}) }}
       });
-      
+	  function pnav(liobj){
+		var as = $(liobj).find('a[href!="#"]');//alert(as)
+		if(as && as[0]){
+			as[0].click();
+		}
+	  }
+      $('.node-project_tree').each(function(i){
+        $(this).attr('onclick', 'pnav(this)');
+	  });
       </script>
     </aside>

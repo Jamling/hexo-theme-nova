@@ -91,14 +91,15 @@ hexo.extend.helper.register('p_nav', function(options){
   }
   
   iterate(p, data, name);
+  var dir = pathFn.dirname(this.page.path) + '/';
   var i = mis.indexOf(file);
   if (i>0){
-    this.page.prev = mis[i-1];
-    this.page.prev_link = mis[i-1];
+    this.page.prev = dir + mis[i-1];
+    this.page.prev_link = dir + mis[i-1];
   }
   if (i<mis.length-1){
-    this.page.next = mis[i+1];
-    this.page.next_link = mis[i+1];
+    this.page.next = dir + mis[i+1];
+    this.page.next_link = dir + mis[i+1];
   }
   return JSON.stringify(data);
 });

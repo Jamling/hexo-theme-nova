@@ -48,7 +48,7 @@
     }
   });
   
-  //$('article-container').style.height = $('article-container').height();
+  //$('li')
   
   $.fn.chk_userlanguage = function() {
     /* check if <style=display:none;> not set to that element */

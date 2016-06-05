@@ -175,25 +175,23 @@ function listArchivesHelper(options){
   var item, i, len;
 
   if (style === 'list'){
-    result += '<ul class="' + className + '">';
+    result += '<div class="' + className + '">';
 
     for (i = 0, len = data.length; i < len; i++){
       item = data[i];
 
-      result += '<li class="' + className + '-item">';
-
-      result += '<a class="' + className + '-link" href="' + link(item) + '">';
+      result += '<a class="' + className + '-item" href="' + link(item) + '">';
       result += transform ? transform(item.name) : item.name;
-      result += '</a>';
+      
 
       if (showCount){
         result += '<span class="badge">' + item.count + '</span>';
       }
 
-      result += '</li>';
+      result += '</a>';
     }
 
-    result += '</ul>';
+    result += '</div>';
   }
   else if (style === 'group') {
     
@@ -230,7 +228,7 @@ function listArchivesHelper(options){
 
       if (i) result += separator;
 
-      result += '<a class="' + className + '-link" href="' + link(item) + '">';
+      result += '<a class="' + className + '-item" href="' + link(item) + '">';
       result += transform ? transform(item.name) : item.name;
 
       if (showCount){

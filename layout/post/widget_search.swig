@@ -38,7 +38,6 @@
             formname.ct.value = "0";
         }*/
         formname.action = url;
-	alert(formname.action);
         return true;
     };
 </script>

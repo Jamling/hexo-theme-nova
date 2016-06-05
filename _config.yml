@@ -31,10 +31,10 @@ menu:
   url: /categories/
 - name: archive
   url: /archives/
-- name: about
-  url: /about/
 - name: donate
   url: /donate/
+- name: about
+  url: /about/
 
 # post widgets. see layout/post/widget_xxx.swig
 post_widgets:

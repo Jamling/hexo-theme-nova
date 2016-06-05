@@ -29,21 +29,17 @@ function listPostsHelper(posts, options){
   if (amount) posts = posts.limit(amount);
 
   if (style === 'list'){
-    result += '<ul class="' + className + '">';
+    result += '<div class="' + className + '">';
 
     posts.forEach(function(post){
       var title = post.title || post.slug;
 
-      result += '<li class="' + className + '-item">';
-
-      result += '<a class="' + className + '-link" href="' + self.url_for_lang(post.path) + '">';
+      result += '<a class="' + className + '-item" href="' + self.url_for_lang(post.path) + '">';
       result += transform ? transform(title) : title;
       result += '</a>';
-
-      result += '</li>';
     });
 
-    result += '</ul>';
+    result += '</div>';
   } else {
     posts.forEach(function(post, i){
       if (i) result += separator;
