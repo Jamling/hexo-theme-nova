@@ -81,8 +81,8 @@
   <div class="col-sx-12 col-sm-8 col-md-8 col-lg-8 article-container" id="article-container">
     <div class="release-timeline">
     {% for p in gh_releases() %}
-      <div class="release label-latest hidden-xs" >
-        <div class="release-meta">
+      <div class="release label-latest" >
+        <div class="release-meta hidden-xs">
           <ul class="tag-references">
             <li>
               <a href="{{p.html_url}}" class="css-truncate">
