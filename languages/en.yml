@@ -4,7 +4,7 @@ site:
   description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
   
 project:
-  oerview: Overview
+  overview: Overview
   download: Downloads
   userguide: User Guide
   develop: Developer

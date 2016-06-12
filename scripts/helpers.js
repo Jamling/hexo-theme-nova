@@ -213,7 +213,7 @@ hexo.extend.helper.register('post_tags', function(post){
   ret += '<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;' + _self.__('tag.label');
   ret += '<ol class="breadcrumb tag">';
   cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
+    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">#' + item.name + '</a></li>';
   });
   ret += '</ol>';
   return ret;
@@ -256,6 +256,20 @@ hexo.extend.helper.register('widget_tags', function(){
   ret += '</ul>';
   return ret;
 });
+// widget tags data
+hexo.extend.helper.register('widget_tags_data', function(){
+  var cats = this.site.tags || [];
+  var tags = [];
+  var _self = this;
+  cats.schema.virtual('path').get(function() {
+    var tagDir = _self.config.tag_dir;
+    if (tagDir[tagDir.length - 1] !== '/') tagDir += '/';
+
+    return _self.url_for_lang(tagDir + this.slug + '/');
+  });
+  return cats;
+});
+
 // widget recent_post
 hexo.extend.helper.register('widget_recents', function(posts, options){
   return this.nova_list_posts(posts, options);

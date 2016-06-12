@@ -16,21 +16,26 @@
             return;
           }
         },
-		onNodeExpanded: function(event, data) {
-		  $('.node-project_tree').each(function(i){
-            $(this).attr('onclick', 'pnav(this)');
-		  });
-		},
         data: {{ p_nav({parent_color:'#337ab7'}) }}
       });
-	  function pnav(liobj){
-		var as = $(liobj).find('a[href!="#"]');//alert(as)
-		if(as && as[0]){
-			as[0].click();
-		}
-	  }
+      function pnav(liobj){
+        var as = $(liobj).find('a');
+        if (as && as.length > 0){
+          var href = as.attr("href");
+          if(href == '#'){
+            // as.trigger('click');
+          } else if (href) {
+            location.href = href;
+          }
+        }
+      }
+      
       $('.node-project_tree').each(function(i){
-        $(this).attr('onclick', 'pnav(this)');
-	  });
+        //$(this).attr('onclick', 'pnav(this)');
+	    });
+      
+      $(document).ready(function(e){
+        $(document).on("click",'.node-project_tree',function(e){pnav(this);  });
+      });
       </script>
     </aside>

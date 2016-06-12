@@ -110,6 +110,12 @@ img.donate {
 }
 /* end category */
 
+/* start post tag */
+ol.tag li:before{
+    content: ''
+}
+/* end post tag */
+
 /* start project */
 #projects {
     display: -webkit-flex;
@@ -153,11 +159,7 @@ img.donate {
 }
 /* end projects */
 
-.node-project_tree a {/*
-	position: relative;
-	display: block;
-	float: left;
-	width: 70%;*/
+.node-project_tree a {
 }
 
 div.article-container {
