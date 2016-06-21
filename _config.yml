@@ -19,6 +19,8 @@ js_css:
 - url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
+- url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
+- url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js
 - url: css/nova.css
 #- url: js/script.js
 # menu, all menu name must be translated, see language/lang.yml
@@ -79,6 +81,10 @@ comments:
   uyan:
     su: path #path|source
 
+## share
+share:
+  jiathis:
+    uid: 2064663
 ## 站点分析统计代码功能组件
 # 加载在站点的footer位置
 analytics:
