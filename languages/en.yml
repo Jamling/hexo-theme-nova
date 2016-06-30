@@ -23,7 +23,21 @@ page:
   more: Read more
   blog: Blog
   language: Language
-  
+  written_on: Post at
+
+sns:
+  share: Share
+  comment: Comment
+  like: Like
+  view: Viewer
+  weibo: Weibo
+  wechat: Wechat
+  fb: Facebook
+  twitter: Twitter
+  copy: Copy Link
+  more: More
+  one: One Share
+
 tag:
   name: &tag.name Tags
   label: *tag.name

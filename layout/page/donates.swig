@@ -138,21 +138,24 @@
 </script>
 
 <div class="container container-fluid">
-  <div class="jumbotron">
-    <h2>{{ __('donate.page.title')}}</h2>
-    <p>
+  <div class="jumbotron card">
+    <div class="card-content">
+      <span class="card-title">{{ __('donate.page.title')}}</span>
+      <p>
       鄙人是一名技术宅，一直致力于相关技术的研究与探索，托管在github上的相关项目，全部为本人放弃休息，奋战若干个日日夜夜的结果，最长的项目甚至从09年就已经开始，如果您对相关项目感兴趣，非常欢迎您在github fork或star，您的star或fork将是我最大的动力！如果您愿意的话，也可以对相关项目进行捐赠，让免费开源之路能够走得更远~
-      <br>
       
-    </p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#DonateModal">{{ __('donate.name')}}</a></p>
+      </p>
+    </div>
+      <div class="card-action">
+        <a class="btn btn-primary btn-lg waves-effect waves-light btn modal-trigger" href="#DonateModal" role="button" data-toggle="modal" data-target="#DonateModal">{{ __('donate.name')}}</a>
+      </div>
   </div>
   
   <div class="row">
-    <div class="col-sx-12 col-sm-8 col-md-9 col-lg-9">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ _p('donate.main.title')}}</div>
-        <table class="table table-condensed table-hover" id="tb-main">
+    <div class="col s12 m8 l9">
+      <div class="panel panel-primary card widget">
+        <div class="panel-heading"><span class="panel-title">{{ _p('donate.main.title')}}</span></div>
+        <table class="table table-condensed table-hover bordered striped hightlight" id="tb-main">
           <tr>
             <th scope="row">{{ _p('donate.main.index') }}</th>
             <th>{{ _p('donate.main.name') }}</th>
@@ -162,14 +165,15 @@
         </table>
       </div>
       <!-- paginator -->
-      <nav id="page-bar">
+      <nav id="page-bar" class="nonbar noborder center">
       </nav>
+      {{ partial('../partial/donate') }}
     </div>
-    <div class="col-sx-6 col-sm-4 col-md-3 col-lg-3">
-      <div class="panel panel-primary">
+    <div class="col s6 m4 l3">
+      <div class="panel panel-primary card widget">
         <!-- Default panel contents -->
-        <div class="panel-heading">{{ _p('donate.aside.count') }}</div>
-          <table class="table table-condensed table-hover" id="tb-top-count">
+          <div class="panel-heading"><span class="panel-title">{{ _p('donate.aside.count') }}</span></div>
+          <table class="table table-condensed table-hover bordered striped hightlight" id="tb-top-count">
           <tr>
             <th>#</th>
             <th>{{ _p('donate.main.name') }}</th>
@@ -178,11 +182,11 @@
         </table>
       </div>
       <!-- 2nd -->
-      <div class="panel panel-primary">
+      <div class="panel panel-primary card widget">
         <!-- Default panel contents -->
-        <div class="panel-heading">{{ _p('donate.aside.sum') }}</div>
+          <div class="panel-heading"><span class="panel-title">{{ _p('donate.aside.sum') }}</span></div>
           <div class="table-responsive">
-            <table class="table table-striped table-hover" id="tb-top-sum">
+            <table class="table table-striped table-hover bordered striped hightlight" id="tb-top-sum">
               <thead>
               <tr>
                 <th>#</th>
@@ -194,53 +198,51 @@
               </tbody>
             </table>
           </div>
-        </div>
-        {% if top.project %}
-        <!-- top product -->
-        <div class="panel panel-primary">
-          <!-- Default panel contents -->
-          <div class="panel-heading">{{ _p('donate.aside.prj_count') }}</div>
-            <div class="table-responsive">
-              <table class="table table-striped table-hover" id="tb-prj-count">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>{{ _p('donate.th.project') }}</th>
-                  <th>{{ _p('donate.th.count') }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- top product amount -->
-          <div class="panel panel-primary">
-            <!-- Default panel contents -->
-            <div class="panel-heading">{{ _p('donate.aside.prj_sum') }}</div>
-              <div class="table-responsive">
-                <table class="table table-striped table-hover" id="tb-prj-amount">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>{{ _p('donate.th.project') }}</th>
-                    <th>{{ _p('donate.th.sum') }}</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        </div> <!-- end row -->
       </div>
-    </div>
-  </div>
+      {% if top.project %}
+      <!-- top product -->
+      <div class="panel panel-primary card widget">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="panel-title">{{ _p('donate.aside.prj_count') }}</span></div>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" id="tb-prj-count">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{{ _p('donate.th.project') }}</th>
+                <th>{{ _p('donate.th.count') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- top product amount -->
+      <div class="panel panel-primary card widget">
+      <!-- Default panel contents -->
+        <div class="panel-heading"><span class="panel-title">{{ _p('donate.aside.prj_sum') }}</span></div>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" id="tb-prj-amount">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{{ _p('donate.th.project') }}</th>
+                <th>{{ _p('donate.th.sum') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+    </div><!-- end widges -->              
+  </div><!-- end row -->
 </div>
+
 <!-- Modal -->
-<div class="modal fade" id="DonateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="DonateModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

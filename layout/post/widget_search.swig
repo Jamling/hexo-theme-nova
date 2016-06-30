@@ -8,13 +8,13 @@
           <li><a href="#">Google</a></li>
         </ul>-->
       </div><!-- /btn-group -->
-      <input type="text" name="word" id="bdcsMain" class="form-control primary" aria-label="..." placeholder="{{ _p('widget.search')}}">
+      <input type="text" name="word" id="bdcsMain" class="form-control primary" aria-label="..." placeholder="{{ _p('widget.search')}}" style="width:100%;">
 		<input name="tn" type="hidden" value="SE_zzsearchcode_shhzc78w">
                 <input name="cl" type="hidden" value="3">
                 <input name="ct" type="hidden" value="2097152">
                 <input name="si" type="hidden" value="ieclipse.cn">
 		<input name="ie" type="hidden" value="utf-8">
-      <span class="input-group-btn">
+      <span class="input-group-btn" style="display: none;">
         <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </span>
     </div><!-- /input-group -->

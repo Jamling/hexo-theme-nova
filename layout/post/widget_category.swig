@@ -1,10 +1,10 @@
 
-    <div class="panel panel-primary" id="category">
+    <div class="panel panel-primary card widget" id="category">
       <div class="panel-heading">
-        <h3 class="panel-title">{{ _p('category.name') }}</h3>
+        <span class="panel-title">{{ _p('category.name') }}</span>
       </div>
       {# widget_cates({show_count: theme.post_widgets_show_count})#}
       <!-- use category tree -->
-      {{ nova_list_categories(site.categories, {class:'list-group', depth: 10, children_indicator: 'category'}) }}
+      {{ nova_list_categories(site.categories, {class:'collection', depth: 10, children_indicator: 'category'}) }}
     </div>
     

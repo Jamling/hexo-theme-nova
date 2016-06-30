@@ -1,38 +1,29 @@
-<header id="header" class="wrapper">
-  <nav id="main-nav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="{{ url_for_lang('') }}" id="logo"><img src="/image/logo.png" width="64" height="54" /></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+<div class="navbar-fixed1">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{{ url_for_lang('/') }}" class="brand-logo left"><img src="/image/logo2.png" height="56px"/></a>
+      <!-- Dropdown Structure -->
+      <ul id="dropdown1" class="dropdown-content">
+        {%- for lang in get_langs() %}
+        <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
+        {%- endfor %}
+      </ul>
+      <ul class="left hide-on-med-and-down">
         {{ header_menu('main-nav') }}
-        </ul><!--
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form-->
-        <ul class="nav navbar-nav navbar-right">
-              {%- for lang in get_langs() %}
-              <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
-              {%- endfor %}<!--
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__('page.language')}} <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            </ul>
-          </li>-->
-        </ul>
-      </div>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{__('page.language')}}<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        {{ header_menu('main-nav') }}
+        {%- for lang in get_langs() %}
+        <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
+        {%- endfor %}
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+      <script>
+      $(".button-collapse").sideNav();
+      </script>
     </div>
   </nav>
-</header>
+</div>

@@ -12,16 +12,21 @@ lang: zh
 # script and css
 js_css:
 - url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js
-- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css
-- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css
+#- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css
+#- url: //cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css
 - url: //cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js
+#- url: //cdn.bootcss.com/material-design-icons/2.2.3/iconfont/material-icons.css
+- url: //cdn.bootcss.com/materialize/0.97.6/css/materialize.min.css
+- url: //cdn.bootcss.com/materialize/0.97.6/js/materialize.min.js
+#- url: //cdn.bootcss.com/bootstrap-material-design/4.0.1/bootstrap-material-design.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
 - url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
 - url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js
-- url: css/nova.css
+- url: css/nova_font.css
+- url: css/nova_material.css
 #- url: js/script.js
 # menu, all menu name must be translated, see language/lang.yml
 menu:
@@ -80,6 +85,7 @@ donate:
 comments:
   uyan:
     su: path #path|source
+    uid: 2064663
 
 ## share
 share:

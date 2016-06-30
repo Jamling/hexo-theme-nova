@@ -22,6 +22,7 @@
         $(this).addClass('table-bordered');
       }
     });
+    
   });
 
   if ($.fancybox){
@@ -75,6 +76,9 @@
   });
   
   //$('li')
+  
+  $(".dropdown-button").dropdown();
+
   
   $.fn.chk_userlanguage = function() {
     /* check if <style=display:none;> not set to that element */

@@ -1,13 +1,19 @@
     <aside>
       <div id="project_tree"></div>
+      <style>
+      .treeview li{
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+      </style>
       {# css('//cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css') #}
       {{ js('//cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js')}}
       <script>
       $('#project_tree').treeview({
         enableLinks: true,
         color: '#428bca',
-        expandIcon: 'glyphicon glyphicon-chevron-right',
-        collapseIcon: 'glyphicon glyphicon-chevron-down',
+        expandIcon: 'icon nova-arrow-right',
+        collapseIcon: 'icon nova-drop_down',
         //levels: 3,
         //node-icon: '',
         //selectedColor: '#ff0000',

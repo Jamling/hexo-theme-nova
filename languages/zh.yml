@@ -24,7 +24,20 @@ page:
   path: 当前路径：
   blog: 文章
   language: 语言
-  
+  written_on: 发表于
+
+sns:
+  share: 分享
+  comment: 评论
+  like: 喜欢
+  view: 查看
+  weibo: 微博
+  wechat: 微信
+  fb: 脸书
+  twitter: 推特
+  copy: 复制网址
+  more: 更多
+  one: 一键分享  
 tag:
   name: &tag.name 标签
   label: *tag.name
@@ -46,7 +59,7 @@ widget:
   search: 搜索
   
 menu:
-  home: 主页
+  home: 首页
   project: 项目
   category: *category.name
   tag: *tag.name

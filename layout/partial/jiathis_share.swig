@@ -25,7 +25,7 @@ function setShare(title, url, summary) {
 	return false;
 }
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid={{theme.share.jiathis.uid}}" charset="utf-8"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?move=0&uid={{theme.share.jiathis.uid}}" charset="utf-8"></script>
 <!-- JiaThis Button END -->
 
 <!-- UYAN COUNT BEGIN --><!--

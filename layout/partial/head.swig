@@ -14,6 +14,7 @@
     {% endfor %}
   {% endif %}
   <!-- CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- build:css build/css/navy.css -->
   {#{ css('css/navy')--> }#}
   <!-- endbuild -->
