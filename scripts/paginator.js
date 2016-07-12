@@ -31,7 +31,7 @@ function paginatorHelper(options){
   if (prevNext && current > 1){
     result += '<li><a href="' + link(current-1) + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
   } else {
-    //result += '<li class="disabled"><a href="#'+ '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+    result += '<li class="disabled"><a href="#'+ '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
   }
   
   
@@ -120,7 +120,7 @@ function paginatorHelper(options){
   if (prevNext && current < total){
     result += '<li><a href="' + link(current + 1) + '" aria-label="Next" rel="next">' + '&raquo;' + '</a></li>';
   } else {
-    //result += '<li class="disabled"><a href=#' + '" aria-label="Next" rel="next">' + '&raquo;' + '</a></li>';
+    result += '<li class="disabled"><a href=#' + '" aria-label="Next" rel="next">' + '&raquo;' + '</a></li>';
   }
   result += "</ul>";
 
@@ -139,12 +139,12 @@ hexo.extend.helper.register('nova_paginator2', function(options){
     if (page.prev){
       var n = showName ? page.prev.title : this.__('page.prev');
       page.prev_link = page.prev.path ? page.prev.path : page.prev_link;
-      ret += '<li class="previous"><a href="' + this.url_for_lang(page.prev_link) + '"><span aria-hidden="true">&larr;</span>' + n + '</a></li>';
+      ret += '<li class="previous"><a href="' + this.url_for_lang(page.prev_link) + '"><span aria-hidden="true">&larr;</span><span class="hidden-xs">' + n + '</span></a></li>';
     }
     if (page.next){
       var n = showName ? page.next.title : this.__('page.next');
       page.next_link = page.next.path ? page.next.path : page.next_link;
-      ret += '<li class="next"><a href="' + this.url_for_lang(page.next_link) + '"><span aria-hidden="true">&rarr;</span>' + n + '</a></li>';
+      ret += '<li class="next"><a href="' + this.url_for_lang(page.next_link) + '"><span aria-hidden="true">&rarr;</span><span class="hidden-xs">' + n + '</span></a></li>';
     }
     ret += '</ul>';
   }

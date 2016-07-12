@@ -1,3 +1,4 @@
+{%- if theme.donate.enable %}
 <!-- Button trigger modal -->
 <blockquote class="donate"><!--
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#DonateModal">
@@ -23,7 +24,7 @@
           <th class="text-center">微信支付</th>
         </thead>
         <tr>
-          <td><img src="/image/donate_alipay_blog.png" alt="使用支付宝扫码打赏" class="img-rounded donate" width="200" height="200"></td>
+          <td><img src="/image/donate_alipay.png" alt="使用支付宝扫码打赏" class="img-rounded donate" width="200" height="200"></td>
           <td><img src="/image/donate_wechat.png" alt="使用微信扫码打赏" class="img-rounded donate" width="200" height="200"></td>
         </tr>
         </table>-->
@@ -32,7 +33,7 @@
         <div class="col-md-6">
           <div class="text-center">
             <span style="display:block;">支付宝</span>
-            <img src="/image/donate_alipay_blog.png" alt="使用支付宝扫码打赏" class="donate" />
+            <img src="/image/donate_alipay.png" alt="使用支付宝扫码打赏" class="donate" />
           </div>
         </div>
         <div class="col-md-6">
@@ -50,3 +51,4 @@
     </div>
   </div>
 </div>
+{%- endif %}

@@ -3,6 +3,7 @@
 var pathFn = require('path');
 var _ = require('lodash');
 var url = require('url');
+var util = require('util');
 
 hexo.extend.helper.register('i18n', function(key){
     return this.__(key);
@@ -61,6 +62,7 @@ hexo.extend.helper.register('head_jscss', function(){
     } else {
       // do nothing
     }
+    ret += '\n';
   });
   return ret;
 });
@@ -123,8 +125,8 @@ hexo.extend.helper.register('header_menu', function(className){
 });
 
 // return page title.
-hexo.extend.helper.register('page_title', function(){
-  var p = this.page;
+hexo.extend.helper.register('page_title', function(page){
+  var p = page ? page : this.page;
   var ret = '';
   if (p.title2) {
     ret = this.i18n(p.title2);
@@ -136,24 +138,27 @@ hexo.extend.helper.register('page_title', function(){
 });
 
 // insert page path nav bar.
-hexo.extend.helper.register('page_path', function(post){
+hexo.extend.helper.register('page_path', function(post, options){
+  var o = options || {};
+  var _class = o.hasOwnProperty('class') ? o.class : 'category-item';
+  var icon = o.hasOwnProperty('icon') ? o.icon : 'glyphicon glyphicon-folder-close';
   var _self = this;
   var ret = '';
   if (this.is_post()) {
-    // ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;';
+    ret += '<span class="' +  icon + '" aria-hidden="true"></span>';
     ret += _self.__('page.path') + '';
-    ret += '<ol class="breadcrumb path">';
-    ret += '<li><a class="" href="' + _self.url_for_lang('/') + '">' + this.__('page.blog') + '</a></li>';
+    //ret += '<ol class="breadcrumb path">';
+    ret += '<a class="' + _class + '" href="' + _self.url_for_lang('/') + '">' + this.__('page.blog') + '</a>';
     var cats = post.categories;
     if (cats == null || cats.length == 0) {
-      ret += '</ol>';
+      //ret += '</ol>';
       return ret;
     }
     
     cats.forEach(function(item){
-      ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
+      ret += '<a class="' + _class + '" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
     });
-    ret += '</ol>';
+    //ret += '</ol>';
   }
   /*
   else if(post.layout == 'project') {
@@ -185,37 +190,70 @@ hexo.extend.helper.register('page_path', function(post){
   return ret;
 });
 
+// get page excerpt
+hexo.extend.helper.register('page_excerpt', function(post){
+  var p = post ? post : this.page;
+  var excerpt = p.excerpt;
+  if (!excerpt) {
+    var pos = p.content.indexOf('</p>');
+    if (pos > 0){
+      excerpt = p.content.substring(0, pos + 4);
+    }
+  }
+  return excerpt;
+});
+
+hexo.extend.helper.register('page_share_jiathis', function(webid, post){
+  var p = post ? post : this.page;
+  var link = encodeURI(p.permalink);
+  var title = encodeURI(this.page_title(p));
+  var uid = this.theme.share.jiathis.uid;
+  var summary = encodeURI(this.strip_html(this.page_excerpt(p)));
+  if (summary && summary.length > 140){
+      summary = summary.substring(0, 100);
+  }
+  
+  var url = util.format('http://www.jiathis.com/send/?webid=%s&url=%s&title=%s&uid=%s&summary=%s', 
+	  webid, link, title, uid, summary);
+  return url;
+});
 // insert category of post
-hexo.extend.helper.register('post_cates', function(post){
+hexo.extend.helper.register('post_cates', function(post, options){
+  var o = options || {};
+  var _class = o.hasOwnProperty('class') ? o.class : 'category-item';
+  var icon = o.hasOwnProperty('icon') ? o.icon : 'glyphicon glyphicon-folder-close';
   var cats = post.categories;
   var _self = this;
   var ret = '';
   if (cats == null || cats.length == 0) {
       return ret;
   }
-  ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;' + _self.__('category.label') + '';
-  ret += '<ol class="breadcrumb category">';
-  cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
+  ret += '<span class="post-category">';
+  ret += '<i class="' + icon + '"></i><span class="hidden-xs">' + _self.__('category.label') + '</span>';
+  cats.forEach(function(item, i){
+    ret += '<a class="' + _class + '" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
   });
-  ret += '</ol>';
+  ret += '</span>';
   return ret;
 });
 
 // insert tag of post
-hexo.extend.helper.register('post_tags', function(post){
+hexo.extend.helper.register('post_tags', function(post, options){
+  var o = options || {};
+  var _class = o.hasOwnProperty('class') ? o.class : 'tag-item';
+  var icon = o.hasOwnProperty('icon') ? o.icon : 'glyphicon glyphicon-tags';
   var cats = post.tags;
   var _self = this;
   var ret = '';
   if (cats == null || cats.length == 0) {
       return ret;
   }
-  ret += '<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;' + _self.__('tag.label');
-  ret += '<ol class="breadcrumb tag">';
+  ret += '<span class="post-tag">';
+  ret += '<i class="' + icon + '"></i><span class="hidden-xs">' + _self.__('tag.label') + '</span>';
   cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">#' + item.name + '</a></li>';
+    ret += '<a class="' + _class + '" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
   });
-  ret += '</ol>';
+  ret += '</span>';
   return ret;
 });
 
@@ -276,21 +314,22 @@ hexo.extend.helper.register('widget_recents', function(posts, options){
 });
 
 // page unique id, used for comments
-hexo.extend.helper.register('page_uid', function(options){
+hexo.extend.helper.register('page_uid', function(page, options){
+  var p = page ? page : this.page;
   if (this.is_post()) {
-    return this.page.path;
+    return p.path;
   }
-  var paths = this.page.path.split('/');
+  var paths = p.path.split('/');
   var lang = paths[0];
   if (this.config.language.indexOf(lang) >= 0) {
     paths.shift();
     var ret = paths.join('/');
-    if (_.endsWith(this.page.path, '/')) {
+    if (_.endsWith(p.path, '/')) {
       ret += '/';
     }
     return ret;
   }
-  return this.page.path;
+  return p.path;
 });
 
 // return page show toc or not

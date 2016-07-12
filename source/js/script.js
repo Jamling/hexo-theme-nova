@@ -76,6 +76,7 @@
   
   //$('li')
   
+  
   $.fn.chk_userlanguage = function() {
     /* check if <style=display:none;> not set to that element */
     // if (!this.is(":hidden")) { this.hide(); };

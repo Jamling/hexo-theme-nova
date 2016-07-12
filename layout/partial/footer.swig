@@ -5,7 +5,7 @@
       Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
     </div>
     <div>
-      <a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备15019510号</a>
+      <a href="http://www.miitbeian.gov.cn" target="_blank">{{theme.icp}}</a>
     </div>
   </div>
 </footer>
