@@ -4,9 +4,13 @@
 
 /* bootstrap fixed top nav */
 body {
-  padding-top: 70px;
+  padding-top: 60px;
   font-size: 16px;
   color: $body-color;
+}
+
+.sidr {
+	top: 50px;
 }
 
 h4 {

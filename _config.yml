@@ -8,6 +8,8 @@ js_css:
 #- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/css/ripples.min.css
 #- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/material.min.js
 #- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/ripples.min.js
+- url: //cdn.bootcss.com/sidr/2.2.1/jquery.sidr.min.js
+- url: //cdn.bootcss.com/sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
