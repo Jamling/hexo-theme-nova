@@ -203,8 +203,9 @@ hexo.extend.helper.register('page_excerpt', function(post){
   return excerpt;
 });
 
-hexo.extend.helper.register('page_share_jiathis', function(webid, post){
+hexo.extend.helper.register('page_share_jiathis', function(post, webid){
   var p = post ? post : this.page;
+  var webid = webid ? webid : '';
   var link = encodeURI(p.permalink);
   var title = encodeURI(this.page_title(p));
   var uid = this.theme.share.jiathis.uid;

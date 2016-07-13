@@ -94,3 +94,5 @@ hexo-theme-nova:
   userguide:
     layouts: 布局
     helpers: 辅助函数
+    front-matter: Front-matter
+    plugins: 插件

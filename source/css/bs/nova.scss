@@ -146,9 +146,10 @@ a:HOVER, a:ACTIVE {
   display: block;
 }
 /* end toc */
-blockquote.donate {
+blockquote {
   border-left-color: #f96;
-  background-color: #e0e0e0;
+  background-color: #eee;
+  border-radius: 4px;
   display: table;
   vertical-align: middle;
 }

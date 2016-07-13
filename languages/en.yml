@@ -93,3 +93,5 @@ hexo-theme-nova:
   userguide:
     layouts: Layouts
     helpers: Helpers
+    front-matter: Front-matter
+    plugins: Plugins

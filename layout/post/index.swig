@@ -16,7 +16,7 @@
             </div>
             <div class="divider"></div>
             <div class="card-action">
-              <a class="icon nova-share action-item" href="{{page_share_jiathis('', post)}}" data-toggle="modal" data-target="#share-modal" target="_blank">{{__('sns.share')}}</a>
+              <a class="icon nova-share action-item" href="{{page_share_jiathis(post)}}" data-toggle="modal" data-target="#share-modal" target="_blank">{{__('sns.share')}}</a>
               <a class="icon nova-bubbles action-item" href="{{ url_for_lang(post.path) }}#comment" id="uyan_count_unit" du="{{ page_uid(post) }}"><span class="hidden-xs">0 {{__('sns.comment')}}</span></a>
               <a class="icon nova-heart2-full action-item" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_likeurl" target="_blank"><span class="hidden-xs">{{__('sns.like')}}</span></a>
               <a class="icon nova-hand-right action-item" href="{{ url_for_lang(post.path) }}" >{{__('page.more')}}</a>
