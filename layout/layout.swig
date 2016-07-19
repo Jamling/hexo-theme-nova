@@ -23,9 +23,6 @@
   
   <!-- RSS -->
   {{ feed_tag('atom.xml') }}
-  <script>
-    //$.material.init();
-  </script>
 </head>
 <body>
   <!-- header -->

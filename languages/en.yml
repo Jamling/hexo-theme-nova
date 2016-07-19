@@ -25,6 +25,8 @@ page:
   language: Language
   written_on: Post at 
 
+article:
+  views: Views
 sns:
   share: Share
   comment: Comment
@@ -57,6 +59,8 @@ archive:
 widget:
   recent: Recents
   search: Search
+  hot: Hot Posts
+  recent_comments: Recent Comments
   
 menu:
   home: Home

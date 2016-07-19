@@ -1,2 +1,2 @@
 <a name="comment"></a>
-{{ partial('comment_uyan')}}
+{{ partial('comment_duoshuo')}}

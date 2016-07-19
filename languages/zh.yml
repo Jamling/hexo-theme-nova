@@ -26,6 +26,8 @@ page:
   language: 语言
   written_on: 发表于
 
+article:
+  views: 次阅读
 sns:
   share: 分享
   comment: 评论
@@ -37,7 +39,7 @@ sns:
   twitter: 推特
   copy: 复制网址
   more: 更多
-  one: 一键分享  
+  one: 一键分享
 tag:
   name: &tag.name 标签
   label: *tag.name
@@ -57,6 +59,8 @@ archive:
 widget:
   recent: 最近文章
   search: 搜索
+  hot: 热评文章
+  recent_comments: 最新评论
   
 menu:
   home: 首页
