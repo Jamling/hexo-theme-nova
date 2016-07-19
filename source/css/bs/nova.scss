@@ -389,6 +389,7 @@ code.has-numbering {
   margin-left: 10px;
   word-wrap: normal;
   word-break: keep-all;
+  white-space: pre;
 }
 
 .pre-numbering {
@@ -396,7 +397,8 @@ code.has-numbering {
   top: 0;
   left: 0;
   width: 20px;
-  padding: 7px 2px 12px 0;
+  height: 100%;
+  padding: .5em 0.2em .5em 0;
   border-right: 1px solid #C3CCD0;
   border-radius: 3px 0 0 3px;
   background-color: #EEE;
@@ -591,5 +593,10 @@ blockquote, p {
   }
   .pre-numbering {
     display: none;
+  }
+  .has-numbering {
+    margin-left: -10px !important;
+    word-wrap: break-world !important;
+    white-space: pre-wrap !important;
   }
 }

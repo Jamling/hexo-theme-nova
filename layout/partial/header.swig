@@ -35,15 +35,19 @@
         </ul>
       </div>
     </div>
-    
-    <!-- mobile -->
+
     <script>
+        <!-- mobile -->
     	$('.navbar-toggle').sidr({
 	      name: 'sidr-main',
 	      source: '#bs-example-navbar-collapse-1'
 	    });
     	$('body').click(function(){
     	  $.sidr('close', 'sidr-main');
+    	});
+    	
+    	$(".navbar-fixed-top").autoHidingNavbar({
+    	  // see next for specifications
     	});
     </script>
   </nav>

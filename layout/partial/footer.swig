@@ -1,4 +1,6 @@
 <footer id="footer">
+  <div class="divider"></div>
+  <div>&nbsp;</div>
   <div class="inner text-center">
     <div id="footer-copyright">
       &copy; {{ moment(Date.now()).year() }} <a href="http://ieclipse.cn/" target="_blank">{{ config.author }}</a> powered by <a href="http://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Jamling/hexo-theme-nova" target="_blank">nova</a><br>

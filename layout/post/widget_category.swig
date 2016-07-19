@@ -1,7 +1,7 @@
 
     <div class="panel panel-primary" id="category">
       <div class="panel-heading">
-        <h3 class="panel-title">{{ _p('category.name') }}</h3>
+        <h3 class="panel-title">{{ __('category.name') }}</h3>
       </div>
       {# widget_cates({show_count: theme.post_widgets_show_count})#}
       <!-- use category tree -->

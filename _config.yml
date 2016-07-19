@@ -9,6 +9,7 @@ js_css:
 #- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/material.min.js
 #- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/ripples.min.js
 - url: //cdn.bootcss.com/sidr/2.2.1/jquery.sidr.min.js
+- url: js/jquery.bootstrap-autohidingnavbar.min.js
 - url: //cdn.bootcss.com/sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css
 - url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
@@ -39,8 +40,10 @@ post_widgets:
 #  - search
   - category
   - tag
-  - archive
+#  - archive
   - recent
+  - ds_hot
+  - ds_recent_comments
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
 # used ajax to get widget_xxx contents dynamicly to avoid change all pages.
 # 
@@ -78,6 +81,8 @@ comments:
   uyan:
     su: path #path|source
     uid: 2064663
+  ds:
+    short_name: ieclipse
 
 ## share
 share:

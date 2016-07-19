@@ -81,7 +81,7 @@
   <div class="{{theme.layout.p.main}}" id="article-container">
     <div class="release-timeline">
       {% for p in gh_releases() %}
-      <div class="release label-latest" >
+      <div class="release" >
         <div class="release-meta hidden-xs">
           <ul class="tag-references">
             <li>
@@ -94,12 +94,14 @@
           </ul>
         </div><!-- /.meta -->
 
-        <div class="release-body commit open">
+        <div class="release-body">
         <div class="release-header">
           <h1 class="release-title" id="{{p.tag_name}}">
-            <a href="#{{p.tag_name}}" class="headerlink" title="{{p.tag_name}}"></a>
-            <a href="{{p.html_url}}">{{p.name}}</a>
-            <small>({{p.tag_name}})</small>
+            <a href="#{{p.tag_name}}"></a>
+            <a href="{{p.html_url}}"  title="{{p.tag_name}}">{{p.tag_name}}</a>
+            {%- if p.name %}
+            <small>({{p.name}})</small>
+            {%- endif %}
           </h1>
           <p class="release-authorship">
             <img alt="@{{p.author.login}}" class="avatar" src="https://avatars2.githubusercontent.com/u/{{p.author.id}}?v=3&amp;s=40" height="20" width="20">
@@ -152,14 +154,11 @@
         {# nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) #}
         <ul class="nav toc-ul">
         {%- for p in gh_releases() %}
-          <li><a href="#{{p.tag_name}}">{{p.name}}</a></li>
+          <li><a href="#{{p.tag_name}}">{{p.tag_name}}</a></li>
         {%- endfor %}
         </ul>
         </div>
       </nav>
-      <script>
-        $('body').scrollspy({ target: '#navbar-toc' });
-      </script>
     </div>
   </div>
 </div>
