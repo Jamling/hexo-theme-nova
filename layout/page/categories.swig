@@ -50,11 +50,13 @@ jmnodes.theme-primary jmexpander:hover{}
   color: #fff;
 }
 </style>
-<script type="text/javascript" src="https://raw.githubusercontent.com/hizzgdev/jsmind/master/js/jsmind.js"></script>
-<div class="container container-fluid">
+<!-- fix chrome load js issue from github -->
+<!--<script type="text/javascript" src="https://raw.githubusercontent.com/hizzgdev/jsmind/master/js/jsmind.js"></script>-->
+{{js('js/jsmind.js')}}
+<div class="container-fluid">
   <div id="jsmind_container"></div>
   <div id="category" class="h1">
-  {{ nova_list_categories(site.categories, {class:'list-group', depth: 10, children_indicator: 'category'}) }}
+  {# nova_list_categories(site.categories, {class:'list-group', depth: 10, children_indicator: 'category'}) #}
   </div>
   <script type="text/javascript">
     var mind = {
