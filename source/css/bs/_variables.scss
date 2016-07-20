@@ -42,4 +42,8 @@ $tag-bg-3: #faebcc;
   -moz-text-overflow: $value;
 }
 
-
+@mixin box-sizing ($value) {
+  box-sizing: $value;
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+}

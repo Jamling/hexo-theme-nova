@@ -580,6 +580,10 @@ blockquote, p {
   word-break: break-all;
 }
 
+.jiathis_style * {
+  @include box-sizing(content-box);
+}
+
 @media (max-width: 767px) {
   .hidden-xs {
     display: none !important;
