@@ -103,6 +103,11 @@ a:HOVER, a:ACTIVE {
     counter(lv3, decimal) "." counter(lv4, decimal) "."
     counter(lv5, decimal) "." counter(lv6, decimal) ".";
 }
+/* end toc ol */
+
+.toc-title {
+  margin-top: 0;
+}
 
 .toc-ul>li {
   margin-left: 1em;
@@ -121,7 +126,7 @@ a:HOVER, a:ACTIVE {
   margin-left: 0;
 }
 
-#toc>.nav>li {
+#toc-body>.nav>li {
   margin-left: 0;
 }
 
