@@ -59,6 +59,7 @@
     content: "";
 }
 .release-downloads {
+    padding-left: 0.5em;
     margin-top: 10px;
     font-size: 14px;
     border-top: 1px solid #eee;
@@ -137,29 +138,22 @@
         </div><!-- /.release-body -->
       </div>
       {%- endfor %}
-    </div>
-    <div>
-      <nav>{{ nova_paginator2() }}</nav>
-      {{ partial('../partial/donate') }}
-      {{ partial('../partial/comment') }}
+    </div><!--  end time line -->
+    
+    <div class="release-timeline">
+        <div class="release-meta hidden-xs"></div>
+        <div class="release-body">
+          {{ partial('../partial/share_jiathis_footer') }}
+          <nav>{{ nova_paginator2() }}</nav>
+          {{ partial('../partial/donate') }}
+          {{ partial('../partial/comment') }}
+        </div>
     </div>
   </div>
   <!-- aside -->
   <div class="{{theme.layout.p.toc}}">
-    <div id="navbar-toc" class="">
-      <nav id="toc" class="hidden-print hidden-xs hidden-sm well" data-spy="affix">
-        <h4 class="toc-title"><a role="button" data-toggle="collapse" href="#toc-body" aria-expanded="true">
-          {{ __('page.contents') }}
-        </a></h4>
-        {# nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) #}
-        <ul class="nav toc-ul">
-        {%- for p in gh_releases() %}
-          <li><a href="#{{p.tag_name}}">{{p.tag_name}}</a></li>
-        {%- endfor %}
-        </ul>
-        </div>
-      </nav>
-    </div>
+    {%- set html = gh_release_toc(gh_releases(), {class: 'nav toc-ul'}) %}
+    {{ partial('../partial/toc', {content: html}) }}
   </div>
 </div>
 </div>

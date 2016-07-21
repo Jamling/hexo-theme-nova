@@ -246,9 +246,8 @@ article.article .article-edit-link {
 
 footer.article-footer {
   text-align: right;
-  border-top-color: $divider-color;
-  border-top-style: solid;
-  border-top-width: 1px;
+  border-top: 1px solid $divider-color;
+  border-bottom: 1px solid $divider-color;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -340,6 +339,7 @@ footer.article-footer {
 
 #projects .panel {
   -webkit-box-flex: 1;
+  -moz-box-flex: 1;
   box-flex: 1;
   -webkit-flex: 0 0 49%;
   -ms-flex: 0 0 49%;
@@ -607,5 +607,8 @@ blockquote, p {
     margin-left: -10px !important;
     word-wrap: break-world !important;
     white-space: pre-wrap !important;
+  }
+  .release-body {
+    width: 100% !important;
   }
 }

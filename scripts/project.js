@@ -127,30 +127,13 @@ hexo.extend.helper.register('gh_file_size', function(bytes){
   return bytes + " B";
 });
 
-// console
-/*
-var vm = require("vm");
-hexo.extend.console.register('gh', 'Generate github pages', 
-{
-  options: [
-    {name: '-r, --replace', desc: 'Replace existing files'}
-  ]
-}, 
-function(args){
-  var opt = {};
-  if (args.r || args.replace){
-    opt.replace = true;
-  }
-
-  var _self = this;
-  return this.load().then(function() {
-    var generator = _self.extend.helper.list()['github'];
-    
-    var locals = {};
-    locals.pages = _self.model('Page');
-    //generator.call(_self, locals, opt);
-    //vm.runInContext();
+hexo.extend.helper.register('gh_release_toc', function(releases, options){
+  options = options || {};
+  var className = options.hasOwnProperty('class') ? options.class : 'nav';
+  var ret = '<ul class="' + className + '">';
+  releases.forEach(function(p) {
+    ret += '<li><a href="#' + p.tag_name + '">' + p.tag_name + '</a></li>';
   });
-}
-);
-*/
+  ret += '</ul>';
+  return ret;
+});

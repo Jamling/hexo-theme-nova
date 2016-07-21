@@ -1,4 +1,9 @@
 (function($) {
+  
+  // scroll-spy
+  $('body').scrollspy({ target: '#navbar-toc' });
+  $('#toc').css('min-width', $('#navbar-toc').css('width'));
+  
   // Article
   $('.article').each(function(i) {
     // image
@@ -66,10 +71,6 @@
       $numbering.append($('<li/>').text(i));
     }
   });
-
-  // scroll-spy
-  $('body').scrollspy({ target: '#navbar-toc' });
-  $('#toc').css('min-width', $('#navbar-toc').css('width'));
 
   $.fn.chk_userlanguage = function() {
     /* check if <style=display:none;> not set to that element */

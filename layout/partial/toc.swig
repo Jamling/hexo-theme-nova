@@ -4,7 +4,11 @@
           {{ __('page.contents') }}
         </a></h3>
         <div id="toc-body" class="in">
+        {%- if content %}
+        {{ content }}
+        {%- else %}
         {{ nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) }}
+        {%- endif %}
         </div>
       </nav>
 </div>
