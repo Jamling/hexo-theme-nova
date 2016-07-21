@@ -239,9 +239,14 @@ img.donate {
 .post-header>span:not(:first-child) {
   margin-left: 1em;
 }
+
 article.article .article-edit-link {
   float: right;
   overflow: hidden;
+}
+
+.article-content{
+  padding-top: .5em;
 }
 
 footer.article-footer {

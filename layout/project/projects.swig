@@ -7,8 +7,8 @@
         
           <h3>
             <span class="icon nova-repo black-text"></span>
-          <a href="./{{ p.name }}" target="_blank" title="{{p.name}}"> {{ p.name }}</a>
-            <span aria-hidden="true" class="icon nova-github right black-text"><a href="https://github.com/{{p.owner.login}}/{{p.name}}" target="_blank" title="view on github"></a></span>
+            <a href="./{{ p.name }}" target="_blank" title="{{p.name}}"> {{ p.name }}</a>
+            <a href="https://github.com/{{p.owner.login}}/{{p.name}}" target="_blank" title="view on github"><span aria-hidden="true" class="icon nova-github right black-text"></span></a>
           </h3>
         </div>
         <div class="panel-body">

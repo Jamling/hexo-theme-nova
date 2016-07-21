@@ -61,6 +61,7 @@ widget:
   search: 搜索
   hot: 热评文章
   recent_comments: 最新评论
+  announce: 公告 
   
 menu:
   home: 首页

@@ -61,6 +61,7 @@ widget:
   search: Search
   hot: Hot Posts
   recent_comments: Recent Comments
+  announce: Announce
   
 menu:
   home: Home
