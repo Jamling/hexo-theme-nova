@@ -16,6 +16,7 @@
     <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">
     {{__('page.last_updated', date(page.updated)) }}
     </time>
+    {{ partial('../partial/share_jiathis_footer') }}
   </footer>
 </article>
 <div>

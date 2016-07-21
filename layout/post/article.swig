@@ -25,20 +25,7 @@
   </div>
   <footer class="article-footer">
     <!--<time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>-->
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style"><a name="share"></a>
-	<span class="jiathis_txt icon nova-share">{{__('sns.share')}}：</span>
-	<a class="jiathis_button_tsina">{{__('sns.weibo')}}</a>
-	<a class="jiathis_button_weixin">{{__('sns.wechat')}}</a>
-	<a class="jiathis_button_twitter">{{__('sns.twitter')}}</a>
-	<a class="jiathis_button_copy">{{__('sns.copy')}}</a>
-	<a class="jiathis_button_ishare">{{__('sns.one')}}</a>
-	<a href="http://www.jiathis.com/share?uid={{theme.share.jiathis.uid}}" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">{{__('sns.more')}}</a>
-	<a class="jiathis_counter_style"></a>
-  <a name="like"></a>
-  <a class="jiathis_like_qzone"></a>
-</div>
-<!-- JiaThis Button END -->
+    {{ partial('../partial/share_jiathis_footer') }}
   </footer>
 </article>
 <div>
