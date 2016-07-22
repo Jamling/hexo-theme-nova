@@ -21,6 +21,7 @@ page:
   next: Next
   last_updated: "Last updated: %s"
   more: Read more
+  path: Path 
   blog: Blog
   language: Language
   written_on: Post at 
@@ -59,10 +60,15 @@ archive:
 widget:
   recent: Recents
   search: Search
-  hot: Hot Posts
+  hot:
+    zero: No hot post
+    other: Hot Posts
   recent_comments: Recent Comments
   announce: Announce
   
+ajax:
+  error: Load failed
+
 menu:
   home: Home
   project: Projects

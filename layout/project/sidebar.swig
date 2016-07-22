@@ -12,8 +12,8 @@
       $('#project_tree').treeview({
         enableLinks: true,
         color: '#428bca',
-        expandIcon: 'icon nova-arrow-right',
-        collapseIcon: 'icon nova-drop_down',
+        expandIcon: 'icon nova-arrow-right2',
+        collapseIcon: 'icon nova-arrow-down2',
         //levels: 3,
         //node-icon: '',
         //selectedColor: '#ff0000',

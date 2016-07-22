@@ -36,7 +36,15 @@ a {
 
 a:HOVER, a:ACTIVE {
   text-decoration: none;
-  color: #0288d1;
+  color: $a-color-active;
+}
+
+a.list-group-item {
+  color: $a-color;
+}
+
+a.list-group-item:hover, a.list-group-item:active {
+  color: $a-color-active;
 }
 
 /* toc ol style */
@@ -590,8 +598,17 @@ blockquote, p {
   word-break: break-all;
 }
 
+/* jiathis share */
 .jiathis_style * {
   @include box-sizing(content-box);
+}
+/* ds */
+.ds-top-threads {
+  
+}
+.ds-recent-comments {
+  margin: 0;
+  padding: 0 0.5em;
 }
 
 @media (max-width: 767px) {

@@ -67,7 +67,7 @@
 	p : {
 	    comments : '.nova-bubbles .count',
 	    likes : '.nova-heart2-full .count',
-	    views : '.glyphicon-eye-open .count'
+	    views : '.nova-eye .count'
 	}
     });
 </script>
