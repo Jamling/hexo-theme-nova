@@ -67,6 +67,7 @@ widget:
   recent_visitors: Recent Visitors
   announce: Announce
   about: About
+  links: Links
   
 ajax:
   loading: Loading...

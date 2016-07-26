@@ -9,7 +9,7 @@
         <a href="{{ url_for_lang(post.path) }}" class="article-title" itemprop="name">{{ post.title }}</a>
       </h1>
       {%- endif %}
-    <div class="post-header">
+    <div class="post-header clearfix">
       <span class="icon nova-calendar"><span class="hidden-xs">{{__('page.written_on')}}</span>{{ time_tag(post.date) }}</span>
       {{ post_tags(post) }}
       <span class="post-share right">

@@ -67,6 +67,7 @@ widget:
   recent_visitors: 最近访客
   announce: 公告
   about: 关于
+  links: 友情链接
 
 ajax:
   loading: 正在载入...

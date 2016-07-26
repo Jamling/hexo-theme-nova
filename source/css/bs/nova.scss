@@ -628,6 +628,15 @@ blockquote, p {
   @include transition(transform 1s);
 }
 
+#widget-links .has-icon {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+#widget-links img {
+  height: 36px;
+  padding-right: 4px;
+}
+
 @media (max-width: 767px) {
   .hidden-xs {
     display: none !important;

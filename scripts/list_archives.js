@@ -26,7 +26,7 @@ hexo.extend.helper.register('nova_archives', function(options){
 
   var posts = [];
   if (this.page.base === (archiveDir + '/')) 
-    posts = this.site.posts.sort('date', order);
+    posts = this.page.posts.sort('date', order);
   else
     posts = this.page.posts.sort('date', order);
   if (!posts.length) return result;
