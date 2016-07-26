@@ -65,6 +65,7 @@ widget:
     other: 热评文章
   recent_comments: 最新评论
   announce: 公告
+  about: 关于
 
 ajax:
   error: 加载失败

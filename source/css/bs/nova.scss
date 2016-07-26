@@ -521,6 +521,9 @@ footer.post-item-footer {
   background-color: #fdd835 !important;
 }
 
+.black {
+  color: #000000 !important;
+}
 .red {
   color: #F44336 !important;
 }
@@ -559,13 +562,13 @@ footer.post-item-footer {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: inline-block;
+  display: table-cell;
   vertical-align: middle;
   text-align: center;
   line-height: 36px;
 }
 
-.fab .large {
+.large {
   width: 48px;
   height: 48px;
   line-height: 48px;

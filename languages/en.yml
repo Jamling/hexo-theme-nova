@@ -65,6 +65,7 @@ widget:
     other: Hot Posts
   recent_comments: Recent Comments
   announce: Announce
+  about: About
   
 ajax:
   error: Load failed
