@@ -49,3 +49,18 @@ $tag-bg-3: #faebcc;
   -moz-box-sizing: $value;
   -webkit-box-sizing: $value;
 }
+
+@mixin  transform ($value){
+    transform: $value;
+    -ms-transform: $value;       /* IE 9 */
+    -webkit-transform: $value;   /* Safari and Chrome */
+    -o-transform: $value;        /* Opera */
+    -moz-transform: $value;  
+}
+
+@mixin transition ($value) {
+    transition: $value;
+    -moz-transition: $value;  /* Firefox 4 */
+    -webkit-transition: $value;   /* Safari 和 Chrome */
+    -o-transition: $value;    /* Opera */
+}

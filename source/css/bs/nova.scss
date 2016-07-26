@@ -623,6 +623,11 @@ blockquote, p {
   display: inline-block !important;
 }
 
+#ds-recent-visitors .ds-avatar:HOVER {
+  @include transform(rotate(360deg));
+  @include transition(transform 1s);
+}
+
 @media (max-width: 767px) {
   .hidden-xs {
     display: none !important;

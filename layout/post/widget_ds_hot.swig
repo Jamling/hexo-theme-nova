@@ -3,7 +3,9 @@
       <div class="panel-heading">
         <h3 class="panel-title">{{ _p('widget.hot', 2) }}</h3>
       </div>
-      <div  class="list-group" id="top-threads" data-range="weekly" data-num-items="5"></div>
+      <div  class="list-group" id="top-threads" data-range="weekly" data-num-items="5">
+        <div class="text-center">{{__('ajax.loading')}}</div>
+      </div>
     </div>
     <script>
       var ds_top_url = 'http://api.duoshuo.com/sites/listTopThreads.jsonp';
@@ -22,6 +24,7 @@
             if (arr.length == 0) {
               ds_top_dom.html('{{_p("widget.hot", 0)}}');  
             } else {
+              ds_top_dom.html('');  
               for(var i =0; i<arr.length;i++){
                 var a = $('<a></a>').text(arr[i].title).attr('href', arr[i].url).addClass('list-group-item');
                 ds_top_dom.append(a);
@@ -30,7 +33,7 @@
           }
         },
         error: function (xhr, msg, e) {
-          ds_top_dom.html("{{__('ajax.error')}}");
+          ds_top_dom.html('<div class="text-center">{{__("ajax.error")}}</div>');
         }
       });
     </script>
