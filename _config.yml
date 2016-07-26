@@ -38,18 +38,28 @@ menu:
 # post widgets. see layout/post/widget_xxx.swig
 post_widgets:
 #  - search
+  - announce
+  - ds_recent_visitors
+  - about
   - category
   - tag
 #  - archive
   - recent
   - ds_hot
   - ds_recent_comments
+  - links
+  
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
 # used ajax to get widget_xxx contents dynamicly to avoid change all pages.
 # 
 post_widgets_ajax: true
 post_widgets_show_count: true
 post_widgets_recent_count: 5
+# widget links, url is required, name and icon is optional, the icon can be relative or absolute path.
+post_widgets_links:
+  - name: 
+    url: http://www.ieclipse.cn
+    icon: image/logo.png
 
 # archive
 archive:
