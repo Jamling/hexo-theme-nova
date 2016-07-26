@@ -611,7 +611,16 @@ blockquote, p {
 }
 .ds-recent-comments {
   margin: 0;
-  padding: 0 0.5em;
+  padding: 0 .5em;
+}
+
+.ds-recent-visitors {
+  margin: 0;
+  padding: 4px;
+}
+
+#ds-recent-visitors .ds-avatar {
+  display: inline-block !important;
 }
 
 @media (max-width: 767px) {

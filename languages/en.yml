@@ -64,10 +64,12 @@ widget:
     zero: No hot post
     other: Hot Posts
   recent_comments: Recent Comments
+  recent_visitors: Recent Visitors
   announce: Announce
   about: About
   
 ajax:
+  loading: Loading...
   error: Load failed
 
 menu:
