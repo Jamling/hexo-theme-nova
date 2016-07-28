@@ -328,12 +328,10 @@ hexo.extend.helper.register('widget_recents', function(posts, options) {
 // options: hash: false, combined: true;
 hexo.extend.helper.register('page_uid', function(page, options) {
   var p = page ? page : this.page;
-  // if (this.is_post()) {
-  // return p.path;
-  // }
+
   var o = options || {};
-  var hash = o.hasOwnProperty('hash') ? o.hash : false;
-  var combined = o.hasOwnProperty('combined') ? o.combined : true;
+  var hash = o.hasOwnProperty('hash') ? o.hash : this.theme.page_uid.hash;
+  var combined = o.hasOwnProperty('combined') ? o.combined : this.theme.page_uid.combined;
 
   var paths = p.path.split('/');
   var lang = paths[0];

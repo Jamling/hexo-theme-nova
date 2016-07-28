@@ -1,4 +1,10 @@
-# script and css
+# Page unique id, see scripts/helper.js#page_uid()
+# 页面唯一id设置，影响到评论等第三方系统，页面唯一id的原始值为页面的当前路径
+page_uid:
+  hash: true # 是否加密，加密后的uid没有特殊字符，推荐使用此项。
+  combined: true #是否合并多语言uid，true则多语言页面使用相同的uid
+
+# script and css，站点使用的全局脚本及css文件
 js_css:
 - url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js
 - url: //cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css
@@ -20,6 +26,7 @@ js_css:
 - url: css/nova_font.css
 - url: css/bs/nova.css
 #- url: js/script.js
+
 # menu, all menu name must be translated, see language/lang.yml
 menu:
 - name: home
@@ -93,6 +100,13 @@ comments:
     uid: 2064663
   ds:
     short_name: ieclipse
+
+# comments的补充，文章阅读数保存在leanclound上
+lc:
+  enable: true # true|false
+  class: Counter # leanclound上的class名称
+  app_id: rYUER9KxmGUXSpfEtu7wCFMo-gzGzoHsz
+  app_key: k7hzTkcS0blxgry4VT9rJjYj
 
 ## share
 share:

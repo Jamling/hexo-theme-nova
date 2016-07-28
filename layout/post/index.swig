@@ -23,3 +23,4 @@
     <nav> {{ nova_paginator({total:page.total, class:'pagination'}) }} </nav>
     {{partial('index_share_jiathis')}}
     {{partial('index_script_ds')}}
+    {{partial('index_script_lc')}}

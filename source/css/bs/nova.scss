@@ -597,8 +597,8 @@ footer.post-item-footer {
 }
 
 blockquote, p {
-  word-wrap: wrap;
-  word-break: break-all;
+  word-wrap: break-word;
+  word-break: normal;
 }
 
 /* jiathis share */
