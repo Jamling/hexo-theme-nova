@@ -31,7 +31,7 @@ function listLinksHelper(links, options) {
       c += ' has-icon';
     }
 
-    result += '<' + tag + ' class="' + c + '" href="' + link.url + '" title="' + title + '">';
+    result += '<' + tag + ' class="' + c + '" href="' + link.url + '" title="' + title + '" target="_blank">';
     if (hasIcon) {
       var icon = link.icon;
       if (icon.indexOf('http://') == 0 || icon.indexOf('https://') == 0) {

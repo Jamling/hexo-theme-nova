@@ -167,8 +167,7 @@ blockquote {
   border-left-color: #f96;
   background-color: #eee;
   border-radius: 4px;
-  display: table;
-  vertical-align: middle;
+  display: block;
 }
 
 blockquote.donate img {
@@ -400,6 +399,7 @@ pre code {
   padding: 12px 24px;
   font-size: 1.0em;
   overflow-y: auto;
+  overflow-x: auto;
   display: block;
 }
 
@@ -596,7 +596,8 @@ footer.post-item-footer {
   float: left;
 }
 
-blockquote, p {
+.article blockquote, 
+.article blockquote p {
   word-wrap: break-word;
   word-break: normal;
 }

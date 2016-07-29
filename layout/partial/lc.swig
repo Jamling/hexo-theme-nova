@@ -9,23 +9,30 @@
 
   var lc_config = {
     pageId : '{{page_uid()}}',
-    url : '{{page.permalink}}',
+    url : '{{page.permalink}}' || '{{page.path}}',
     title : '{{page_title()}}'
   };
   
   var lc_table = '{{theme.lc.class}}' || 'Counter';
 
   (function() {
-
     var query = new AV.Query(lc_table);
     query.select(['-ACL']);
     query.equalTo('pageId', lc_config.pageId);
-    query.first().then(function(data) {
-      if (!data) {
-        insert(data);
-        return;
+    query.first({
+      success: function(results) {
+        // results is an array of AV.Object.
+        if (typeof results === 'undefined') {
+          insert(results);
+          return;
+        }
+        console.log(results._serverData);
+        update(results);
+      },
+      error: function(error) {
+        // error is an instance of AV.Error.
+        console.log(error);
       }
-      update(data);
     });
 
     function insert(data) {

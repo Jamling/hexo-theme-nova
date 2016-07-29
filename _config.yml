@@ -51,7 +51,7 @@ post_widgets:
   - category
   - tag
 #  - archive
-  - recent
+  - recent_posts
   - ds_hot
   - ds_recent_comments
   - links

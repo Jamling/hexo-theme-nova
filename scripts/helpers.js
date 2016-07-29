@@ -17,13 +17,7 @@ hexo.extend.helper.register('i18n', function(key) {
 hexo.extend.helper.register('head_title', function() {
   var p = this.page;
   var ret = '';
-  var sub = '';
-  if (p.title2) {
-    sub = this.i18n(p.title2);
-  }
-  else if (p.title) {
-    sub = p.title;
-  }
+  var sub = this.page_title(p);
   ret = this.i18n('site.title');
   if (!ret) {
     ret = this.config.title
@@ -143,6 +137,22 @@ hexo.extend.helper.register('page_title', function(page) {
   else if (p.title) {
     ret = p.title;
   }
+  
+  if (!ret) {
+    if (this.is_category()) {
+      ret = get_category_title(this, p);
+    }
+    else if (this.is_tag()) {
+      ret = get_tag_title(this, p);
+    }
+    else if (this.is_archive()) {
+      ret = get_archive_title(this, p);
+    }
+    else if (this.is_home()) {
+      ret = this.__('menu.home');
+    }
+  }
+  
   return ret;
 });
 
@@ -328,23 +338,30 @@ hexo.extend.helper.register('widget_recents', function(posts, options) {
 // options: hash: false, combined: true;
 hexo.extend.helper.register('page_uid', function(page, options) {
   var p = page ? page : this.page;
+  var path = p.path;
+  if (p === this.page) {
+    if (this.is_home() || this.is_category() || this.is_tag() || this.is_archive()) {
+      path = p.base;
+    }
+  }
+  // path = this.url_for(path); // don't add / 
 
   var o = options || {};
   var hash = o.hasOwnProperty('hash') ? o.hash : this.theme.page_uid.hash;
   var combined = o.hasOwnProperty('combined') ? o.combined : this.theme.page_uid.combined;
 
-  var paths = p.path.split('/');
+  var paths = path.split('/');
   var lang = paths[0];
   var file = paths[paths.length - 1];
-  if (combined && this.config.language.indexOf(lang) >= 0) {
+  if (combined && this.get_langs().indexOf(lang) >= 0) {
     paths.shift();
     var ret = paths.join('/');
-    if (!_.endsWith(p.path, '/')) {
-      ret += '/';
-    }
+//    if (!_.endsWith(path, '/')) {
+//      ret += '/';
+//    }
     return hash ? md5(ret) : ret;
   }
-  return hash ? md5(p.path) : p.path;
+  return hash ? md5(path) : path;
 });
 
 // return page show toc or not
@@ -384,3 +401,56 @@ hexo.extend.helper.register('lang_name', function(lang) {
   var data = this.site.data.languages[lang];
   return data.name || data;
 });
+
+// internal method
+var archive_connector = '－';
+function get_category_title(hexo, page) {
+  var dirs = page.base.split('/');
+  var ret = hexo.__('category.name');
+  for(var i=1;i<dirs.length; i++){
+    var dir = dirs[i];
+    if (dir.length == 0) continue;
+    var map = hexo.config.category_map;
+    if (map) {
+      for(var key in map) {
+        if (map[key] === dir) {
+          dir = key;
+          break;
+        }
+      }
+    }
+    ret += archive_connector + dir;
+  }
+  return ret;
+};
+
+function get_tag_title(hexo, page) {
+  var dirs = page.base.split('/');
+  var ret = hexo.__('tag.name');
+  for(var i=1;i<dirs.length; i++){
+    var dir = dirs[i];
+    if (dir.length == 0) continue;
+    var map = hexo.config.tag_map;
+    if (map) {
+      for(var key in map) {
+        if (map[key] === dir) {
+          dir = key;
+          break;
+        }
+      }
+    }
+    ret += archive_connector + dir;
+  }
+  return ret;
+};
+
+function get_archive_title(hexo, page) {
+  var dirs = page.base.split('/');
+  var ret = hexo.__('archive.name');
+  for(var i=1;i<dirs.length; i++){
+    var dir = dirs[i];
+    if (dir.length == 0) continue;
+    ret += archive_connector + dir;
+  }
+  return ret;
+};
