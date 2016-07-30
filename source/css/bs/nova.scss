@@ -629,6 +629,34 @@ footer.post-item-footer {
   @include transition(transform 1s);
 }
 
+#widget-about .icon {
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+}
+
+#widget-about .icon-item {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#widget-about .icon-font {
+  position: absolute;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  top: 6px;
+  left: 4px;
+  overflow: hidden;
+}
+
+
 #widget-links .has-icon {
   padding-top: 4px;
   padding-bottom: 4px;
