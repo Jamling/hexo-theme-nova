@@ -18,10 +18,20 @@ hexo.extend.helper.register('head_title', function() {
   var p = this.page;
   var ret = '';
   var sub = this.page_title(p);
+  
   ret = this.i18n('site.title');
   if (!ret) {
     ret = this.config.title
   }
+  // home page
+  if (this.is_home()) {
+    return ret;
+  }
+  
+  if (this.is_archive()) {
+    return sub + '|' + ret;
+  }
+  
   if (p.layout == 'project') {
     if (!(p.gh && p.gh.type == "get_repos")) {
       var paths = this.page.path.split('/');
@@ -41,9 +51,11 @@ hexo.extend.helper.register('head_title', function() {
         sub = tmp;
       }
     }
-  }
-  if (sub) {
     return sub + '|' + ret;
+  }
+  
+  if (sub) {
+    return sub;// + '|' + ret;
   }
   else {
     return ret;
@@ -73,29 +85,35 @@ hexo.extend.helper.register('head_jscss', function() {
 // load <head> keywords
 hexo.extend.helper.register('head_keywords', function() {
   var _self = this;
+  var p = this.page;
   var ret = '';
   // for post
   // if (this.is_post())
 
   var kw = [];
-  var cats = this.page.categories;
+  var cats = p.categories;
+  var tags = p.tags;
+  if (this.is_home()) {
+    cats = this.site.categories;
+    tags = this.site.tags;
+  }
+  
   if (cats) {
     cats.forEach(function(item) {
       kw.push(item.name);
     });
   }
-  var tags = this.page.tags;
   if (tags) {
     tags.forEach(function(item) {
-      kw.push(item.name);
+      if (kw.indexOf(item.name) < 0) kw.push(item.name);
     });
   }
 
-  if (this.page.title2) {
-    kw.push(this.i18n(this.page.title2))
+  if (p.title2) {
+    kw.push(this.i18n(p.title2))
   }
-  if (this.page.title) {
-    kw.push(this.page.title);
+  else if (p.title) {
+    kw.push(p.title);
   }
 
   return kw.join(',');
@@ -105,11 +123,16 @@ hexo.extend.helper.register('head_keywords', function() {
 });
 
 // load <head> description
-hexo.extend.helper.register('head_description', function() {
-  var ret = '';
-  var kw = [];
-  kw.push(this.i18n('site.description'));
-  kw.push(this.config.description);
+hexo.extend.helper.register('head_description', function(page) {
+  var p = page ? page : this.page;
+  
+  var ret = p.description
+  if (!ret)  ret = this.page_excerpt();
+  if (!ret)  ret = this.__('site.description');
+  if (!ret) ret = this.config.description;
+  if (ret) {
+    ret = this.strip_html(ret);
+  }
   return ret;
 });
 
@@ -214,7 +237,7 @@ hexo.extend.helper.register('page_path', function(post, options) {
 hexo.extend.helper.register('page_excerpt', function(post) {
   var p = post ? post : this.page;
   var excerpt = p.excerpt;
-  if (!excerpt) {
+  if (!excerpt && p.content) {
     var pos = p.content.indexOf('</p>');
     if (pos > 0) {
       excerpt = p.content.substring(0, pos + 4);

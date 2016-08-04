@@ -119,6 +119,14 @@ analytics:
   google: true
   baidu: true
 
+## search
+search:
+  baidu:
+    verified: true # false使用极速搜索，无需验证站点；true使用自定义搜索，可以定制高级功能
+    site: www.ieclipse.cn # 你的站点名称，极速搜索要用到
+    sid: "11812712506721118476" #如不清楚，将baidu_search_script.swig里面的script全部替换掉
+    domain: //search.ieclipse.cn #CNAME到zhannei.baidu.com的域名，未配置留空
+
 rss: atom.xml
 
 # icp

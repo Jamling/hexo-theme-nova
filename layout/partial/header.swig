@@ -16,12 +16,8 @@
         <ul class="nav navbar-nav">
         {{ header_menu('main-nav') }}
         </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group search">
-            <!-- search input -->
-            {{ partial('baidu_search_si') }}
-          </div>
-        </form>
+        <!-- search input -->
+        {{ partial('baidu_search_site') }}
         <ul class="nav navbar-nav navbar-right">
               
           <li class="dropdown">

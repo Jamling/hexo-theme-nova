@@ -55,6 +55,10 @@
 
     function update(data) {
       data.increment('views', 1);
+      for ( var key in lc_config) {
+        if (key !== 'pageId')
+        data.set(key, lc_config[key]);
+      }
       data.save().then(function(data) {
         console.log("update to " + data.get('views'));
       }, function(error) {
