@@ -28,13 +28,19 @@ $tag-bg-3: #faebcc;
   box-shadow: $shadows;
 }
 
-@mixin flex($flow) {
+@mixin flex-layout($flow) {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-flow: $flow;
   -ms-flex-flow: $flow;
   flex-flow: $flow;
+}
+
+@mixin flex-item ($flex) {
+  -webkit-flex: $flex;
+  -ms-flex: $flex;
+  flex: $flex;
 }
 
 @mixin text-overflow($value){
@@ -51,16 +57,48 @@ $tag-bg-3: #faebcc;
 }
 
 @mixin  transform ($value){
-    transform: $value;
-    -ms-transform: $value;       /* IE 9 */
-    -webkit-transform: $value;   /* Safari and Chrome */
-    -o-transform: $value;        /* Opera */
-    -moz-transform: $value;  
+  transform: $value;
+  -ms-transform: $value;       /* IE 9 */
+  -webkit-transform: $value;   /* Safari and Chrome */
+  -o-transform: $value;        /* Opera */
+  -moz-transform: $value;  
 }
 
 @mixin transition ($value) {
-    transition: $value;
-    -moz-transition: $value;  /* Firefox 4 */
-    -webkit-transition: $value;   /* Safari 和 Chrome */
-    -o-transition: $value;    /* Opera */
+  transition: $value;
+  -moz-transition: $value;  /* Firefox 4 */
+  -webkit-transition: $value;   /* Safari 和 Chrome */
+  -o-transition: $value;    /* Opera */
+}
+
+@mixin user-select-none () {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */  
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation ($str) {
+  animation: #{$str};
+  -moz-animation: #{$str}; /* Firefox */
+  -webkit-animation: #{$str};  /* Safari 和 Chrome */
+  -o-animation: #{$str};   /* Opera */
+}
+
+@include keyframes(shink) {
+  0% { opacity: 0; }
+  50% { opacity: 50; }
+  100% { opacity: 100; }
 }

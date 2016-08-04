@@ -1,6 +1,6 @@
 
 @import "_variables.scss";
-
+@import "_colors.scss";
 
 /* bootstrap fixed top nav */
 body {
@@ -34,6 +34,11 @@ a {
   text-decoration: none;
 }
 
+a[rel="external"]:after {
+  font-family: 'nova' !important;
+  content: "\e907";
+}
+
 a:HOVER, a:ACTIVE {
   text-decoration: none;
   color: $a-color-active;
@@ -45,6 +50,10 @@ a.list-group-item {
 
 a.list-group-item:hover, a.list-group-item:active {
   color: $a-color-active;
+}
+
+ol, ul {
+  padding-left: 1em;
 }
 
 /* toc ol style */
@@ -256,6 +265,11 @@ article.article .article-edit-link {
   padding-top: .5em;
 }
 
+.article, .excerpt{
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
 footer.article-footer {
   text-align: right;
   border-top: 1px solid $divider-color;
@@ -345,7 +359,7 @@ footer.article-footer {
 
 /* start project */
 #projects {
-  @include flex(row wrap);
+  @include flex-layout(row wrap);
   justify-content: space-between;
 }
 
@@ -353,9 +367,7 @@ footer.article-footer {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 0 0 49%;
-  -ms-flex: 0 0 49%;
-  flex: 0 0 49%;
+  @include flex-item(0 0 49%);
 }
 
 #projects h3 {
@@ -424,6 +436,7 @@ code.has-numbering {
   font-size: 1.0em;
   color: #AAA;
   list-style: none;
+  @include user-select-none();
 }
 
 .article img {
@@ -477,6 +490,19 @@ footer.post-item-footer {
   margin-top: 0;
 }
 
+.card .new:after {
+  content: 'NEW';
+  font-size: 0.4em;
+  font-style: italic;
+  @extend .red-text;
+  @include animation(shink 1s);
+  padding: 2px;
+  border: dotted 1px #f00;
+  margin-left: 2px;
+  margin-bottom: 4px;
+  font-weight: bold;
+} 
+
 .card-content {
   padding: 1em;
   border-radius: 0 0 2px 2px;
@@ -504,46 +530,6 @@ footer.post-item-footer {
   @include box-shadow(0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19));
 }
 
-/* colors */
-.bg-red {
-  background-color: #F44336 !important;
-}
-
-.bg-blue {
-  background-color: #2196F3 !important;
-}
-
-.bg-green {
-  background-color: #4CAF50 !important;
-}
-
-.bg-yellow {
-  background-color: #fdd835 !important;
-}
-
-.black {
-  color: #000000 !important;
-}
-.red {
-  color: #F44336 !important;
-}
-
-.blue {
-  color: #2196F3 !important;
-}
-
-.green {
-  color: #4CAF50 !important;
-}
-
-.yellow {
-  color: #fdd835 !important;
-}
-
-.white {
-  color: #ffffff !important;
-}
-
 /*Fixed action bar*/
 .fab {
   position: fixed;
@@ -566,6 +552,7 @@ footer.post-item-footer {
   vertical-align: middle;
   text-align: center;
   line-height: 36px;
+  cursor: pointer;
 }
 
 .large {
@@ -656,6 +643,12 @@ footer.post-item-footer {
   overflow: hidden;
 }
 
+#widget-about .nova-github {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  overflow: hidden;
+}
 
 #widget-links .has-icon {
   padding-top: 4px;
@@ -671,7 +664,7 @@ footer.post-item-footer {
     display: none !important;
   }
   .col-sx-12 {
-    padding:0 0.5rem;
+    padding:0 0.8rem;
   }
   .card .card-content {
     padding-left: 0.5rem;
@@ -687,5 +680,11 @@ footer.post-item-footer {
   }
   .release-body {
     width: 100% !important;
+  }
+  #projects .panel {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    @include flex-item(auto);
   }
 }

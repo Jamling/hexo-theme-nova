@@ -27,7 +27,7 @@
   </div>
   <footer class="article-footer">
     <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">
-        {{__('page.last_updated', '') }} <span class="{%- if date(post.date) != date(post.updated) %}red{%- endif %}">{{date(page.updated)}}</span>
+        {{__('page.last_updated', '') }} <span class="{%- if date(post.date) != date(post.updated) %}red-text{%- endif %}">{{date(page.updated)}}</span>
     </time>
     {{ partial('../partial/share_jiathis_footer') }}
   </footer>

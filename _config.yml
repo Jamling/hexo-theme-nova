@@ -51,7 +51,7 @@ post_widgets:
   - category
   - tag
 #  - archive
-  - recent_posts
+#  - recent_posts
   - ds_hot
   - ds_recent_comments
   - links
@@ -67,6 +67,15 @@ post_widgets_links:
   - name: 
     url: http://www.ieclipse.cn
     icon: image/logo.png
+
+# about
+about:
+  name: Jamling
+  github: Jamling
+  email: li.jamling@gmail.com
+  twitter: JamlingLi
+  weibo: Jamling
+  desc: 欢迎在以下点击以下图标关注我或与我互动！
 
 # archive
 archive:
@@ -140,7 +149,7 @@ node_sass:
 layout:
   index: # index some to post.
     main: col-sx-12 col-sm-8 col-md-9 col-lg-9
-    widgets: col-sx-12 col-sm-4 col-md-3 col-lg-3 hidden-xs
+    widgets: col-sx-12 col-sm-4 col-md-3 col-lg-3 #hidden-xs
   page: #common page
     main: col-sx-12 col-sm-8 col-md-9 col-lg-9
     toc: col-sx-12 col-sm-4 col-md-3 col-lg-3 hidden-xs

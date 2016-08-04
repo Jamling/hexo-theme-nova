@@ -4,17 +4,26 @@
         <h3 class="panel-title">{{ __('widget.about') }}</h3>
       </div>
       <div class="panel-body text-center">
-        <div>@Jamling</div>
+        <div>{{theme.about.desc}}</div>
         <div id="widget-about" class="h3 text-center">
-          <a class="icon-item" style="width: 40px;" href="https://github.com/Jamling" title="Jamling on Github" target="_blank">
-			<i class="icon nova-github black"></i>
+          {%- if theme.about.github %}
+          <a class="yellow black-text icon-item" href="https://github.com/{{theme.about.github}}" title="{{theme.about.name}} on Github" target="_blank">
+			<i class="icon nova-github-alt icon-font"></i>
 		  </a>
-          <a class="bg-red white icon-item" href="http://weibo.com/Jamling" title="Jamling on Weibo" target="_blank">
+          {%- endif %}{%- if theme.about.weibo %}
+          <a class="red white-text  icon-item" href="http://weibo.com/{{theme.about.weibo}}" title="{{theme.about.name}} on Weibo" target="_blank">
 		    <i class="icon nova-weibo icon-font"></i>
 		  </a>
-          <a class="bg-blue white icon-item" href="https://twitter.com/JamlingLi" title="Jamling on Twitter" target="_blank">
+          {%- endif %}{%- if theme.about.twitter %}
+          <a class="blue white-text  icon-item" href="https://twitter.com/{{theme.about.twitter}}" title="{{theme.about.name}} on Twitter" target="_blank">
 		    <i class="icon nova-twitter icon-font"></i>
-		  </a> 
+		  </a>
+          {%- endif %}{%- if theme.about.email %}
+          <a class="green white-text  icon-item" href="mailto:{{theme.about.email}}" title="mail to {{theme.about.name}}" target="_blank">
+            <i class="icon nova-email icon-font" style="font-size: 22px"></i>
+          </a>
+          {%- endif %}
+          <!-- 剩下的自己加 -->
         </div>
       </div>
     </div>

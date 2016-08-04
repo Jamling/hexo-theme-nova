@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'nova';
-    src:    url('fonts/nova.eot?ost2ta');
-    src:    url('fonts/nova.eot?ost2ta#iefix') format('embedded-opentype'),
-        url('fonts/nova.ttf?ost2ta') format('truetype'),
-        url('fonts/nova.woff?ost2ta') format('woff'),
-        url('fonts/nova.svg?ost2ta#nova') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'nova';
+  src:  url('fonts/nova.eot?ug8mfa');
+  src:  url('fonts/nova.eot?ug8mfa#iefix') format('embedded-opentype'),
+    url('fonts/nova.ttf?ug8mfa') format('truetype'),
+    url('fonts/nova.woff?ug8mfa') format('woff'),
+    url('fonts/nova.svg?ug8mfa#nova') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .icon:before {
@@ -15,198 +15,210 @@
 }
 
 .icon {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'nova' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'nova' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.nova-new-tab:before {
+  content: "\e907";
+}
+.nova-email2:before {
+  content: "\e906";
+}
 .nova-eye:before {
-    content: "\e904";
+  content: "\e904";
 }
 .nova-folder3:before {
-    content: "\e900";
+  content: "\e900";
 }
 .nova-git-commit:before {
-    content: "\f01f";
+  content: "\f01f";
 }
 .nova-repo:before {
-    content: "\f001";
+  content: "\f001";
 }
 .nova-home:before {
-    content: "\e901";
+  content: "\e901";
 }
 .nova-pencil:before {
-    content: "\e905";
+  content: "\e905";
 }
 .nova-image:before {
-    content: "\e90d";
+  content: "\e90d";
 }
 .nova-images:before {
-    content: "\e90e";
+  content: "\e90e";
 }
 .nova-book:before {
-    content: "\e91f";
+  content: "\e91f";
 }
 .nova-price-tag:before {
-    content: "\e935";
+  content: "\e935";
 }
 .nova-price-tags:before {
-    content: "\e936";
+  content: "\e936";
 }
 .nova-clock:before {
-    content: "\e94e";
+  content: "\e94e";
 }
 .nova-calendar:before {
-    content: "\e953";
+  content: "\e953";
 }
 .nova-bubbles:before {
-    content: "\e96c";
+  content: "\e96c";
 }
 .nova-bubbles2:before {
-    content: "\e96d";
+  content: "\e96d";
 }
 .nova-users:before {
-    content: "\e972";
+  content: "\e972";
 }
 .nova-search:before {
-    content: "\e986";
+  content: "\e986";
 }
 .nova-wrench:before {
-    content: "\e991";
+  content: "\e991";
 }
 .nova-cog:before {
-    content: "\e994";
+  content: "\e994";
 }
 .nova-trophy:before {
-    content: "\e99e";
+  content: "\e99e";
 }
 .nova-gift:before {
-    content: "\e99f";
+  content: "\e99f";
 }
 .nova-bin:before {
-    content: "\e9ac";
+  content: "\e9ac";
 }
 .nova-list-ol:before {
-    content: "\e9b9";
+  content: "\e9b9";
 }
 .nova-list-ul:before {
-    content: "\e9bb";
+  content: "\e9bb";
 }
 .nova-download:before {
-    content: "\e9c7";
+  content: "\e9c7";
 }
 .nova-earth:before {
-    content: "\e9ca";
+  content: "\e9ca";
 }
 .nova-attachment:before {
-    content: "\e9cd";
+  content: "\e9cd";
 }
 .nova-star-empty:before {
-    content: "\e9d7";
+  content: "\e9d7";
 }
 .nova-star-full:before {
-    content: "\e9d9";
+  content: "\e9d9";
 }
 .nova-cancel:before {
-    content: "\ea0d";
+  content: "\ea0d";
 }
 .nova-exit:before {
-    content: "\ea14";
+  content: "\ea14";
 }
 .nova-top:before {
-    content: "\ea32";
+  content: "\ea32";
 }
 .nova-arrow-right:before {
-    content: "\ea3c";
+  content: "\ea3c";
 }
 .nova-arrow-left:before {
-    content: "\ea40";
+  content: "\ea40";
 }
 .nova-embed:before {
-    content: "\ea80";
+  content: "\ea80";
 }
 .nova-share:before {
-    content: "\ea82";
+  content: "\ea82";
 }
 .nova-rss:before {
-    content: "\ea9b";
+  content: "\ea9b";
 }
 .nova-github:before {
-    content: "\eab0";
+  content: "\eab0";
+}
+.nova-email:before {
+  content: "\f003";
 }
 .nova-arrow-left2:before {
-    content: "\f060";
+  content: "\f060";
 }
 .nova-arrow-right2:before {
-    content: "\f061";
+  content: "\f061";
 }
 .nova-arrow-up2:before {
-    content: "\f062";
+  content: "\f062";
 }
 .nova-arrow-down2:before {
-    content: "\f063";
+  content: "\f063";
 }
 .nova-bars:before {
-    content: "\f0c9";
+  content: "\f0c9";
+}
+.nova-github-alt:before {
+  content: "\f113";
 }
 .nova-heart2-full:before {
-    content: "\f004";
+  content: "\f004";
 }
 .nova-qrcode:before {
-    content: "\f029";
+  content: "\f029";
 }
 .nova-tag:before {
-    content: "\f02b";
+  content: "\f02b";
 }
 .nova-tags:before {
-    content: "\f02c";
+  content: "\f02c";
 }
 .nova-heart2-empty:before {
-    content: "\f08a";
+  content: "\f08a";
 }
 .nova-twitter:before {
-    content: "\f099";
+  content: "\f099";
 }
 .nova-facebook:before {
-    content: "\f09a";
+  content: "\f09a";
 }
 .nova-hand-right:before {
-    content: "\f0a4";
+  content: "\f0a4";
 }
 .nova-copy:before {
-    content: "\f0c5";
+  content: "\f0c5";
 }
 .nova-double-left:before {
-    content: "\f100";
+  content: "\f100";
 }
 .nova-double-right:before {
-    content: "\f101";
+  content: "\f101";
 }
 .nova-weibo:before {
-    content: "\f18a";
+  content: "\f18a";
 }
 .nova-qq:before {
-    content: "\f1d6";
+  content: "\f1d6";
 }
 .nova-wechat:before {
-    content: "\f1d7";
+  content: "\f1d7";
 }
 .nova-copyright:before {
-    content: "\f1f9";
+  content: "\f1f9";
 }
 .nova-folders:before {
-    content: "\e902";
+  content: "\e902";
 }
 .nova-folder:before {
-    content: "\e903";
+  content: "\e903";
 }
 

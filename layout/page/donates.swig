@@ -122,11 +122,11 @@
       }
     }
     var src = '/image/donate_' + s1;
-    if (s1 == "alipay") {
-      src += '_' + s.val();
-    } else if (s1 == 'wechat') {
+//     if (s1 == "alipay") {
+//       src += '_' + s.val();
+//     } else if (s1 == 'wechat') {
       
-    }
+//     }
     
     src += '.png';
     $('#donate_pic').attr('src',src);
