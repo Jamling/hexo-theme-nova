@@ -7,7 +7,7 @@
         <div>{{theme.about.desc}}</div>
         <div id="widget-about" class="h3 text-center">
           {%- if theme.about.github %}
-          <a class="yellow black-text icon-item" href="https://github.com/{{theme.about.github}}" title="{{theme.about.name}} on Github" target="_blank">
+          <a class="orange black-text icon-item" href="https://github.com/{{theme.about.github}}" title="{{theme.about.name}} on Github" target="_blank">
 			<i class="icon nova-github-alt icon-font"></i>
 		  </a>
           {%- endif %}{%- if theme.about.weibo %}

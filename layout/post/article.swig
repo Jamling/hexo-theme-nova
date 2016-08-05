@@ -10,14 +10,15 @@
       </h1>
       {%- endif %}
     <div class="post-header clearfix">
-      <span class="icon nova-calendar"><span class="hidden-xs">{{__('page.written_on')}}</span>
+      <span class="post-date"><span class="hidden-xs icon nova-calendar">{{__('page.written_on')}}</span>
       <time datetime="{{ date_xml(post.date) }}" itemprop="datePublished">{{ time_tag(post.date) }}</time>
       </span>
       {{ post_tags(post) }}
-      <span class="post-share right">
-        <a href="#share" class="icon nova-share"><span class="hidden-xs">{{__('sns.share')}}</span></a>
-        <a href="#comment" class="icon nova-bubbles"><span class="hidden-xs">{{__('sns.comment')}}</span></a>
-        <a href="#like" class="icon nova-heart2-full"><span class="hidden-xs">{{__('sns.like')}}</span></a>
+      <span class="post-share">
+        <a href="#share" class="icon nova-share"><span class="hidden-xs">{{__('sns.share')}}</span><span class="jiathis_counter_style"></span></a>
+        <a href="#comment" class="icon nova-bubbles"><span class="ds-thread-count" data-thread-key="{{page_uid()}}"></span><!-- <span class="hidden-xs">{{__('sns.comment')}}</span> --></a>
+        <a href="#like" class="icon nova-heart2-full"><span class="count"></span><span class="hidden-xs">{{__('sns.like')}}</span></a>
+        <a href="#" class="icon nova-eye"><span class="count"></span><span class="hidden-xs">{{__('article.views')}}</span></a>
       </span>
     </div>
     <div class="divider"></div>

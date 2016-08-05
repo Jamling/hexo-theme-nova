@@ -28,6 +28,7 @@
         }
         console.log(results._serverData);
         update(results);
+        show(results);
       },
       error: function(error) {
         // error is an instance of AV.Error.
@@ -65,6 +66,10 @@
         console.log("update object failed");
         console.log(error);
       });
+    }
+    
+    function show(data) {
+      $(".post-share .nova-eye .count").html(data.get('views'));
     }
   })();
 </script>

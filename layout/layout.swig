@@ -15,6 +15,7 @@
   {{ head_jscss() }}
   <!-- RSS -->
   {{ feed_tag('atom.xml') }}
+  <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <!-- header -->

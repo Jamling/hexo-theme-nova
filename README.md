@@ -13,11 +13,9 @@ Nova also provided lots of helper scripts as plugins to co-work with the theme, 
 
 Welcome to visit [My blog](http://www.ieclipse.cn) (http://www.ieclipse.cn) to see the demo.
 
-## Branch
-- master: The bootstrap style
+## ScreenShot
+
 ![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
-- material: The material style
-![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/material.png)
 
 ## Install
 Cd to your blog root directory

@@ -11,11 +11,9 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 
 本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](http://www.ieclipse.cn) (http://www.ieclipse.cn)。
 
-## 分支
-- master: 使用bootstrap css的分支
+## 预览截屏
+
 ![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
-- material: 使用materialize css的分支
-![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/material.png)
 
 ## 安装
 Cd到博客/站点根目录，然后检出代码

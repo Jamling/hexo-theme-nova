@@ -8,7 +8,7 @@
       <a class="jiathis_button_copy">{{__('sns.copy')}}</a>
       <a class="jiathis_button_ishare">{{__('sns.one')}}</a>
       <a href="http://www.jiathis.com/share?uid={{theme.share.jiathis.uid}}" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">{{__('sns.more')}}</a>
-      <a class="jiathis_counter_style"></a>
+<!--       <a class="jiathis_counter_style"></a> -->
   </div>
   <!-- JiaThis Button END -->
   {{ partial('share_jiathis') }}

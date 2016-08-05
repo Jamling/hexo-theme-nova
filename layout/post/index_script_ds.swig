@@ -36,8 +36,9 @@
           $(this).data("tid", r[tkey].thread_id);
           if (o.p) {
             for ( var key in o.p) {
-              var c = '' + r[tkey][key] + '';
-              $(this).find(o.p[key]).html(c);
+              var c = r[tkey][key];
+              var str = c <= 0 ? '' : c + '';
+              $(this).find(o.p[key]).html(str);
             }
           }
         });

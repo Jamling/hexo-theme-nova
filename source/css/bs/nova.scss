@@ -245,15 +245,22 @@ img.donate {
 }
 
 .post-header {
-  padding: 0.5rem 0;
+  clear: both;
+}
+
+.post-header .post-share {
+  float: right;
 }
 
 .post-header .post-share a{
     margin-left: 1em;
 }
 
-.post-header>span:not(:first-child) {
-  margin-left: 1em;
+.post-header>span {
+  margin-right: 1em;
+  padding: 0.5rem 0;
+  float: left;
+  display: inline-block;
 }
 
 article.article .article-edit-link {
@@ -292,23 +299,25 @@ footer.article-footer {
 .tag-item {
   display: inline-block;
   position: relative;
-  padding: 0 10px;
+  padding: .1em 0.25em .1em .8em;
   background: $tag-bg;
-  line-height: 1.5;
+  line-height: 1;
   margin-left: 1em;
   border-radius: 0;
   color: $tag-color;
+  font-size: .8em;
 }
 
 .tag-item:before {
   position: absolute;
   content: " ";
-  border: transparent 0.75em solid;
+  border: transparent 0.5em solid;
   border-right-color: $tag-bg;
   top: 0;
-  left: -1.4em;
+  left: -1em;
   height: 0;
   width: 0;
+  font-size: 1.25em;
 }
 
 .tag-item:after {
@@ -317,7 +326,7 @@ footer.article-footer {
   background: white;
   width: 0.5em;
   height: 0.5em;
-  top: 0.5em;
+  top: 0.35em;
   left: -0.125em;
   border-radius: 0.25em;
 }
@@ -498,9 +507,10 @@ footer.post-item-footer {
   @include animation(shink 1s);
   padding: 2px;
   border: dotted 1px #f00;
-  margin-left: 2px;
-  margin-bottom: 4px;
+  left: 2px;
+  bottom: 4px;
   font-weight: bold;
+  position: relative;
 } 
 
 .card-content {
@@ -543,7 +553,7 @@ footer.post-item-footer {
 .fab-item {
   width: 36px;
   height: 36px;
-  color: white;
+  @extend .white-text;
   border-radius: 50%;
   list-style: none;
   margin: 0;
@@ -657,6 +667,13 @@ footer.post-item-footer {
 #widget-links img {
   height: 36px;
   padding-right: 4px;
+}
+
+/* special */
+.nova-eye::before {
+    font-size: 1.4em;
+    top: 0.15em;
+    position: relative;
 }
 
 @media (max-width: 767px) {
