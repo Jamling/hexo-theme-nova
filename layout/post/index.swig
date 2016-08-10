@@ -2,7 +2,7 @@
     <meta content="{{__(site.name) }}" itemprop="name"/>
 </div>
 <main>
-        {%- for post in page.posts %} {%- set u = date(post.date) != date(post.updated) %}
+        {%- for post in page.posts %} {%- set u = page_new(post) %}
           <div class="card hoverable" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
             <div class="card-content">
               <h3 class="card-title {%- if u  %} new{%- endif %}" itemprop="name headline"><a href="{{ url_for_lang(post.path) }}" class="article-title" {%- if u %} title="{{__('page.last_updated', date(post.updated)) }}" {%- endif %}>{{ post.title }}</a></h3>

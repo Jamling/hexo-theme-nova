@@ -448,6 +448,22 @@ code.has-numbering {
   @include user-select-none();
 }
 
+.code-caption {
+  clear: both;
+  position: relative;
+  top: 0; /*empty p height*/
+}
+
+.code-caption .code-caption-label {
+  font-style: italic;
+  font-weight: bold;
+ }
+ 
+.code-caption .code-caption-copy {
+  float: right;
+  @include user-select-none();
+}
+
 .article img {
   max-width: 100%;
   height: auto;
@@ -690,7 +706,7 @@ footer.post-item-footer {
   .pre-numbering {
     display: none;
   }
-  .has-numbering {
+  code.has-numbering {
     margin-left: -10px !important;
     word-wrap: break-world !important;
     white-space: pre-wrap !important;

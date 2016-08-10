@@ -27,6 +27,14 @@
   <!-- fixed action bar -->
   {{ partial('partial/fab') }}
   <!-- after footer, some 3rd script place here -->
+    <script type="text/javascript">
+    var hljs_labels = {
+        left: "{{__('hljs.left')}}",
+        right: "{{__('hljs.right')}}",
+        copy: "{{__('hljs.copy')}}"
+    }
+    </script>
+    {{ js('js/hljs.js') }}
     {{ js('js/script.js')}}
     {{ partial('partial/baidu_analytics') }}
     {{ partial('partial/baidu_push') }}

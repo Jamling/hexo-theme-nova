@@ -1,7 +1,5 @@
-{%- if page.type === 'categories' %}
-{{ partial('page/categories', {}) }}
-{%- elseif page.type === 'donates' %}
-{{ partial('page/donates', {}) }}
+{%- if page.type %}
+{{ partial('page/' + page.type, {}) }}
 {%- else %}
 <div class="container container-fluid">
   <div class="row">

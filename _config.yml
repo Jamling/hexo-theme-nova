@@ -23,6 +23,7 @@ js_css:
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
 - url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
 - url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js
+- url: //cdn.bootcss.com/zclip/1.1.2/jquery.zclip.min.js
 - url: css/nova_font.css
 - url: css/bs/nova.css
 #- url: js/script.js

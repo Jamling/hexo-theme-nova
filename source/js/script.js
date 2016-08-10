@@ -58,31 +58,6 @@
     });
   }
 
-  // highlight
-  // hljs.initHighlightingOnLoad();
-  // hljs.configure
-
-  $('pre code').each(function(i, block) {
-    // hljs.highlightBlock(block);
-    var texts = $(this).text().split('\n');
-    var tab = texts[0].match(/^\s{0,}/);
-    if (tab) {
-      var arr = [];
-      texts.forEach(function(temp){
-        arr.push(temp.replace(tab, ''));
-      });
-      $(this).text(arr.join('\n'));
-    }
-    var lines = texts.length - 1;
-    var $numbering = $('<ul/>').addClass('pre-numbering');
-    $(this).addClass('has-numbering').parent().append($numbering);
-    for (i = 1; i <= lines; i++) {
-      $numbering.append($('<li/>').text(i));
-    }
-    
-    hljs.highlightBlock(block);
-  });
-
   $.fn.chk_userlanguage = function() {
     /* check if <style=display:none;> not set to that element */
     // if (!this.is(":hidden")) { this.hide(); };

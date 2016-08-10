@@ -143,7 +143,11 @@ hexo.extend.helper.register('header_menu', function(className) {
   var _self = this;
 
   _.each(menu, function(m) {
-    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + _self.__('menu.' + m.name)
+    var i18n = _self.__('menu.' + m.name);
+    if (i18n === 'menu.' + m.name) {
+      i18n = m.name;
+    }
+    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + i18n
         + '</a></li>';
   });
 
@@ -244,6 +248,21 @@ hexo.extend.helper.register('page_excerpt', function(post) {
     }
   }
   return excerpt;
+});
+
+// wether page is new 
+hexo.extend.helper.register('page_new', function(post) {
+  var p = post ? post : this.page;
+  var m = p.updated;
+  var d = p.date;
+  var c = new Date();
+  var diff = Math.floor(m.valueOf() - d.valueOf()) /(24*3600*1000);
+  var diff2 = Math.floor(c.getTime() - m.valueOf()) /(24*3600*1000);
+  // console.log(diff + ' - ' + diff2)
+  if (diff > 0.5 && diff2 <= 30) {
+    return true;
+  }
+  return false;
 });
 
 hexo.extend.helper.register('page_share_jiathis', function(post, webid) {

@@ -72,6 +72,11 @@ widget:
 ajax:
   loading: 正在载入...
   error: 加载失败
+  
+hljs:
+  left: 代码
+  right: '如下：'
+  copy: 复制
 
 menu:
   home: 首页

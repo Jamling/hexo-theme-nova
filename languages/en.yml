@@ -72,6 +72,11 @@ widget:
 ajax:
   loading: Loading...
   error: Load failed
+  
+hljs:
+  left: Code
+  right: ':'
+  copy: Copy to clipboard
 
 menu:
   home: Home
