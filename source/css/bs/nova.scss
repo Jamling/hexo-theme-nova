@@ -268,13 +268,25 @@ article.article .article-edit-link {
   overflow: hidden;
 }
 
-.article-content{
+.article-content {
   padding-top: .5em;
 }
 
-.article, .excerpt{
+.article, .excerpt {
   text-align: justify;
   text-justify: inter-ideograph;
+}
+
+.excerpt {
+  padding-top: 1em;
+}
+
+.excerpt *:first-child{
+  margin-top: 0 !important;
+}
+
+.excerpt *:last-child{
+  margin-bottom: 0 !important;
 }
 
 footer.article-footer {
@@ -409,15 +421,15 @@ pre {
   background: inherit;
   border: 1px solid #ccc;
   overflow-x: auto;
-  padding: 10px;
+  padding: .5em;
   position: relative;
-  margin-bottom: 24px;
+  margin: 0 0 0.8em 0;
   overflow-y: hidden;
 }
 
 pre code {
-  margin: -10px;
-  padding: 12px 24px;
+  margin: -0.5em !important;
+  padding: 0.5em !important;
   font-size: 1.0em;
   overflow-y: auto;
   overflow-x: auto;
@@ -425,7 +437,7 @@ pre code {
 }
 
 code.has-numbering {
-  margin-left: 10px;
+  margin-left: 1.7em !important;
   word-wrap: normal;
   word-break: keep-all;
   white-space: pre;
@@ -435,9 +447,9 @@ code.has-numbering {
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
+  width: 2.2em;
   height: 100%;
-  padding: .5em 0.2em .5em 0;
+  padding: 0.5em 0.2em 0.5em 0;
   border-right: 1px solid #C3CCD0;
   border-radius: 3px 0 0 3px;
   background-color: #EEE;
@@ -700,14 +712,14 @@ footer.post-item-footer {
     padding:0 0.8rem;
   }
   .card .card-content {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
   .pre-numbering {
     display: none;
   }
   code.has-numbering {
-    margin-left: -10px !important;
+    margin-left: -0.5em !important;
     word-wrap: break-world !important;
     white-space: pre-wrap !important;
   }

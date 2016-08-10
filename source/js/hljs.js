@@ -11,6 +11,9 @@
 
   $(code_caption_selector).each(function(i, target) {
     var ds = $(this).data();
+    if (ds.hide) {
+      $(this).css('display', 'none');
+    }
     
     var label = $(this).find(code_caption_selector + '-label');
     $(label).prepend(hljs_labels.left || ds.labels_left);
