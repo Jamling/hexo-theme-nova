@@ -272,6 +272,24 @@ article.article .article-edit-link {
   padding-top: .5em;
 }
 
+.article-content .headerlink {
+  display: none;
+  float: right;
+}
+
+.article-content .headerlink:BEFORE {
+  content: '#';
+}
+
+.article-content h1:HOVER .headerlink,
+.article-content h2:HOVER .headerlink,
+.article-content h3:HOVER .headerlink,
+.article-content h4:HOVER .headerlink,
+.article-content h5:HOVER .headerlink,
+.article-content h6:HOVER .headerlink{
+  display: inline;
+}
+
 .article, .excerpt {
   text-align: justify;
   text-justify: inter-ideograph;
@@ -281,11 +299,11 @@ article.article .article-edit-link {
   padding-top: 1em;
 }
 
-.excerpt *:first-child{
+.excerpt>*:first-child{
   margin-top: 0 !important;
 }
 
-.excerpt *:last-child{
+.excerpt>*:last-child{
   margin-bottom: 0 !important;
 }
 

@@ -33,19 +33,19 @@ $(document).ready(function() {
       </div>
       <div class="modal-body">
           <a class="share-item" data-webid="tsina" href="#" target="_blank" onclick="share()">
-            <i class="icon nova-weibo bg-red white"></i>
+            <i class="icon nova-weibo red white-text"></i>
             {{__('sns.weibo')}}
           </a> 
           <a class="share-item" data-webid="twitter" href="#" target="_blank">
             <i class="icon nova-twitter blue" style="background-color: #E3F2FD"></i>
             {{__('sns.twitter')}}
           </a>
-          <span class="share-item" data-webid="cqq" href="#" target="_blank">
-            <i class="icon nova-qq bg-blue"></i>
+          <a class="share-item" data-webid="cqq" href="#" target="_blank">
+            <i class="icon nova-qq blue"></i>
             QQ
-          </span>
+          </a>
           <a class="share-item" data-webid="weixin" href="#" target="_blank">
-            <i class="icon nova-wechat bg-green"></i>
+            <i class="icon nova-wechat green"></i>
             {{__('sns.wechat')}}
           </a>
           <a class="share-item" data-webid="" href="#" target="_blank">

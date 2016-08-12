@@ -14,24 +14,37 @@ hexo.extend.helper.register('i18n', function(key) {
   return this.__(key);
 });
 
+hexo.extend.helper.register('site_name', function() {
+  var ret = this.i18n('site.title');
+  if (!ret || ret === 'site.title') {
+    ret = this.config.title
+  }
+  return ret;
+});
+
+hexo.extend.helper.register('site_description', function() {
+  var ret = this.i18n('site.description');
+  if (!ret || ret === 'site.description') {
+    ret = this.config.description
+  }
+  return ret;
+});
+
 hexo.extend.helper.register('head_title', function() {
   var p = this.page;
   var ret = '';
   var sub = this.page_title(p);
-  
-  ret = this.i18n('site.title');
-  if (!ret) {
-    ret = this.config.title
-  }
+
+  ret = this.site_name();
   // home page
   if (this.is_home()) {
     return ret;
   }
-  
+
   if (this.is_archive()) {
     return sub + '|' + ret;
   }
-  
+
   if (p.layout == 'project') {
     if (!(p.gh && p.gh.type == "get_repos")) {
       var paths = this.page.path.split('/');
@@ -53,7 +66,7 @@ hexo.extend.helper.register('head_title', function() {
     }
     return sub + '|' + ret;
   }
-  
+
   if (sub) {
     return sub;// + '|' + ret;
   }
@@ -97,7 +110,7 @@ hexo.extend.helper.register('head_keywords', function() {
     cats = this.site.categories;
     tags = this.site.tags;
   }
-  
+
   if (cats) {
     cats.forEach(function(item) {
       kw.push(item.name);
@@ -125,13 +138,12 @@ hexo.extend.helper.register('head_keywords', function() {
 // load <head> description
 hexo.extend.helper.register('head_description', function(page) {
   var p = page ? page : this.page;
-  
+
   var ret = p.description
-  if (!ret)  ret = this.page_excerpt();
-  if (!ret)  ret = this.__('site.description');
-  if (!ret) ret = this.config.description;
+  if (!ret) ret = this.page_excerpt();
+  if (!ret) ret = this.site_description();
   if (ret) {
-    ret = this.strip_html(ret);
+    ret = this.strip_html(ret.replace(/"/g, '&quot;'));
   }
   return ret;
 });
@@ -147,25 +159,31 @@ hexo.extend.helper.register('header_menu', function(className) {
     if (i18n === 'menu.' + m.name) {
       i18n = m.name;
     }
-    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + i18n
-        + '</a></li>';
+    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + i18n + '</a></li>';
   });
 
   return result;
 });
 
 // return page title.
-hexo.extend.helper.register('page_title', function(page) {
-  var p = page ? page : this.page;
+hexo.extend.helper.register('page_title', function(page, escape) {
+  var p = page;
+  if (typeof page === 'boolean' || typeof page === 'undefined') {
+    p = this.page;
+  }
   var ret = '';
   if (p.title2) {
     ret = this.i18n(p.title2);
   }
-  else if (p.title) {
+  if (ret !== p.title2) {
     ret = p.title;
   }
-  
   if (!ret) {
+
+    if (escape) {
+      ret = ret.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    }
+
     if (this.is_category()) {
       ret = get_category_title(this, p);
     }
@@ -179,7 +197,7 @@ hexo.extend.helper.register('page_title', function(page) {
       ret = this.__('menu.home');
     }
   }
-  
+
   return ret;
 });
 
@@ -250,14 +268,14 @@ hexo.extend.helper.register('page_excerpt', function(post) {
   return excerpt;
 });
 
-// wether page is new 
+// wether page is new
 hexo.extend.helper.register('page_new', function(post) {
   var p = post ? post : this.page;
   var m = p.updated;
   var d = p.date;
   var c = new Date();
-  var diff = Math.floor(m.valueOf() - d.valueOf()) /(24*3600*1000);
-  var diff2 = Math.floor(c.getTime() - m.valueOf()) /(24*3600*1000);
+  var diff = Math.floor(m.valueOf() - d.valueOf()) / (24 * 3600 * 1000);
+  var diff2 = Math.floor(c.getTime() - m.valueOf()) / (24 * 3600 * 1000);
   // console.log(diff + ' - ' + diff2)
   if (diff > 0.5 && diff2 <= 30) {
     return true;
@@ -269,7 +287,7 @@ hexo.extend.helper.register('page_share_jiathis', function(post, webid) {
   var p = post ? post : this.page;
   var webid = webid ? webid : '';
   var link = encodeURI(p.permalink);
-  var title = encodeURI(this.page_title(p));
+  var title = encodeURI(this.page_title(p, true));
   var uid = this.theme.share.jiathis.uid;
   var summary = encodeURI(this.strip_html(this.page_excerpt(p)));
   if (summary && summary.length > 140) {
@@ -386,7 +404,7 @@ hexo.extend.helper.register('page_uid', function(page, options) {
       path = p.base;
     }
   }
-  // path = this.url_for(path); // don't add / 
+  // path = this.url_for(path); // don't add /
 
   var o = options || {};
   var hash = o.hasOwnProperty('hash') ? o.hash : this.theme.page_uid.hash;
@@ -398,9 +416,9 @@ hexo.extend.helper.register('page_uid', function(page, options) {
   if (combined && this.get_langs().indexOf(lang) >= 0) {
     paths.shift();
     var ret = paths.join('/');
-//    if (!_.endsWith(path, '/')) {
-//      ret += '/';
-//    }
+    // if (!_.endsWith(path, '/')) {
+    // ret += '/';
+    // }
     return hash ? md5(ret) : ret;
   }
   return hash ? md5(path) : path;
@@ -449,12 +467,12 @@ var archive_connector = '－';
 function get_category_title(hexo, page) {
   var dirs = page.base.split('/');
   var ret = hexo.__('category.name');
-  for(var i=1;i<dirs.length; i++){
+  for (var i = 1; i < dirs.length; i++) {
     var dir = dirs[i];
     if (dir.length == 0) continue;
     var map = hexo.config.category_map;
     if (map) {
-      for(var key in map) {
+      for ( var key in map) {
         if (map[key] === dir) {
           dir = key;
           break;
@@ -469,12 +487,12 @@ function get_category_title(hexo, page) {
 function get_tag_title(hexo, page) {
   var dirs = page.base.split('/');
   var ret = hexo.__('tag.name');
-  for(var i=1;i<dirs.length; i++){
+  for (var i = 1; i < dirs.length; i++) {
     var dir = dirs[i];
     if (dir.length == 0) continue;
     var map = hexo.config.tag_map;
     if (map) {
-      for(var key in map) {
+      for ( var key in map) {
         if (map[key] === dir) {
           dir = key;
           break;
@@ -489,7 +507,7 @@ function get_tag_title(hexo, page) {
 function get_archive_title(hexo, page) {
   var dirs = page.base.split('/');
   var ret = hexo.__('archive.name');
-  for(var i=1;i<dirs.length; i++){
+  for (var i = 1; i < dirs.length; i++) {
     var dir = dirs[i];
     if (dir.length == 0) continue;
     ret += archive_connector + dir;
