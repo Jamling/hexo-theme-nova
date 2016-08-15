@@ -76,7 +76,7 @@ about:
   email: li.jamling@gmail.com
   twitter: JamlingLi
   weibo: Jamling
-  desc: 欢迎在以下点击以下图标关注我或与我互动！
+  desc: 欢迎点击以下图标关注我或与我互动！
 
 # archive
 archive:
@@ -98,18 +98,17 @@ donate:
   
 # github removed see hexo-generator-github.
  
-##评论功能设置,目前支持disqus和duoshuo/uyan,需要在上面的modules中进行要应的设置
-# show_count 是否显示文章的评论数量
-# short_name 对应的short_name
-# 需要的其它参数也可以加在下面,然后自己修改模板来使用.theme.comments.xxxxxx来调用
-#
-# 
+##评论功能设置，目前支持disqus、多说和友言
 comments:
+  enable: true
+  using: duoshuo
   uyan:
     su: path #path|source
     uid: 2064663
-  ds:
+  duoshuo:
     short_name: ieclipse
+  disqus:
+    shortname: ieclipse
 
 # comments的补充，文章阅读数保存在leanclound上
 lc:
@@ -122,12 +121,14 @@ lc:
 share:
   jiathis:
     uid: 2064663
-## 站点分析统计代码功能组件
-# 加载在站点的footer位置
+## 站点分析统计代码功能组件，本主题提供了google统计和baidu统计
 analytics:
-  # google-analytics UA
-  google: true
-  baidu: true
+  enable: false # 
+  using: baidu
+  baidu: 
+    id: d028209965ae024527844754f50cbd94
+  google:
+    id: 
 
 ## search
 search:

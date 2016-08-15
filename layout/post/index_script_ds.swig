@@ -1,6 +1,6 @@
-{%- if theme.comments.ds %}
+{%- if theme.comments.duoshuo %}
 <script>
-  var ds_short_name = '{{theme.comments.ds.short_name}}';
+  var ds_short_name = '{{theme.comments.duoshuo.short_name}}';
 
   // load comments/likes count 
   function ds_load_comments(selector, options) {

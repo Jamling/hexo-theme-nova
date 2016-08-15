@@ -26,7 +26,7 @@
 </div>
 <!--多说js加载开始，一个页面只需要加载一次 -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"{{theme.comments.ds.short_name}}"};
+var duoshuoQuery = {short_name:"{{theme.comments.duoshuo.short_name}}"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

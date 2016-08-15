@@ -36,7 +36,7 @@
     </script>
     {{ js('js/hljs.js') }}
     {{ js('js/script.js')}}
-    {{ partial('partial/baidu_analytics') }}
+    {{ partial('partial/analytics') }}
     {{ partial('partial/baidu_push') }}
     {# partial('partial/share_jiathis') #}
     {{ partial('partial/baidu_search_script') }}

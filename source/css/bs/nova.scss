@@ -494,12 +494,13 @@ code.has-numbering {
   @include user-select-none();
 }
 
+.excerpt img,
 .article img {
   max-width: 100%;
   height: auto;
   display: inline;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 10px 10px 0;
 }
 
 .watermark {
@@ -691,7 +692,7 @@ footer.post-item-footer {
 #widget-about .icon-font {
   position: absolute;
   display: inline-block;
-  width: 24px;
+  width: 28px;
   height: 24px;
   font-size: 24px;
   top: 6px;

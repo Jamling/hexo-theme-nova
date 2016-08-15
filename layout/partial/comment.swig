@@ -1,2 +1,4 @@
 <a name="comment"></a>
-{{ partial('comment_duoshuo')}}
+{%- if theme.comments.enable %}
+{{ partial('comment_' + theme.comments.using)}}
+{%- endif %}

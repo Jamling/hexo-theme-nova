@@ -1,10 +1,10 @@
-{% if page.comments && theme.comments.ds %}
+{% if page.comments && theme.comments.duoshuo %}
 <!-- 多说评论框 start -->
     <div class="ds-thread" data-thread-key="{{page_uid()}}" data-title="{{page_title()}}" data-url="{{page.permalink}}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"{{theme.comments.ds.short_name}}"};
+var duoshuoQuery = {short_name:"{{theme.comments.duoshuo.short_name}}"};
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;

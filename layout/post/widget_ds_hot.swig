@@ -11,7 +11,7 @@
       var ds_top_url = 'http://api.duoshuo.com/sites/listTopThreads.jsonp';
       var ds_top_dom = $('#top-threads');
       var ds_top_param = ds_top_dom.data();
-      ds_top_param.short_name = '{{theme.comments.ds.short_name}}';
+      ds_top_param.short_name = '{{theme.comments.duoshuo.short_name}}';
       $.ajax({
         url : ds_top_url,
         dataType : "jsonp",
