@@ -11,12 +11,16 @@ function md5(text) {
 };
 
 hexo.extend.helper.register('i18n', function(key) {
-  return this.__(key);
+  var ret = this.__(key);
+  if (ret === key && key.indexOf('.') > 0) {
+    return '';
+  }
+  return ret;
 });
 
 hexo.extend.helper.register('site_name', function() {
   var ret = this.i18n('site.title');
-  if (!ret || ret === 'site.title') {
+  if (!ret) {
     ret = this.config.title
   }
   return ret;
@@ -24,7 +28,7 @@ hexo.extend.helper.register('site_name', function() {
 
 hexo.extend.helper.register('site_description', function() {
   var ret = this.i18n('site.description');
-  if (!ret || ret === 'site.description') {
+  if (!ret) {
     ret = this.config.description
   }
   return ret;
@@ -60,7 +64,7 @@ hexo.extend.helper.register('head_title', function() {
       // get path, has bugs
       var f = paths[paths.length - 1];
       var tmp = this.i18n('project.' + f);
-      if (tmp !== 'project.' + f) {
+      if (tmp !== '') {
         sub = tmp;
       }
     }
@@ -155,11 +159,11 @@ hexo.extend.helper.register('header_menu', function(className) {
   var _self = this;
 
   _.each(menu, function(m) {
-    var i18n = _self.__('menu.' + m.name);
-    if (i18n === 'menu.' + m.name) {
-      i18n = m.name;
+    var name = _self.__('menu.' + m.name);
+    if (name === '') {
+      name = m.name;
     }
-    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + i18n + '</a></li>';
+    result += '<li><a href="' + _self.url_for_lang(m.url) + '" class="' + className + '">' + name + '</a></li>';
   });
 
   return result;
@@ -170,20 +174,16 @@ hexo.extend.helper.register('page_title', function(page, escape) {
   var p = page;
   if (typeof page === 'boolean' || typeof page === 'undefined') {
     p = this.page;
+    escape = page;
   }
   var ret = '';
   if (p.title2) {
     ret = this.i18n(p.title2);
   }
-  if (ret !== p.title2) {
+  if (!ret) {
     ret = p.title;
   }
   if (!ret) {
-
-    if (escape) {
-      ret = ret.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
-    }
-
     if (this.is_category()) {
       ret = get_category_title(this, p);
     }
@@ -196,6 +196,10 @@ hexo.extend.helper.register('page_title', function(page, escape) {
     else if (this.is_home()) {
       ret = this.__('menu.home');
     }
+  }
+
+  if (escape) {
+    ret = ret.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
   }
 
   return ret;
