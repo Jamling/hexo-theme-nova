@@ -37,7 +37,7 @@ function listLinksHelper(links, options) {
       if (icon.indexOf('http://') == 0 || icon.indexOf('https://') == 0) {
       }
       else {
-        icon = self.url_for_lang(link.icon);
+        icon = self.url_for(link.icon);
       }
       result += '<img src="' + icon + '" alt="' + title + '">';
     }

@@ -22,7 +22,7 @@
           if (data.code==0) {
             var arr = data.response;
             if (arr.length == 0) {
-              ds_top_dom.html('{{_p("widget.hot", 0)}}');  
+              ds_top_dom.html('<div class="text-center">{{_p("widget.hot", 0)}}</div>');  
             } else {
               ds_top_dom.html('');  
               for(var i =0; i<arr.length;i++){
