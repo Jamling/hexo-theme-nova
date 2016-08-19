@@ -121,6 +121,7 @@
         break;
       }
     }
+    s1 = s1 || 'alipay';
     var src = '/image/donate_' + s1;
 //     if (s1 == "alipay") {
 //       src += '_' + s.val();
@@ -280,7 +281,7 @@
                   </select>
                 </div>
             </div>
-            <img id="donate_pic" src="/image/donate_alipay_aorm.png" alt="..." class="img-rounded" width="160" height="160">
+            <img id="donate_pic" src="/image/donate_alipay.png" alt="..." class="img-rounded" width="160" height="160">
         </form>
         </div>
         
