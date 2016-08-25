@@ -20,7 +20,7 @@ Welcome to visit [My blog](http://www.ieclipse.cn) (http://www.ieclipse.cn) to s
 ## Install
 Cd to your blog root directory
 ```bash
-$ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova -b master
+$ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 ```
 Then change site <var>_config.yml</var> set `theme: nova` to use the theme
 
@@ -31,12 +31,14 @@ Nova theme used some 3rd plugins to help. Need to install these plugins in your 
 npm install lodash --save
 npm install cheerio --save
 npm install hexo-renderer-sass --save
-npm install hexo-generate-github --save
 npm install hexo-generate-i18n --save
+
+npm install hexo-generate-github --save
+npm install hexo-filter-highlight --save
 ```
 
 <var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
-
+<var>hexo-filter-highlight</var> is unnecessary if you don't like the nova highlight solution.
 ## Config
 
 ### js_css
