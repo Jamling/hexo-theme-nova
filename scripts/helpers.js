@@ -462,6 +462,9 @@ hexo.extend.helper.register('canonical_url', function(lang) {
 });
 
 hexo.extend.helper.register('lang_name', function(lang) {
+  if (!this.site.data.languages) {
+    return lang;
+  }
   var data = this.site.data.languages[lang];
   return data.name || data;
 });
