@@ -31,14 +31,15 @@ Nova theme used some 3rd plugins to help. Need to install these plugins in your 
 npm install lodash --save
 npm install cheerio --save
 npm install hexo-renderer-sass --save
-npm install hexo-generate-i18n --save
+npm install hexo-generator-i18n --save
 
-npm install hexo-generate-github --save
+npm install hexo-generator-github --save
 npm install hexo-filter-highlight --save
 ```
 
-<var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
-<var>hexo-filter-highlight</var> is unnecessary if you don't like the nova highlight solution.
+- <var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
+- <var>hexo-filter-highlight</var> is unnecessary if you don't like the nova highlight solution.
+
 ## Config
 
 ### js_css
