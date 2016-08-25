@@ -18,7 +18,7 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 ## 安装
 Cd到博客/站点根目录，然后检出代码
 ```bash
-$ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova -b master
+$ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 ```
 最后在站点<var>_config.yml</var> 配置文件中设置 `theme: nova` 来使用nova主题。
 
@@ -29,10 +29,14 @@ $ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova -b master
 npm install lodash --save
 npm install cheerio --save
 npm install hexo-renderer-sass --save
-npm install hexo-generate-github --save
 npm install hexo-generate-i18n --save
+
+npm install hexo-generate-github --save
+npm install hexo-filter-highlight --save
 ```
+
 <var>hexo-generator-github</var>不是必需的，如果sources中没有`project`布局页面，则可以不安装此插件。
+<var>hexo-filter-highlight</var>不是必需的，如果不想用本主题代码高亮方案，则可以不安装此插件。
 
 ## 主题配置
 
