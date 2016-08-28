@@ -9,7 +9,7 @@ The theme provided three layouts to demonstrate the page.
  2. `project` for github project page
  3. `page` for other pages
 
-Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar. 
+Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar.
 
 Welcome to visit [My blog](http://www.ieclipse.cn) (http://www.ieclipse.cn) to see the demo.
 
@@ -28,8 +28,6 @@ Then change site <var>_config.yml</var> set `theme: nova` to use the theme
 Nova theme used some 3rd plugins to help. Need to install these plugins in your site/blog before using nova.
 
 ```powershell
-npm install lodash --save
-npm install cheerio --save
 npm install hexo-renderer-sass --save
 npm install hexo-generator-i18n --save
 
@@ -138,11 +136,10 @@ Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
 
 ### Plugins
 
-- [lodash] used as util library for writing script plugin.
-- [cheerio] helps to process toc.
 - [hexo-renderer-sass] helps to generate css.
-- [hexo-generator-github] helps to generate project pages.
 - [hexo-generator-i18n] helps to generate multi-language sites.
+- [hexo-generator-github] helps to generate project pages.
+- [hexo-filter-highlight] Helps to highlight code block.
 
 Please see [nova plugins](https://ieclipse.cn/en/p/hexo-theme-nova/plugins.html) for more information.
 
@@ -152,4 +149,3 @@ Please see [nova plugins](https://ieclipse.cn/en/p/hexo-theme-nova/plugins.html)
 [hexo-renderer-sass]: https://github.com/knksmith57/hexo-renderer-sass
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
 [hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
-

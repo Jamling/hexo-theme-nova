@@ -26,8 +26,6 @@ $ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 请参考 [插件](#Plugins)
 
 ```powershell
-npm install lodash --save
-npm install cheerio --save
 npm install hexo-renderer-sass --save
 npm install hexo-generator-i18n --save
 
@@ -135,11 +133,10 @@ layout:
 
 ### 插件
 
-- [lodash] 作为script类型插件的实用库。
-- [cheerio] 用于处理TOC。
 - [hexo-renderer-sass] 用于生成css。
-- [hexo-generator-github] 用于辅助生成github项目相关的页面。
 - [hexo-generator-i18n] 用于辅助生成多语言站点页页。
+- [hexo-generator-github] 用于辅助生成github项目相关的页面。
+- [hexo-filter-highlight] 用于代码高亮
 
 详情请参考[nova plugins](https://ieclipse.cn/p/hexo-theme-nova/plugins.html)
 

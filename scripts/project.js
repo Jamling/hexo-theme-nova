@@ -1,7 +1,7 @@
 'use strict';
 
 var pathFn = require('path');
-var _ = require('lodash');
+var _ = require('../../../node_modules/hexo/node_modules/lodash');
 var util = require('util');
 
 // project layout left nav tree
@@ -9,14 +9,14 @@ hexo.extend.helper.register('p_nav', function(options){
   var o = options || {};
   var parent_color = o.hasOwnProperty('parent_color') ? o.parent_color : null;
   var child_color = o.hasOwnProperty('child_color') ? o.child_color : null;
-  
+
   var _self = this;
-  
+
   var paths = this.page.path.split('/');
   var name = this.page.gh? this.page.gh.repo : paths[paths.length - 2];
   var file = paths[paths.length - 1];
   var p = this.site.data.projects[name];
-  
+
   function Node(){ // bootstrap-treeview refer to: http://www.htmleaf.com/jQuery/Menu-Navigation/201502141379.html
     var node = {
       text: "",
@@ -37,14 +37,14 @@ hexo.extend.helper.register('p_nav', function(options){
     }
     return node;
   }
-  
+
   function JqNode(){
     var node = {
-      
+
     }
     return node;
   }
-  
+
   function i18n(key){
     var last = key.split('.').pop();
     var i18n = _self.__('project.' + last);
@@ -53,10 +53,10 @@ hexo.extend.helper.register('p_nav', function(options){
     }
     return _self.__(key);
   }
-  
+
   var data = [];
   var mis = [];
-  
+
   function iterate(item, pnode, pk){
     _.each(item, function(value, key){
       var n = new Node();
@@ -89,7 +89,7 @@ hexo.extend.helper.register('p_nav', function(options){
       }
     });
   }
-  
+
   iterate(p, data, name);
   var dir = pathFn.dirname(this.page.path) + '/';
   var i = mis.indexOf(file);

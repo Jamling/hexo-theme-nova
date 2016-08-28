@@ -1,7 +1,7 @@
 'use strict';
 
 var pathFn = require('path');
-var _ = require('lodash');
+var _ = require('../../../node_modules/hexo/node_modules/lodash');
 var url = require('url');
 var util = require('util');
 var crypto = require('crypto');

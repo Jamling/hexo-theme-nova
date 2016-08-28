@@ -1,8 +1,8 @@
 site:
   title: Jamling's Blog and Project Site
-  subtitle: Jamling's Blog & Open Project 
+  subtitle: Jamling's Blog & Open Project
   description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
-  
+
 project:
   overview: Overview
   download: Downloads
@@ -21,10 +21,10 @@ page:
   next: Next
   last_updated: "Last updated: %s"
   more: Read more
-  path: Path 
+  path: 'Path: '
   blog: Blog
   language: Language
-  written_on: Post at 
+  written_on: 'Post at: '
 
 article:
   views: Views
@@ -52,7 +52,7 @@ category:
   label: *category.name
   empty: No categories
   loading: Loading categories...
-  
+
 archive:
   name: &archive.name Archives
   empty: No posts
@@ -68,11 +68,11 @@ widget:
   announce: Announce
   about: About
   links: Links
-  
+
 ajax:
   loading: Loading...
   error: Load failed
-  
+
 hljs:
   left: Code
   right: ':'
@@ -86,7 +86,7 @@ menu:
   archive: *archive.name
   about: About
   donate: Donate
-  
+
 donate:
   name: Donate
   page: # page / post / article
