@@ -326,7 +326,7 @@ hexo.extend.helper.register('post_cates', function(post, options) {
 hexo.extend.helper.register('post_tags', function(post, options) {
   var o = options || {};
   var _class = o.hasOwnProperty('class') ? o.class : 'tag-item';
-  var icon = o.hasOwnProperty('icon') ? o.icon : 'glyphicon glyphicon-tags';
+  var icon = o.hasOwnProperty('icon') ? o.icon : 'icon nova-tags';
   var cats = post.tags;
   var _self = this;
   var ret = '';
