@@ -1,5 +1,5 @@
 <div id="navbar-toc">
-      <nav id="toc" class="hidden-print hidden-xs hidden-sm well" data-spy="affix">
+      <nav id="toc" class="hidden-print hidden-xs hidden-sm" data-spy="affix">
         <h3 class="toc-title"><a role="button" data-toggle="collapse" href="#toc-body" aria-expanded="true">
           {{ __('page.contents') }}
         </a></h3>

@@ -68,24 +68,6 @@
     else {
       baseLang = navigator.language.substring(0, 2).toLowerCase();
     }
-
-    /* language match */
-    switch (baseLang) {
-    case "de":
-      /* german */
-      this.slideDown("slow");
-      break;
-    case "en":
-      /* english */
-      break;
-    case "ja":
-      /* japanese */
-      break;
-    case "zh":
-      /* 中文 */
-      break;
-    default:
-      /* default no match */
-    }
+    console.log(baseLang);//zh
   };
 })(jQuery);

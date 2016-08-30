@@ -41,7 +41,7 @@ a[rel="external"]:after {
   content: "\e907";
 }
 
-a:HOVER, a:ACTIVE {
+a:HOVER, a:ACTIVE, a:FOCUS {
   text-decoration: none;
   color: $a-color-active;
 }
@@ -52,6 +52,10 @@ a.list-group-item {
 
 a.list-group-item:hover, a.list-group-item:active {
   color: $a-color-active;
+}
+
+var {
+  font-weight: bold;
 }
 
 ol, ul {
@@ -140,6 +144,15 @@ ol, ul {
   padding-left: 0;
 }
 
+#toc {
+  @extend .hoverable;
+  @extend .card-content;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+  @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12));
+}
+
 #toc .nav {
   padding-left: 0;
   margin-left: 0;
@@ -181,15 +194,21 @@ blockquote {
   display: block;
 }
 
+blockquote.donate p a {
+  display: table;
+  color: #f96;
+}
+
 blockquote.donate img {
   vertical-align: middle;
   margin-right: 10px;
-  display: block;
-  float: left;
+  display: table-cell;
 }
 
 blockquote.donate span {
   line-height: 32px;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 img.donate {
@@ -274,6 +293,10 @@ article.article .article-edit-link {
   padding-top: .5em;
 }
 
+.article-content a {
+  color: $article-a-color;
+}
+
 .article-content .headerlink {
   display: none;
   float: right;
@@ -295,6 +318,9 @@ article.article .article-edit-link {
 .article, .excerpt {
   text-align: justify;
   text-justify: inter-ideograph;
+}
+
+.article {
 }
 
 .excerpt {
@@ -413,6 +439,10 @@ footer.article-footer {
 
 #projects h3 {
   margin: 0;
+}
+
+#projects .panel a {
+  color: $article-a-color;
 }
 
 #projects .panel-body p {
@@ -653,6 +683,11 @@ footer.post-item-footer {
   @include box-sizing(content-box);
 }
 /* ds */
+.ds-thread {
+  @extend .card;
+  @extend .hoverable;
+  @extend .card-content;
+}
 .ds-top-threads {
   
 }
