@@ -3,6 +3,8 @@
 page_uid:
   hash: true # 是否加密，加密后的uid没有特殊字符，推荐使用此项。
   combined: true #是否合并多语言uid，true则多语言页面使用相同的uid
+# 当文章有修改时，是否在标题后面显示“new”并且高亮最后修改日期
+page_new: false
 
 # script and css，站点使用的全局脚本及css文件
 js_css:
@@ -17,8 +19,8 @@ js_css:
 - url: //cdn.bootcss.com/sidr/2.2.1/jquery.sidr.min.js
 - url: js/jquery.bootstrap-autohidingnavbar.min.js
 - url: //cdn.bootcss.com/sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css
-- url: //cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css
-- url: //cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js
+- url: //cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css
+- url: //cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
 - url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
 - url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
