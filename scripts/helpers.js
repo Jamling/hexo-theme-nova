@@ -274,15 +274,18 @@ hexo.extend.helper.register('page_excerpt', function(post) {
 
 // wether page is new
 hexo.extend.helper.register('page_new', function(post) {
-  var p = post ? post : this.page;
-  var m = p.updated;
-  var d = p.date;
-  var c = new Date();
-  var diff = Math.floor(m.valueOf() - d.valueOf()) / (24 * 3600 * 1000);
-  var diff2 = Math.floor(c.getTime() - m.valueOf()) / (24 * 3600 * 1000);
-  // console.log(diff + ' - ' + diff2)
-  if (diff > 0.5 && diff2 <= 30) {
-    return true;
+  if (_.isUndefined(this.theme.page_new) && this.theme.page_new === true) {
+    var p = post ? post : this.page;
+    var m = p.updated;
+    var d = p.date;
+    var c = new Date();
+    var diff = Math.floor(m.valueOf() - d.valueOf()) / (24 * 3600 * 1000);
+    var diff2 = Math.floor(c.getTime() - m.valueOf()) / (24 * 3600 * 1000);
+    // console.log(diff + ' - ' + diff2)
+    if (diff > 0.5 && diff2 <= 30) {
+      return true;
+    }
+    return false;
   }
   return false;
 });

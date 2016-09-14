@@ -1,0 +1,15 @@
+language: node_js
+node-js: 
+  - "4"
+
+cache: 
+  apt: true
+  directories:
+    - node_modules
+
+before_install: 
+  - npm install lodash --save
+
+script:
+  - npm test
+  

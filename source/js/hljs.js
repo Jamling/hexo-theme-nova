@@ -37,7 +37,14 @@
   });
 
   $('.article pre code').each(function(i, block) {
-    var ds = $(this).parent().prev(code_caption_selector).data();
+    var caption = $(this).parent().prev(code_caption_selector);
+    if (typeof caption === 'undefined') {
+      return;
+    }
+    var ds = caption.data();
+    if (typeof ds === 'undefined') {
+      ds = {trim_indent: 'frontend', line_number : 'frontend'}
+    }
     var texts = $(this).text().split('\n');
     if (ds.trim_indent === 'frontend') {
       console.log("trim indent in front-end");
