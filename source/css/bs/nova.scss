@@ -514,6 +514,8 @@ code.has-numbering {
   clear: both;
   position: relative;
   top: 0; /*empty p height*/
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .code-caption .code-caption-label {

@@ -27,7 +27,7 @@ $ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 最后在站点<var>_config.yml</var> 配置文件中设置 `theme: nova` 来使用nova主题。
 
 ## 依赖
-请参考 [插件](#Plugins)
+本主题使用了一些第3方的插件，在使用之前，请在博客站点根目录下安装这些插件
 
 ```powershell
 npm install hexo-renderer-sass --save
@@ -149,3 +149,4 @@ layout:
 [hexo-renderer-sass]: https://github.com/knksmith57/hexo-renderer-sass
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
 [hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
+[hexo-filter-highlight]: https://github.com/Jamling/hexo-filter-highlight/

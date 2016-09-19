@@ -68,7 +68,7 @@ post_widgets_recent_count: 5
 # widget links, url is required, name and icon is optional, the icon can be relative or absolute path.
 post_widgets_links:
   - name: Jamling's Blog
-    url: http://www.ieclipse.cn
+    url: http://life.ieclipse.cn
     icon: /image/logo.png
 
 # about

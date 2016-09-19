@@ -153,3 +153,4 @@ Please see [nova plugins](https://ieclipse.cn/en/p/hexo-theme-nova/plugins.html)
 [hexo-renderer-sass]: https://github.com/knksmith57/hexo-renderer-sass
 [hexo-generator-github]: https://github.com/Jamling/hexo-generator-github/
 [hexo-generator-i18n]: https://github.com/Jamling/hexo-generator-i18n/
+[hexo-filter-highlight]: https://github.com/Jamling/hexo-filter-highlight/
