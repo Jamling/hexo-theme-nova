@@ -9,6 +9,7 @@
     // image
     $(this).find('img').each(function() {
       if ($(this).parent().hasClass('fancybox-button')) return;
+      if ($(this).parent().get(0).nodeName.toLowerCase() === 'a') return;
       var alt = this.alt;
       if (alt) $(this).after('<span class="funcybox-caption">' + alt + '</span>');
 
