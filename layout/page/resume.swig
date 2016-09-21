@@ -1,25 +1,12 @@
-<article class="article page" itemscope="itemscope" itemtype="http://schema.org/Article">
-  <header class="article-header">
-    <meta content="{{ date_xml(page.date) }}" itemprop="datePublished">
-  </header>
-  <div class="article-content" itemprop="articleBody">
-  {% block content %}
-    {{ page.content }}
-  {% endblock %}
-  </div>
-  <footer class="container article-footer">
-    <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">
-    {{__('page.last_updated', date(page.updated)) }}
-    </time>
-    <span itemprop="author publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
-      <meta content="{{ config.url }}" itemprop="url">
-      <meta content="{{__('site.title')}}" itemprop="name">
-      <meta content="/image/logo.png" itemprop="logo">
-    </span>
-    {{ partial('../partial/share_jiathis_footer') }}
-  </footer>
-</article>
+{% block content %}
+  {{ page.content }}
+{% endblock %}
+
 <div class="container">
+  <div style="margin: 1em 0">
+  {{ partial('../partial/share_jiathis_footer') }}
+  </div>
+  <div class="divider"></div>
   {{ partial('../partial/donate') }}
   {{ partial('../partial/comment') }}
 </div>
@@ -46,7 +33,7 @@ $('#input-modal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     $('#input-modal .ok').data(button.data());
     $("#input-modal .ok").click(function(event) {
-      
+
       var src_type = $("#input-modal .ok").data('type');
       var src_selector = $("#input-modal .ok").data('selector');
       var url = $("#input-modal .input-url").val();
@@ -56,7 +43,7 @@ $('#input-modal').on('show.bs.modal', function (event) {
         $(src_selector).attr('src', url);
       }
       $('#input-modal').modal('hide');
-      
+
     });
 });
 

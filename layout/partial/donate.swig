@@ -1,4 +1,4 @@
-{%- if theme.donate.enable %}
+{%- if theme.donate.enable && (page.donate === undefined || page.donate) %}
 <!-- Button trigger modal -->
 <blockquote class="donate"><!--
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#DonateModal">

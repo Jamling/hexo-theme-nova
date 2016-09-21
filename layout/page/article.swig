@@ -1,11 +1,13 @@
 <article class="article page" itemscope="itemscope" itemtype="http://schema.org/Article">
   <header class="article-header">
+    {% block article-header %}
     <h1 class="article-title" itemprop="name headline">
       {{ page_title() }}
       {%- if page.gh %}
       <a href="{{ gh_edit(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
       {%- endif %}
     </h1>
+    {% endblock %}
     <meta content="{{ date_xml(page.date) }}" itemprop="datePublished">
   </header>
   <div class="article-content" itemprop="articleBody">
@@ -25,8 +27,10 @@
     {{ partial('../partial/share_jiathis_footer') }}
   </footer>
 </article>
+{% block suffix %}
 <div>
   <nav>{{ nova_paginator2() }}</nav>
   {{ partial('../partial/donate') }}
   {{ partial('../partial/comment') }}
 </div>
+{% endblock %}

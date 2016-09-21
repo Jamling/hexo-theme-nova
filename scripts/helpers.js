@@ -144,7 +144,7 @@ hexo.extend.helper.register('head_description', function(page) {
   var p = page ? page : this.page;
 
   var ret = p.description
-  if (!ret) ret = this.page_excerpt();
+  if (!ret) ret = this.page_excerpt(p);
   if (!ret) ret = this.site_description();
   if (ret) {
     ret = this.strip_html(ret.replace(/"/g, '&quot;'));

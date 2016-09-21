@@ -1,4 +1,4 @@
-
+{%- if (page.share === undefined || page.share) %}
   <!-- JiaThis Button BEGIN -->
   <div class="jiathis_style clearfix"><a id="share" href="#share"></a>
       <span class="jiathis_txt icon nova-share">{{__('sns.share')}}：</span>
@@ -12,3 +12,4 @@
   </div>
   <!-- JiaThis Button END -->
   {{ partial('share_jiathis') }}
+{%- endif %}
