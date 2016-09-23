@@ -1,9 +1,10 @@
 (function($) {
-  
   // scroll-spy
-  $('body').scrollspy({ target: '#navbar-toc' });
-  $('#toc').css('min-width', $('#navbar-toc').css('width'));
-  
+  if ($('#navbar-toc').get(0)) {
+    $('body').scrollspy({ target: '#navbar-toc' });
+    $('#toc').css('min-width', $('#navbar-toc').css('width'));
+  }
+
   // Article
   $('.article').each(function(i) {
     // image

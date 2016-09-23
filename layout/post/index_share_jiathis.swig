@@ -23,7 +23,6 @@ $(document).ready(function() {
   });
 });*/
 </script>
-</main>
 <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-labelledby="share target">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -35,7 +34,7 @@ $(document).ready(function() {
           <a class="share-item" data-webid="tsina" href="#" target="_blank" onclick="share()">
             <i class="icon nova-weibo red white-text"></i>
             {{__('sns.weibo')}}
-          </a> 
+          </a>
           <a class="share-item" data-webid="twitter" href="#" target="_blank">
             <i class="icon nova-twitter blue" style="background-color: #E3F2FD"></i>
             {{__('sns.twitter')}}
