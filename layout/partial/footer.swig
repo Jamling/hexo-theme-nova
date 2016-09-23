@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="body-footer">
   <div class="divider"></div>
   <div>&nbsp;</div>
   <div class="inner text-center">

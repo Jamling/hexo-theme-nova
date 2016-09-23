@@ -24,5 +24,3 @@
   </div> <!-- end aside column  -->
 </div> <!-- end row -->
 </div> <!-- end container -->
-{%- block page-suffix %}
-{%- endblock %}

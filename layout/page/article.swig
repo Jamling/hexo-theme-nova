@@ -1,4 +1,3 @@
-{{ page_encrypt(page, {dom:'.article-content'}) }}
 <article class="article {{layout_type}}" itemscope="itemscope" itemtype="http://schema.org/Article">
   <header class="article-header">
     {%- block article-header %}
@@ -29,8 +28,8 @@
     {{ partial('../partial/share_jiathis_footer') }}
   </footer>
 </article>
-{% block suffix %}
-<div>
+{% block page-footer %}
+<div class="page-footer">
   <nav>{{ nova_paginator2() }}</nav>
   {{ partial('../partial/donate') }}
   {{ partial('../partial/comment') }}

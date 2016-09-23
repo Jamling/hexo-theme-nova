@@ -1,4 +1,4 @@
-<header>
+<header id="body-header">
   <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,11 +19,11 @@
         <!-- search input -->
         {{ partial('baidu_search_site') }}
         <ul class="nav navbar-nav navbar-right">
-          {%- if get_langs().length > 1 %}    
+          {%- if get_langs().length > 1 %}
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{__('page.language')}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              
+
               {%- for lang in get_langs() %}
               <li><a href="{{switch_lang(lang)}}">{{ lang_name(lang) }}</a></li>
               {%- endfor %}
@@ -43,7 +43,7 @@
     	$('body').click(function(){
     	  $.sidr('close', 'sidr-main');
     	});
-    	
+
     	$(".navbar-fixed-top").autoHidingNavbar({
     	  // see next for specifications
     	});
