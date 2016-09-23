@@ -1,3 +1,4 @@
+{{ page_encrypt(page, {dom:'.article-content'}) }}
 <article class="article {{layout_type}}" itemscope="itemscope" itemtype="http://schema.org/Article">
   <header class="article-header">
     {%- block article-header %}
@@ -14,8 +15,9 @@
   {% block content %}
     {{ page.content }}
   {% endblock %}
-  {{js('/js/decrypt.min.js')}}
   </div>
+
+  {{js('/js/decrypt.min.js')}}
   <footer class="article-footer">
     <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">
     {{__('page.last_updated', date(page.updated)) }}

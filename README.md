@@ -15,7 +15,9 @@ The theme provided three layouts to demonstrate the page.
 
 Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar.
 
-Welcome to visit [My blog](http://www.ieclipse.cn) (http://www.ieclipse.cn) to see the demo.
+Welcome to visit [My blog](http://www.ieclipse.cn/en/) (http://www.ieclipse.cn/en/) to see the demo.
+
+[Here is some special feature](http://www.ieclipse.cn/en/demo/) of [Nova].
 
 ## ScreenShot
 
