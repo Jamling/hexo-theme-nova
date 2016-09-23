@@ -15,8 +15,9 @@
   {% block content %}
     {{ page.content }}
   {% endblock %}
-  {{js('/js/decrypt.min.js')}}
   </div>
+
+  {{js('/js/decrypt.min.js')}}
   <footer class="article-footer">
     <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">
     {{__('page.last_updated', date(page.updated)) }}
@@ -29,8 +30,8 @@
     {{ partial('../partial/share_jiathis_footer') }}
   </footer>
 </article>
-{% block suffix %}
-<div>
+{% block page-footer %}
+<div class="page-footer">
   <nav>{{ nova_paginator2() }}</nav>
   {{ partial('../partial/donate') }}
   {{ partial('../partial/comment') }}

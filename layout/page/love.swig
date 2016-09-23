@@ -178,7 +178,7 @@
       })();
     </script>
 </div>
-<div class="container">
+<div class="container page-footer">
   <div style="margin: 1em 0">
   {{ partial('../partial/share_jiathis_footer') }}
   </div>

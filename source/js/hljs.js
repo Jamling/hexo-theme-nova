@@ -6,7 +6,7 @@
   if (typeof hljs_labels === 'undefined') {
     hljs_labels = {};
   }
-  
+
   var code_caption_selector = '.code-caption';
 
   $(code_caption_selector).each(function(i, target) {
@@ -14,15 +14,15 @@
     if (ds.hide) {
       $(this).css('display', 'none');
     }
-    
+
     var label = $(this).find(code_caption_selector + '-label');
     $(label).prepend(hljs_labels.left || ds.labels_left);
     $(label).append(hljs_labels.right || ds.labels_right);
-    
+
     var copy = $(this).find(code_caption_selector + '-copy');
     var tip = hljs_labels.copy || $(copy).text();
     $(copy).html('<i class="icon nova-copy"></i>').attr("title", tip);
-    
+
     // if (ds.label_position === 'outer')
     {
       $(this).next('p').remove();

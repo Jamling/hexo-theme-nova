@@ -4,7 +4,3 @@
 {{ partial('post/widget_' + widget) }}
 {%- endfor %}
 {%- endblock %}
-
-{%- block page-suffix %}
-{% parent %}
-{%- endblock %}
