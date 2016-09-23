@@ -12,7 +12,7 @@
     url : '{{page.permalink}}' || '{{page.path}}',
     title : '{{page_title()}}'
   };
-  
+
   var lc_table = '{{theme.lc.class}}' || 'Counter';
 
   (function() {
@@ -67,9 +67,12 @@
         console.log(error);
       });
     }
-    
+
     function show(data) {
-      $(".post-share .nova-eye .count").html(data.get('views'));
+      $(".lc-count").html(data.get('views'));
+    }
+    function show_count(count) {
+      $(".lc-count").html(count);
     }
   })();
 </script>

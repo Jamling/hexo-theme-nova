@@ -1,19 +1,21 @@
-<article class="article page" itemscope="itemscope" itemtype="http://schema.org/Article">
+{{ page_encrypt(page, {dom:'.article-content'}) }}
+<article class="article {{layout_type}}" itemscope="itemscope" itemtype="http://schema.org/Article">
   <header class="article-header">
-    {% block article-header %}
+    {%- block article-header %}
     <h1 class="article-title" itemprop="name headline">
       {{ page_title() }}
       {%- if page.gh %}
       <a href="{{ gh_edit(page.gh) }}" class="article-edit-link" title="{{ __('page.improve') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
       {%- endif %}
     </h1>
-    {% endblock %}
+    {%- endblock %}
     <meta content="{{ date_xml(page.date) }}" itemprop="datePublished">
   </header>
   <div class="article-content" itemprop="articleBody">
   {% block content %}
     {{ page.content }}
   {% endblock %}
+  {{js('/js/decrypt.min.js')}}
   </div>
   <footer class="article-footer">
     <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">

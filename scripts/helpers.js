@@ -472,6 +472,49 @@ hexo.extend.helper.register('lang_name', function(lang) {
   return data.name || data;
 });
 
+hexo.extend.helper.register('page_encrypt', function(page, options) {
+  function enc(hexo, p) {
+    var ext = pathFn.extname(p.source);
+    if ('.html' === ext || '.htm' === ext) {
+      p.content = escape(p.content);
+    }
+    else if ('.md' === ext) {
+      p.content = escape(hexo.markdown(p.content));
+    }
+  }
+  var p = page ? page : this.page;
+  var code = p.password;
+  if (typeof(code) === 'undefined' || !code) {
+    return '';
+  }
+
+  var tip = this.__('page.password_tip');
+  var emsg = this.__('page.password_error');
+  var o = _.extend({v:1, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
+  if (o.v == 1) {
+    var c = String.fromCharCode(code.charCodeAt(0) + code.length);
+    for(var i=1; i < code.length; i++) {
+      c += String.fromCharCode(code.charCodeAt(i) + code.charCodeAt(i-1));
+    }
+    o.code = encodeURI(c); // console.log(o);
+    enc(this, p);
+  } else if (o.v == 2) {
+    o.code = md5(code);
+    // p.content = escape(p.content);
+  }
+
+
+
+  var url = o.src + '?';
+  delete o.src;
+  var arr = [];
+  _.each(o, function(v,k){
+    arr.push(k + "=" + v);
+  });
+  url += arr.join('&');
+  return '<script src="' + url + '"></script>';
+});
+
 // internal method
 var archive_connector = '－';
 function get_category_title(hexo, page) {

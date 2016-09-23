@@ -25,6 +25,9 @@ page:
   blog: Blog
   language: Language
   written_on: 'Post at: '
+  visits: 'Site Visits: '
+  password_tip: 'Please input password to view this page'
+  password_error: 'Error password, you have no right to view the content!'
 
 article:
   views: Views

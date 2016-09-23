@@ -25,6 +25,9 @@ page:
   blog: 文章
   language: 语言
   written_on: 发表于
+  visits: '本站访问数：'
+  password_tip: '本页面需要输入密码才能访问'
+  password_error: '密码错误，无法访问！'
 
 article:
   views: 次阅读
@@ -52,7 +55,7 @@ category:
   label: *category.name
   empty: 暂无分类
   loading: 分类加载中...
-  
+
 archive:
   name: &archive.name 归档
   empty: 暂无文章
@@ -72,7 +75,7 @@ widget:
 ajax:
   loading: 正在载入...
   error: 加载失败
-  
+
 hljs:
   left: 代码
   right: '如下：'
@@ -86,7 +89,7 @@ menu:
   archive: *archive.name
   about: 关于
   donate: 捐赠墙
-  
+
 donate:
   name: 捐赠
   page: # page / post / article

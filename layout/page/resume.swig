@@ -1,6 +1,10 @@
+{{ page_encrypt(page, {dom:'.page-body', src:'/js/encrypt.min.js'}) }}
+<div class="page-body">
 {% block content %}
   {{ page.content }}
 {% endblock %}
+</div>
+{{js('/js/decrypt.min.js')}}
 
 <div class="container">
   <div style="margin: 1em 0">

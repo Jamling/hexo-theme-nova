@@ -58,10 +58,10 @@ post_widgets:
   - ds_hot
   - ds_recent_comments
   - links
-  
+
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
 # used ajax to get widget_xxx contents dynamicly to avoid change all pages.
-# 
+#
 post_widgets_ajax: true
 post_widgets_show_count: true
 post_widgets_recent_count: 5
@@ -95,11 +95,10 @@ toc:
   page: true
 # donate
 donate:
-  data_url: http://ot.ieclipse.cn/ot/index.php/Home/Donate/index
   enable: true # whether enable page donate
-  
+
 # github removed see hexo-generator-github.
- 
+
 ##评论功能设置，目前支持disqus、多说和友言
 comments:
   enable: true
@@ -125,12 +124,12 @@ share:
     uid: 2064663
 ## 站点分析统计代码功能组件，本主题提供了google统计和baidu统计
 analytics:
-  enable: false # 
+  enable: false #
   using: baidu
-  baidu: 
+  baidu:
     id: d028209965ae024527844754f50cbd94
   google:
-    id: 
+    id:
 
 ## search
 search:
@@ -164,4 +163,3 @@ layout:
   d: #donates
     main: col-sx-12 col-sm-8 col-md-9 col-lg-9
     top: col-sx-6 col-sm-4 col-md-3 col-lg-3
-
