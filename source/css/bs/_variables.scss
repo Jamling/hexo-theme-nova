@@ -63,7 +63,7 @@ $tag-bg-3: #faebcc;
   -ms-transform: $value;       /* IE 9 */
   -webkit-transform: $value;   /* Safari and Chrome */
   -o-transform: $value;        /* Opera */
-  -moz-transform: $value;  
+  -moz-transform: $value;
 }
 
 @mixin transition ($value) {
@@ -77,7 +77,7 @@ $tag-bg-3: #faebcc;
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */  
+  user-select: none;          /* Likely future */
 }
 
 @mixin keyframes($animation-name) {
