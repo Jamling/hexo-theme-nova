@@ -131,6 +131,9 @@ ol, ul {
 .toc-title {
   margin-top: 0;
 }
+.toc-title a {
+  color: $nav-a-color;
+}
 
 .toc-ul>li {
   margin-left: 1em;
@@ -421,7 +424,7 @@ footer.article-footer {
 }
 
 .share-item a {
-  
+
 }
 
 /* start project */
@@ -464,7 +467,7 @@ footer.article-footer {
 }
 /* end projects */
 .node-project_tree a {
-  
+
 }
 
 pre {
@@ -522,7 +525,7 @@ code.has-numbering {
   font-style: italic;
   font-weight: bold;
  }
- 
+
 .code-caption .code-caption-copy {
   float: right;
   @include user-select-none();
@@ -592,7 +595,7 @@ footer.post-item-footer {
   bottom: 4px;
   font-weight: bold;
   position: relative;
-} 
+}
 
 .card-content {
   padding: 1em;
@@ -674,7 +677,7 @@ footer.post-item-footer {
   float: left;
 }
 
-.article blockquote, 
+.article blockquote,
 .article blockquote p {
   word-wrap: break-word;
   word-break: normal;
@@ -691,7 +694,7 @@ footer.post-item-footer {
   @extend .card-content;
 }
 .ds-top-threads {
-  
+
 }
 .ds-recent-comments {
   margin: 0;

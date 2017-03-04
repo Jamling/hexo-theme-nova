@@ -4,9 +4,9 @@ $body-color: #666 !default;
 
 $body-bg: #ffffff !default;
 
-$a-color: #666 !default; //#29b6f6
+$a-color: #29b6f6 !default; //#29b6f6
 
-$a-color-active:  #29b6f6;
+$a-color-active:  #29b600 !important;
 
 $article-a-color: #42a5f5;
 
@@ -18,11 +18,11 @@ $divider-color: #e0e0e0;
 
 $tag-color: $body-color;
 
-$tag-bg: lighten(red, 40%); //#ebccd1;
+$tag-bg: lighten(grey, 40%); //#ebccd1;
 
-$tag-bg-2: #bce8f1;
+$tag-bg-2: lighten(grey, 40%);
 
-$tag-bg-3: #faebcc;
+$tag-bg-3: lighten(grey, 40%);
 
 @mixin box-shadow($shadows...) {
   -moz-box-shadow: $shadows;
