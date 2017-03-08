@@ -26,7 +26,7 @@ function NovaCrypt() {
       }
       return c;
     } else if (this.v == '2') {
-      // TODO md5 hex
+      return md5(code);
     }
     return code;
   };
