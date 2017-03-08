@@ -491,7 +491,7 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
   code = code + '';
   var tip = this.__('page.password_tip');
   var emsg = this.__('page.password_error');
-  var o = _.extend({v:1, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
+  var o = _.extend({v:2, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
   if (o.v == 1) {
     var c = String.fromCharCode(code.charCodeAt(0) + code.length);
     for(var i=1; i < code.length; i++) {
@@ -500,8 +500,8 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
     o.code = encodeURI(c); // console.log(o);
     enc(this, p);
   } else if (o.v == 2) {
-    o.code = md5(code);
-    // p.content = escape(p.content);
+    o.code = encodeURI(md5(code));
+    enc(this, p);
   }
 
 
@@ -513,7 +513,11 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
     arr.push(k + "=" + v);
   });
   url += arr.join('&');
-  return '<script src="' + url + '"></script>';
+  url = '<script src="' + url + '"></script>';
+  if (o.v == 2) {
+    url = '<script src="//cdn.bootcss.com/blueimp-md5/2.7.0/js/md5.min.js"></script>\n' + url;
+  }
+  return url;
 });
 
 // internal method
