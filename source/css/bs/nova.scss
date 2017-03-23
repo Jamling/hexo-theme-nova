@@ -715,6 +715,23 @@ footer.post-item-footer {
   @include transition(transform 1s);
 }
 
+/* cy */
+.cy-wrapper .hotusers-header {
+  display: none;
+}
+.cy-wrapper .hotusers-list-item{
+  border-bottom: 0px !important;
+}
+.cy-wrapper .hotusers-nick {
+  width: auto !important;
+}
+.cy-wrapper .hotusers-totalcmt {
+  display: block !important;
+}
+.cy-wrapper>ul{
+  @extend .list-group;
+}
+
 #widget-about .icon {
   width: 36px;
   height: 36px;

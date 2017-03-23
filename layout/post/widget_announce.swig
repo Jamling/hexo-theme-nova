@@ -15,7 +15,7 @@
         url : ds_top_url,
         dataType : "html",
         type : 'get',
-        success : function(data) { console.log(data)
+        success : function(data) {
           if (data) {
             ds_top_dom.html(data);
           }
