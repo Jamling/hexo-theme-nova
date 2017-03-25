@@ -104,20 +104,22 @@ donate:
 
 # github removed see hexo-generator-github.
 
-##评论功能设置，目前支持disqus、多说和友言
+##评论功能设置，建议使用畅言
 comments:
   enable: true
   using: changyan
-  uyan:
+  uyan: # 数据不能导出
     su: path #path|source
     uid: 2064663
-  duoshuo:
+  duoshuo: #停止服务了
     short_name: ieclipse
   disqus:
     shortname: ieclipse
-  changyan:
+  changyan: #搜狐畅言（需备案）
     appid: cysUkdVDy
     conf: prod_3ca4177ead29d04b50f37440b9445c0a
+  gentie: #网易云跟贴
+    productKey: 23838455a080402bb4661a959a6e21ad
 
 # comments的补充，文章阅读数保存在leanclound上
 lc:
