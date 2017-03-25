@@ -30,9 +30,9 @@
 
     {{partial('index_share_jiathis')}}
 
-    {{partial('index_script_ds')}}
+    {{partial('index_script_changyan')}}
     {{partial('index_script_lc')}}
-
+  {%- if theme.comments.using === 'duoshuo' %}
     <!--多说js加载开始，一个页面只需要加载一次 -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:"{{theme.comments.duoshuo.short_name}}"};
@@ -45,3 +45,6 @@
     })();
     </script>
     <!--多说js加载结束，一个页面只需要加载一次 -->
+  {%- elseif theme.comments.using === 'changyan' %}
+
+  {%- endif %}

@@ -49,14 +49,16 @@ menu:
 post_widgets:
 #  - search
   - announce
-  - ds_recent_visitors
+#  - ds_recent_visitors
   - about
   - category
   - tag
 #  - archive
 #  - recent_posts
-  - ds_hot
-  - ds_recent_comments
+#  - ds_hot
+  - cy_hot_news
+  - cy_hot_users
+  - cy_recent_comments
   - links
 
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
@@ -102,17 +104,22 @@ donate:
 
 # github removed see hexo-generator-github.
 
-##评论功能设置，目前支持disqus、多说和友言
+##评论功能设置，建议使用畅言
 comments:
   enable: true
-  using: duoshuo
-  uyan:
+  using: changyan
+  uyan: # 数据不能导出
     su: path #path|source
     uid: 2064663
-  duoshuo:
+  duoshuo: #停止服务了
     short_name: ieclipse
   disqus:
     shortname: ieclipse
+  changyan: #搜狐畅言（需备案）
+    appid: cysUkdVDy
+    conf: prod_3ca4177ead29d04b50f37440b9445c0a
+  gentie: #网易云跟贴
+    productKey: 23838455a080402bb4661a959a6e21ad
 
 # comments的补充，文章阅读数保存在leanclound上
 lc:

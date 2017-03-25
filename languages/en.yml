@@ -66,6 +66,8 @@ widget:
   hot:
     zero: No hot post
     other: Hot Posts
+    users: Hot Users
+    news: Hot News
   recent_comments: Recent Comments
   recent_visitors: Recent Visitors
   announce: Announce

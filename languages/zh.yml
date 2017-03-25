@@ -66,6 +66,8 @@ widget:
   hot:
     zero: 暂无热评文章
     other: 热评文章
+    users: 热评用户
+    news: 热门新闻
   recent_comments: 最新评论
   recent_visitors: 最近访客
   announce: 公告
