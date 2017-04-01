@@ -716,14 +716,25 @@ footer.post-item-footer {
 }
 
 /* cy */
+#cyHotusers {
+  width: auto !important;
+}
 .cy-wrapper .hotusers-header {
   display: none;
 }
 .cy-wrapper .hotusers-list-item{
+  /*border-bottom: 0px !important;*/
+  height: auto !important;
+}
+.cy-wrapper .hotusers-list-item:last-child{
   border-bottom: 0px !important;
+  height: auto !important;
 }
 .cy-wrapper .hotusers-nick {
   width: auto !important;
+}
+.cy-wrapper .hotusers-level {
+  float: right !important;
 }
 .cy-wrapper .hotusers-totalcmt {
   display: block !important;
