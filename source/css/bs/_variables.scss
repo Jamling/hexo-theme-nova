@@ -73,6 +73,51 @@ $tag-bg-3: lighten(grey, 40%);
   -o-transition: $value;    /* Opera */
 }
 
+@mixin linear-gradient($color-from, $color-to, $type: vertical) {
+  @if $color-from and $color-to {
+    $alpha: alpha($color-to);
+    @if $alpha < 1 {
+      $color-rgb: change_color($color, $alpha: 1);
+      background-color: $color-rgb;
+    } @else {
+      background-color: $color-to;
+    }
+
+    $ie-from: ie-hex-str($color-from);
+    $ie-to: ie-hex-str($color-to);
+
+    $webkit: 'left top, left bottom';
+    $spec: 'top';
+    $ie: 0;
+
+    @if $type == vertical {
+      $webkit: 'left top, left bottom';
+      $spec: 'top';
+      $ie: 0;
+    }
+    @if $type == horizontal {
+      $webkit: 'left top, right top';
+      $spec: 'to right';
+      $ie: 1;
+    }
+    @if $type == left-right {
+      $webkit: 'left top, right bottom';
+      $spec: '135deg';
+      $ie: 1;
+    }
+    @if $type == right-left {
+      $webkit: 'left bottom, right top';
+      $spec: '45deg';
+      $ie: 1;
+    }
+
+    background-image: -webkit-gradient($type, #{$webkit}, from($color-from), to($color-to));
+    background-image: -webkit-linear-gradient(#{$spec}, $color-from, $color-to);
+    background-image: linear-gradient(#{$spec}, $color-from, $color-to);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$ie-from}', endColorstr='#{$ie-to}', GradientType=#{$ie});
+  }
+}
+
 @mixin user-select-none () {
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
@@ -81,13 +126,13 @@ $tag-bg-3: lighten(grey, 40%);
 }
 
 @mixin keyframes($animation-name) {
-  @-webkit-keyframes $animation-name {
+  @-webkit-keyframes #{$animation-name} {
     @content;
   }
-  @-moz-keyframes $animation-name {
+  @-moz-keyframes #{$animation-name} {
     @content;
   }
-  @keyframes $animation-name {
+  @keyframes #{$animation-name} {
     @content;
   }
 }
