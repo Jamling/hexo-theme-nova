@@ -11,6 +11,6 @@ var uyan_config = {
      su: '{{ page_uid() }}'
 };
 </script>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid={{theme.comments.uyan.uid}}"></script>
+<script type="text/javascript" src="//v2.uyan.cc/code/uyan.js?uid={{theme.comments.uyan.uid}}"></script>
 <!-- UY END -->
 {% endif %}
