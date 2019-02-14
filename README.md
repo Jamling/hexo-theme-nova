@@ -15,9 +15,9 @@ The theme provided three layouts to demonstrate the page.
 
 Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar.
 
-Welcome to visit [My blog](http://www.ieclipse.cn/en/) (http://www.ieclipse.cn/en/) to see the demo.
+Welcome to visit [My blog](https://www.ieclipse.cn/en/) (https://www.ieclipse.cn/en/) to see the demo.
 
-[Here is some special feature](http://www.ieclipse.cn/en/demo/) of [Nova].
+[Here is some special feature](https://www.ieclipse.cn/en/demo/) of Nova.
 
 ## ScreenShot
 
@@ -132,13 +132,13 @@ layout:
 
 ## Reference
 ### Layouts
-Please see [nova layouts](https://ieclipse.cn/en/p/hexo-theme-nova/layouts.html)
+Please see [nova layouts](https://www.ieclipse.cn/en/p/hexo-theme-nova/layouts.html)
 
 ### Front-matter
-Please see [nova front-matter](https://ieclipse.cn/en/p/hexo-theme-nova/front-matter.html)
+Please see [nova front-matter](https://www.ieclipse.cn/en/p/hexo-theme-nova/front-matter.html)
 
 ### Helpers
-Please see [nova helpers](https://ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
+Please see [nova helpers](https://www.ieclipse.cn/en/p/hexo-theme-nova/helpers.html)
 
 ### Plugins
 
