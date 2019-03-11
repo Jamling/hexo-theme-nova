@@ -489,8 +489,8 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
   }
 
   code = code + '';
-  var tip = this.__('page.password_tip');
-  var emsg = this.__('page.password_error');
+  var tip = p.password_tip || this.__('page.password_tip');
+  var emsg = p.password_emsg || this.__('page.password_error');
   var o = _.extend({v:2, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
   if (o.v == 1) {
     var c = String.fromCharCode(code.charCodeAt(0) + code.length);
