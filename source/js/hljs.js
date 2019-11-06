@@ -1,14 +1,24 @@
 (function($) {
 
-  // highlight
+  // simplest highlight, no line number, no copy code
   // hljs.initHighlightingOnLoad();
 
   if (typeof hljs_labels === 'undefined') {
     hljs_labels = {};
   }
 
+  // use clipboard.js to copy code
+  var clipboard = new ClipboardJS('.code-caption-copy', {
+    target: function(trigger) {
+        console.log(trigger);
+        var code = $(trigger).parent().next('pre').children('code').get(0);
+        return code;
+    }
+  });
+
   var code_caption_selector = '.code-caption';
 
+  // search code block to highlight
   $(code_caption_selector).each(function(i, target) {
     var ds = $(this).data();
     if (ds.hide) {
@@ -27,13 +37,15 @@
     {
       $(this).next('p').remove();
     }
-    $(copy).zclip({
-      path : 'http://cdn.bootcss.com/zclip/1.1.2/ZeroClipboard.swf',
-      copy : function() {
-        var code = $(target).next('pre').children('code').get(0);
-        return code.innerText;
-      }
-    });
+
+    // Flash is not supported in modern browser.
+    // $(copy).zclip({
+    //   path : 'http://cdn.bootcss.com/zclip/1.1.2/ZeroClipboard.swf',
+    //   copy : function() {
+    //     var code = $(target).next('pre').children('code').get(0);
+    //     return code.innerText;
+    //   }
+    // });
   });
 
   $('.article pre code').each(function(i, block) {
@@ -46,6 +58,7 @@
       ds = {trim_indent: 'frontend', line_number : 'frontend'}
     }
     var texts = $(this).text().split('\n');
+    // trim indent
     if (ds.trim_indent === 'frontend') {
       console.log("trim indent in front-end");
       var tab = texts[0].match(/^\s{0,}/);
@@ -58,9 +71,10 @@
       }
     }
 
+    // add line number
     if (ds.line_number === 'frontend') {
       console.log("show line number in front-end");
-      var lines = texts.length - 1;
+      var lines = texts.length;
       var $numbering = $('<ul/>').addClass('pre-numbering');
       $(this).addClass('has-numbering').parent().append($numbering);
       for (i = 1; i <= lines; i++) {
@@ -68,6 +82,7 @@
       }
     }
 
+    // highlight
     hljs.highlightBlock(block);
   });
 

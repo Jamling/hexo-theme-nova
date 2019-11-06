@@ -11,7 +11,7 @@
       <span class="post-share">
         <a href="#share" class="icon nova-share"><span class="hidden-xs">{{__('sns.share')}}</span><span class="jiathis_counter_style"></span></a>
         <a href="#comment" class="icon nova-bubbles"><span class="ds-thread-count" id="changyan_count_unit" data-thread-key="{{page_uid()}}"></span><span class="hidden-xs">{{__('sns.comment')}}</span></a>
-        <a href="#like" class="icon nova-heart2-full"><span class="count" id="changyan_parti_unit"></span><span class="hidden-xs">{{__('sns.like')}}</span></a>
+        <!--<a href="#like" class="icon nova-heart2-full"><span class="count" id="changyan_parti_unit"></span><span class="hidden-xs">{{__('sns.like')}}</span></a>-->
         <a href="#" class="icon nova-eye"><span class="count lc-count"></span><span class="hidden-xs">{{__('article.views')}}</span></a>
       </span>
     </div>

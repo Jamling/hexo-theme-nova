@@ -5,7 +5,8 @@
     {{_p('donate.page.title')}}
   </button>-->
   <p>
-  <a href="#" role="button" data-toggle="modal" data-target="#DonateModal">{{ image_tag('/image/donate_button.png') }}
+  <a href="#" role="button" data-toggle="modal" data-target="#DonateModal">
+  {{ image_tag('/image/donate_button.png', {alt:'donate'}) }}
   <span>{{ __('donate.page.desc') }}</span></a>
   </p>
 </blockquote>
@@ -15,7 +16,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">{{_p('donate.page.title')}}</h4>
+        <span class="modal-title" id="myModalLabel">{{_p('donate.page.title')}}</span>
       </div>
       <div class="modal-body"><!--
         <table>

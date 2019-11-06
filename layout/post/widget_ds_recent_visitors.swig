@@ -1,5 +1,5 @@
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary {{theme.post_widgets_animate}}">
       <div class="panel-heading">
         <h3 class="panel-title">{{ __('widget.recent_visitors') }}</h3>
       </div>

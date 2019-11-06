@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel {{theme.post_widgets_animate}}">
   <form name="f1" onsubmit="return g(this)" target="_blank"><!--target="_blank" action="http://zhannei.baidu.com/cse/site" -->
     <div class="input-group has-primary">
       <div class="input-group-btn">

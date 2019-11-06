@@ -239,7 +239,9 @@ ul li {
 
 <div class="container page-footer">
   <div style="margin: 1em 0">
-  {{ partial('../partial/share_jiathis_footer') }}
+  {%- if theme.share.footer.enable %}
+  {{ partial('../partial/' + theme.share.footer.layout)}}
+  {%- endif %}
   </div>
   <div class="divider"></div>
   {{ partial('../partial/donate') }}

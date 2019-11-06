@@ -1,18 +1,20 @@
+# 站点
 site:
   title: 静勤居
   subtitle: 谓静者，凡事三思而后行；谓勤者，凡事三行而后知！
   description: Jamling's 技术文章博客.
 
-project:
-  overview: 概览
-  download: 下载
-  userguide: 用户指南
-  develop: 开发
-  get_started: 开始使用
-  docs: 文档
-  change: 更新日志
-  api: APIs
+# 菜单
+menu:
+  home: 首页
+  project: 项目
+  category: 分类
+  tag: 标签
+  archive: 归档
+  about: 关于
+  donate: 捐赠墙
 
+# 页面
 page:
   contents: 目录
   back_to_top: 回到顶部
@@ -29,8 +31,11 @@ page:
   password_tip: '本页面需要输入密码才能访问'
   password_error: '密码错误，无法访问！'
 
+# 文章
 article:
   views: 次阅读
+
+# 社会化组件
 sns:
   share: 分享
   comment: 评论
@@ -44,22 +49,26 @@ sns:
   more: 更多
   one: 一键分享
 
+# 博客标签
 tag:
   name: &tag.name 标签
   label: *tag.name
   empty: 暂无标签
   loading: 标签加载中...
 
+# 博客分类
 category:
   name: &category.name 分类
   label: *category.name
   empty: 暂无分类
   loading: 分类加载中...
 
+# 博客归档
 archive:
   name: &archive.name 归档
   empty: 暂无文章
 
+# 博客右侧小工具
 widget:
   recent: 最近文章
   search: 搜索
@@ -74,24 +83,30 @@ widget:
   about: 关于
   links: 友情链接
 
+# 异步加载
 ajax:
   loading: 正在载入...
   error: 加载失败
 
+# hexo-filter-highlight 代码高亮插件
 hljs:
   left: 代码
   right: '如下：'
   copy: 复制
 
-menu:
-  home: 首页
-  project: 项目
-  category: *category.name
-  tag: *tag.name
-  archive: *archive.name
-  about: 关于
-  donate: 捐赠墙
+# 项目常用
+project:
+  index: 首页
+  overview: 概览
+  download: 下载
+  userguide: 用户指南
+  develop: 开发
+  get_started: 开始使用
+  docs: 文档
+  change: 更新日志
+  api: APIs
 
+# 捐赠页面
 donate:
   name: 捐赠
   page: # page / post / article
@@ -114,6 +129,7 @@ donate:
     sum: 总金额
     project: 项目
 
+# hexo-theme-nova 项目左侧导航
 hexo-theme-nova:
   userguide:
     layouts: 布局

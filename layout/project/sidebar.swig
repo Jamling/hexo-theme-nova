@@ -22,7 +22,7 @@
             return;
           }
         },
-        data: {{ p_nav({parent_color:'#337ab7'}) }}
+        data: {{ gh_aside_nav({parent_color:'#337ab7'}) }}
       });
       function pnav(liobj){
         var as = $(liobj).find('a');

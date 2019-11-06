@@ -4,9 +4,9 @@
 </div>
 <main>
         {%- for post in page.posts %} {%- set u = page_new(post) %}
-          <div class="card hoverable" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-            <div class="card-content">
-              <h3 class="card-title {%- if u  %} new{%- endif %}" itemprop="name headline"><a href="{{ url_for_lang(post.path) }}" class="article-title" {%- if u %} title="{{__('page.last_updated', date(post.updated)) }}" {%- endif %}>{{ post.title }}</a></h3>
+          <div class="card index-card hoverable animated fadeInUp" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="card-content" itemprop="blogPost" >
+              <h3 class="card-title {%- if u  %} new{%- endif %}"><a itemprop="name headline" href="{{ url_for_lang(post.path) }}" class="article-title" {%- if u %} title="{{__('page.last_updated', date(post.updated)) }}" {%- endif %}>{{ post.title }}</a></h3>
               <div class="divider"></div>
               <div class="section post-header clearfix">
                 <!-- sub element must be span -->
@@ -15,36 +15,27 @@
                 {{ post_tags(post) }}
               </div>
               <div class="divider"></div>
+              <div class="nova-flex excerpt-box">
+              
               <div class="excerpt" itemprop="description articleBody">
               {{ page_excerpt(post) }}
               </div>
+              </div>
             </div>
             <div class="divider"></div>
-            {{partial('index_action_ds')}}
-            <meta content="{{ post.permalink }}" itemprop="url">
-            <meta content="{{ date_xml(post.updated) }}" itemprop="dateModified">
+
+            <div class="card-action" data-tkey="{{page_uid(post)}}">
+              <a class="icon nova-bubbles action-item" href="{{ url_for_lang(post.path) }}#comment"><span class="count"></span><span class="hidden-xs">{{__('sns.comment')}}</span></a>
+              <a class="icon nova-eye action-item" href="{{ url_for_lang(post.path) }}"><span class="count"></span><span class="hidden-xs">{{__('article.views')}}</span></a>
+              <a class="icon nova-hand-right action-item" href="{{ url_for_lang(post.path) }}" ><span>{{__('page.more')}}</span></a>
+            </div>
+            <meta itemprop="url" content="{{ post.permalink }}">
+            <meta itemprop="dateModified" content="{{ date_xml(post.updated) }}">
           </div>
         {%- endfor %}
 </main>
     <nav> {{ nova_paginator({total:page.total, class:'pagination'}) }} </nav>
 
-    {{partial('index_share_jiathis')}}
 
-    {{partial('index_script_changyan')}}
-    {{partial('index_script_lc')}}
-  {%- if theme.comments.using === 'duoshuo' %}
-    <!--多说js加载开始，一个页面只需要加载一次 -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"{{theme.comments.duoshuo.short_name}}"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = 'http://static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!--多说js加载结束，一个页面只需要加载一次 -->
-  {%- elseif theme.comments.using === 'changyan' %}
-
-  {%- endif %}
+    {#partial('index_script_changyan')#}
+    {#partial('index_script_lc')#}

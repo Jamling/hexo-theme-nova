@@ -1,18 +1,20 @@
+# Site
 site:
   title: Jamling's Blog and Project Site
   subtitle: Jamling's Blog & Open Project
   description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
 
-project:
-  overview: Overview
-  download: Downloads
-  userguide: User Guide
-  develop: Developer
-  get_started: Get started
-  docs: Docs
-  change: Change logs
-  api: APIs
+# Blog menu
+menu:
+  home: Home
+  project: Projects
+  category: Category
+  tag: Tag
+  archive: Archive
+  about: About
+  donate: Donate
 
+# Page common
 page:
   contents: Table Of Contents
   back_to_top: Back to Top
@@ -29,8 +31,11 @@ page:
   password_tip: 'Please input password to view this page'
   password_error: 'Error password, you have no right to view the content!'
 
+# Artiche
 article:
   views: Views
+
+# Social share
 sns:
   share: Share
   comment: Comment
@@ -44,22 +49,26 @@ sns:
   more: More
   one: One Share
 
+# Blog tag
 tag:
   name: &tag.name Tags
   label: *tag.name
   empty: No tags
   loading: Loading tags...
 
+# Blog category
 category:
   name: &category.name Category
   label: *category.name
   empty: No categories
   loading: Loading categories...
 
+# Blog archive
 archive:
   name: &archive.name Archives
   empty: No posts
 
+# Archive(index) layout right aside widget
 widget:
   recent: Recents
   search: Search
@@ -74,24 +83,30 @@ widget:
   about: About
   links: Links
 
+# Wiget asyc loading
 ajax:
   loading: Loading...
   error: Load failed
 
+# hexo-filter-highlight plugin
 hljs:
   left: Code
   right: ':'
   copy: Copy to clipboard
 
-menu:
-  home: Home
-  project: Projects
-  category: *category.name
-  tag: *tag.name
-  archive: *archive.name
-  about: About
-  donate: Donate
+# Github project common used in project.layout
+project:
+  index: Home
+  overview: Overview
+  download: Downloads
+  userguide: User Guide
+  develop: Developer
+  get_started: Get started
+  docs: Docs
+  change: Change logs
+  api: APIs
 
+# Donate page
 donate:
   name: Donate
   page: # page / post / article
@@ -114,6 +129,7 @@ donate:
     sum: Amount
     project: Project
 
+# hexo-theme-nova project left aside
 hexo-theme-nova:
   userguide:
     layouts: Layouts

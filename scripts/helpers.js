@@ -1,7 +1,7 @@
 'use strict';
 
 var pathFn = require('path');
-var _ = require('../../../node_modules/hexo/node_modules/lodash');
+var _ = require('../../../node_modules/lodash');
 var url = require('url');
 var util = require('util');
 var crypto = require('crypto');
@@ -80,19 +80,32 @@ hexo.extend.helper.register('head_title', function() {
 });
 
 // load <head> js and css
-hexo.extend.helper.register('head_jscss', function() {
+hexo.extend.helper.register('head_jscss', function(options={}) {
   var jc = this.theme.js_css;
   var _self = this;
+  var page = this.page;
   var ret = '';
   _.each(jc, function(item) {
-    if (_.endsWith(item.url, 'js')) {
-      ret += _self.js(item.url);
+    var include = true;
+    var fn = item.url.substring(item.url.lastIndexOf('/') + 1).toLowerCase();
+    var ext = fn.substring(fn.lastIndexOf('.')).toLowerCase();
+    if (_.startsWith(ext, ".js")) {
+      include = options.hasOwnProperty('js') ? options.js : true
+      if (include && item.layout && page && page.layout) {
+        include = item.layout.indexOf(page.layout)>=0;
+      }
+      if (include) {
+        ret += _self.js(item.url);
+      }
     }
-    else if (_.endsWith(item.url, 'css')) {
-      ret += _self.css(item.url);
-    }
-    else {
-      // do nothing
+    else if (_.startsWith(ext, ".css")) {
+      include = options.hasOwnProperty('css') ? options.css : true
+      if (include && item.layout && page && page.layout) {
+        include = item.layout.indexOf(page.layout)>=0;
+      }
+      if (include) {
+        ret += _self.css(item.url);
+      }
     }
     ret += '\n';
   });
@@ -298,7 +311,7 @@ hexo.extend.helper.register('page_share_jiathis', function(post, webid) {
   var uid = this.theme.share.jiathis.uid;
   var summary = encodeURI(this.strip_html(this.page_excerpt(p)));
   if (summary && summary.length > 140) {
-    summary = summary.substring(0, 100);
+    //summary = summary.substring(0, 100);
   }
 
   var url = util.format('http://www.jiathis.com/send/?webid=%s&url=%s&title=%s&uid=%s&summary=%s', webid, link, title,
@@ -356,7 +369,7 @@ hexo.extend.helper.register('widget_cates', function(options) {
     return _self.__('category.empty');
   }
   ret += '<ul class="list-group">';
-  cats.forEach(function(item) { // console.log(item)
+  cats.forEach(function(item) {
     ret += '<li class="list-group-item"><a href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
     if (show_count) {
       ret += '<span class="badge">' + item.posts.length + '</span>';
@@ -497,7 +510,7 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
     for(var i=1; i < code.length; i++) {
       c += String.fromCharCode(code.charCodeAt(i) + code.charCodeAt(i-1));
     }
-    o.code = encodeURI(c); // console.log(o);
+    o.code = encodeURI(c);
     enc(this, p);
   } else if (o.v == 2) {
     o.code = encodeURI(md5(code));

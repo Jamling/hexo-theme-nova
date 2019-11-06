@@ -28,7 +28,7 @@ jmnode.root{font-size:24px;}
 jmexpander{border-color:gray;}
 jmexpander:hover{border-color:#000;}
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-width: 1024px) {
     jmnode{padding:5px;border-radius:3px;font-size:14px;}
     jmnode.root{font-size:21px;}
 }
@@ -58,7 +58,7 @@ jmnodes.theme-primary jmexpander:hover{}
   <div id="category" class="h1">
   {# nova_list_categories(site.categories, {class:'list-group', depth: 10, children_indicator: 'category'}) #}
   </div>
-  <script type="text/javascript">
+  <script>
     var mind = {
       /* 元数据，定义思维导图的名称、作者、版本等信息 */
       "meta":{

@@ -1,5 +1,5 @@
 
-    <div class="panel panel-primary hidden-xs" id="category">
+    <div class="panel panel-primary hidden-xs {{theme.post_widgets_animate}}" id="category">
       <div class="panel-heading">
         <h3 class="panel-title">{{ __('category.name') }}</h3>
       </div>

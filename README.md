@@ -23,6 +23,24 @@ Welcome to visit [My blog](https://www.ieclipse.cn/en/) (https://www.ieclipse.cn
 
 ![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
 
+## Features
+
+- Bootstrap responsible style
+- Unique page ID for each page, there is nothing to worry about deploying blog to any site
+- Multi-comment components support, include disqus, valine, ~~duoshuo~~, ~~gentie~~, changyan, ~~uayn~~ 3rd comment plugin
+- Encrypt/decrypt for private post
+- Frontend code highlight and copy feature
+
+## Change 
+
+### V1.0.0 (Huge)
+
+- remove unvailable jiathis share
+- remove material colors style (reduce css file size)
+- change changyan comment to valine
+- change zero clipboard to clipboard.js
+- using nesting style
+
 ## Install
 Cd to your blog root directory
 ```bash

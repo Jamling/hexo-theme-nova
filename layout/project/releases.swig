@@ -143,7 +143,9 @@
     <div class="release-timeline">
         <div class="release-meta hidden-xs"></div>
         <div class="release-body">
-          {{ partial('../partial/share_jiathis_footer') }}
+          {%- if theme.share.footer.enable %}
+          {{ partial('../partial/' + theme.share.footer.layout)}}
+          {%- endif %}
           <nav>{{ nova_paginator2() }}</nav>
           {{ partial('../partial/donate') }}
           {{ partial('../partial/comment') }}

@@ -1,6 +1,6 @@
 'use strict';
 
-var cheerio = require('../../../node_modules/hexo/node_modules/cheerio');
+var cheerio = require('../../../node_modules/cheerio');
 /*
  * Mod from hexo/lib/plugins/helper/toc.js
  * valid options: {class:'nav', deep: 3, expand: 6}
