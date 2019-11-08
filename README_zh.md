@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/Jamling/hexo-theme-nova.svg?branch=master)](https://travis-ci.org/Jamling/hexo-theme-nova)
-[![node](https://img.shields.io/node/v/hexo-theme-nova.svg)](https://www.npmjs.com/package/hexo-theme-nova)
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-theme-nova.svg)](https://github.com/Jamling/hexo-theme-nova/releases/latest)
 
 
@@ -13,13 +12,33 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
  2. `project` 用于github项目页面
  3. `page` 用于其它页面，如关于我
 
-本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](http://www.ieclipse.cn) (http://www.ieclipse.cn)。
+本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](https://www.ieclipse.cn) (https://www.ieclipse.cn)。
 
-一些好玩的东东[http://www.ieclipse.cn/en/demo/](http://www.ieclipse.cn/en/demo/).
+一些好玩的东东[https://www.ieclipse.cn/en/demo/](https://www.ieclipse.cn/en/demo/).
 
 ## 预览截屏
 
 ![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
+
+## 特性
+
+- Bootstrap 响应式设计，支持移动端浏览
+- 生成唯一的页面ID, 无需担心站点切换
+- 多种第三方评论组件，支持disqus, valine, ~~duoshuo~~, ~~gentie~~, changyan, ~~uayn~~ 等
+- 支持博客文章加密，须通过输入正确的密码访问
+- 含前端代码高亮及复制功能
+- 支持微数据，提供更好的SEO
+
+## 变更 
+
+### V0.2.0 (重大更新)
+
+- 删除已停止服务的友加分享，换上了share.js
+- 删除material颜色样式 (极大地减少了css文件体积)
+- 将畅言评论换成了valine，（因为畅言去广告要收费，而且畅言的评论不好导出）
+- 将代码复制zero clipboard组件换成clipboard.js（因为flash陆续不被各大浏览器厂商所支持）
+- 重新组织了nova css，使用内联样式风格，可读性得到了增强
+- 通过W3C校验
 
 ## 安装
 Cd到博客/站点根目录，然后检出代码

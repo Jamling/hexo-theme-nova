@@ -5,7 +5,7 @@
 <main>
         {%- for post in page.posts %} {%- set u = page_new(post) %}
           <div class="card index-card hoverable animated fadeInUp" itemscope itemtype="http://schema.org/BlogPosting">
-            <div class="card-content" itemprop="blogPost" >
+            <div class="card-content">
               <h3 class="card-title {%- if u  %} new{%- endif %}"><a itemprop="name headline" href="{{ url_for_lang(post.path) }}" class="article-title" {%- if u %} title="{{__('page.last_updated', date(post.updated)) }}" {%- endif %}>{{ post.title }}</a></h3>
               <div class="divider"></div>
               <div class="section post-header clearfix">
@@ -31,6 +31,11 @@
             </div>
             <meta itemprop="url" content="{{ post.permalink }}">
             <meta itemprop="dateModified" content="{{ date_xml(post.updated) }}">
+            <span itemprop="author publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
+              <meta content="{{ config.url }}" itemprop="url">
+              <meta content="{{__('site.title')}}" itemprop="name">
+              <meta content="/image/logo.png" itemprop="logo">
+            </span>
           </div>
         {%- endfor %}
 </main>

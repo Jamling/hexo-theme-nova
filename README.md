@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/Jamling/hexo-theme-nova.svg?branch=master)](https://travis-ci.org/Jamling/hexo-theme-nova)
-[![node](https://img.shields.io/node/v/hexo-theme-nova.svg)](https://www.npmjs.com/package/hexo-theme-nova)
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-theme-nova.svg)](https://github.com/Jamling/hexo-theme-nova/releases/latest)
 
 
@@ -30,16 +29,18 @@ Welcome to visit [My blog](https://www.ieclipse.cn/en/) (https://www.ieclipse.cn
 - Multi-comment components support, include disqus, valine, ~~duoshuo~~, ~~gentie~~, changyan, ~~uayn~~ 3rd comment plugin
 - Encrypt/decrypt for private post
 - Frontend code highlight and copy feature
+- Mircodata supported
 
 ## Change 
 
-### V1.0.0 (Huge)
+### V0.2.0 (Huge)
 
 - remove unvailable jiathis share
 - remove material colors style (reduce css file size)
 - change changyan comment to valine
 - change zero clipboard to clipboard.js
 - using nesting style
+- pass w3c validations
 
 ## Install
 Cd to your blog root directory
