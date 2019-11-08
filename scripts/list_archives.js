@@ -1,158 +1,50 @@
 'use strict';
 
-hexo.extend.helper.register('nova_list_archives', listArchivesHelper);
-
-hexo.extend.helper.register('nova_archives', function(options){
-  options = options || {};
-
-  var config = this.config;
-  var archiveDir = config.archive_dir;
-  var timezone = config.timezone;
-  var lang = this.page.lang || this.page.language || config.language;
-  var format = options.format;
-  var type = options.type || 'monthly';
-  var style = options.hasOwnProperty('style') ? options.style : 'list';
-  var showCount = options.hasOwnProperty('show_count') ? options.show_count : true;
-  var transform = options.transform;
-  var separator = options.hasOwnProperty('separator') ? options.separator : ', ';
-  var className = options.class || 'archive';
-  var order = options.order || -1;
-  var result = '';
-  var self = this;
-
-  if (!format){
-    format = type === 'monthly' ? 'MMMM YYYY' : 'YYYY';
-  }
-
-  var posts = [];
-  if (this.page.base === (archiveDir + '/')) 
-    posts = this.page.posts.sort('date', order);
-  else
-    posts = this.page.posts.sort('date', order);
-  if (!posts.length) return result;
-
-  var data = [];
-  var length = 0;
-  
-  posts.forEach(function(post){
-    // Clone the date object to avoid pollution
-    var date = post.date.clone();
-
-    if (timezone) date = date.tz(timezone);
-    if (lang) date = date.locale(lang);
-
-    var year = date.year();
-    var month = date.month() + 1;
-    var name = date.format(format);
-    var lastData = data[length - 1];
-
-    if (!lastData || lastData.name !== name){
-      length = data.push({
-        name: name,
-        year: year,
-        month: month,
-        posts: [post],
-        count: 1
-      });
-    } else {
-      lastData.count++;
-      lastData.posts.push(post);
-    }
-  });
-  
-  function link(item){
-    var url = archiveDir + '/' + item.year + '/';
-
-    if (type === 'monthly'){
-      if (item.month < 10) url += '0';
-      url += item.month + '/';
-    }
-
-    return self.url_for_lang(url);
-  }
-
-  var item, i, len;
-  var plimit = options.hasOwnProperty('post_limit') ? options.post_limit : 10;
-    result += '<section class="' + className + '-wrap">';
-    for (i = 0, len = data.length; i < len; i++){
-      item = data[i];
-
-      result += '<div class="' + className + '-heading">';
-
-      result += '<h1><a class="' + className + '-heading-link" href="' + link(item) + '">';
-      result += transform ? transform(item.name) : item.name;
-      result += '</a>';
-
-      if (showCount){
-        result += '<span class="badge">' + item.count + '</span>';
-      }
-      
-      result += '</h1><hr></div>';
-      
-      result += '<div class="' + className + '-body">';
-      var posts = item.posts;
-      var j = 0;
-      for (j = 0; j < plimit && j < posts.length; j++){
-        result += '<article class="' + className + '-article archive-type-' + posts[j].layout + '">';
-        result += '<header class="' + className + '-article-header">';
-        result += '<h3><a href="' + self.url_for_lang(posts[j].path) + '">' + posts[j].title + ' <small>' + posts[j].date.format('YYYY-MM-DD') + '</small></a></h3>';
-        result += '</header>';
-        result += '</article>';
-      }
-      result += '</div>';
-    }
-    result += '</section>';
-  return result;
-});
-
 // rewrite list_archives();
 // mod from .\node_modules\hexo\lib\plugins\helper\list_archives.js
-function listArchivesHelper(options){
+function listArchivesHelper(options = {}) {
   /* jshint validthis: true */
-  options = options || {};
+  const { config } = this;
+  const archiveDir = config.archive_dir;
+  const archivePerPage = config.archive_generator && config.archive_generator.per_page;
+  const { timezone } = config;
+  const lang = this.page.lang || this.page.language || config.language;
+  let { format } = options;
+  const type = options.type || 'monthly';
+  const { style = 'list', transform, separator = ', ' } = options;
+  const showCount = options.hasOwnProperty('show_count') ? options.show_count : true;
+  const className = options.class || 'archive';
+  const order = options.order || -1;
+  let result = '';
+  const self = this;
 
-  var config = this.config;
-  var archiveDir = config.archive_dir;
-  var timezone = config.timezone;
-  var lang = this.page.lang || this.page.language || config.language;
-  var format = options.format;
-  var type = options.type || 'monthly';
-  var style = options.hasOwnProperty('style') ? options.style : 'list';
-  var showCount = options.hasOwnProperty('show_count') ? options.show_count : true;
-  var transform = options.transform;
-  var separator = options.hasOwnProperty('separator') ? options.separator : ', ';
-  var className = options.class || 'archive';
-  var order = options.order || -1;
-  var result = '';
-  var self = this;
-
-  if (!format){
+  if (!format) {
     format = type === 'monthly' ? 'MMMM YYYY' : 'YYYY';
   }
 
-  var posts = this.site.posts.sort('date', order);
+  const posts = style === 'page' ? this.page.posts.sort('date', order) : this.site.posts.sort('date', order);
   if (!posts.length) return result;
 
-  var data = [];
-  var length = 0;
+  const data = [];
+  let length = 0;
 
-  posts.forEach(function(post){
+  posts.forEach(post => {
     // Clone the date object to avoid pollution
-    var date = post.date.clone();
+    let date = post.date.clone();
 
     if (timezone) date = date.tz(timezone);
     if (lang) date = date.locale(lang);
 
-    var year = date.year();
-    var month = date.month() + 1;
-    var name = date.format(format);
-    var lastData = data[length - 1];
+    const year = date.year();
+    const month = date.month() + 1;
+    const name = date.format(format);
+    const lastData = data[length - 1];
 
-    if (!lastData || lastData.name !== name){
+    if (!lastData || lastData.name !== name) {
       length = data.push({
-        name: name,
-        year: year,
-        month: month,
+        name,
+        year,
+        month,
         posts: [post],
         count: 1
       });
@@ -161,31 +53,31 @@ function listArchivesHelper(options){
       lastData.posts.push(post);
     }
   });
-  function link(item){
-    var url = archiveDir + '/' + item.year + '/';
+  const link = item => {
+    let url = `${archiveDir}/${item.year}/`;
 
-    if (type === 'monthly'){
+    if (type === 'monthly') {
       if (item.month < 10) url += '0';
-      url += item.month + '/';
+      url += `${item.month}/`;
     }
 
-    return self.url_for_lang(url);
-  }
+    return this.url_for_lang(url);
+  };
 
-  var item, i, len;
+  var len;
 
-  if (style === 'list'){
-    result += '<div class="' + className + '">';
+  if (style === 'list') {
+    result += `<div class="${className}">`;
 
-    for (i = 0, len = data.length; i < len; i++){
-      item = data[i];
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i];
 
-      result += '<a class="' + className + '-item" href="' + link(item) + '">';
+      result += `<a class="${className}-item" href="${link(item)}">`;
       result += transform ? transform(item.name) : item.name;
-      
 
-      if (showCount){
-        result += '<span class="badge">' + item.count + '</span>';
+
+      if (showCount) {
+        result += `<span class="badge">${item.count}</span>`;
       }
 
       result += '</a>';
@@ -194,45 +86,73 @@ function listArchivesHelper(options){
     result += '</div>';
   }
   else if (style === 'group') {
-    
-    var plimit = options.hasOwnProperty('post_limit') ? options.post_limit : 10;
-    result += '<div class="panel">';
-    for (i = 0, len = data.length; i < len; i++){
-      item = data[i];
+    const plimit = options.hasOwnProperty('post_limit') ? options.post_limit : 10;
+    result += '<div class="panel">\n';
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i];
 
-      result += '<div class="panel-heading ' + className + '">';
+      result += `<div class="panel-heading${className}">\n`;
 
-      result += '<h3 class="panel-title"><a class="' + className + '-link" href="' + link(item) + '">';
+      result += `<h3 class="panel-title"><a class="${className}-link" href="${link(item)}">`;
       result += transform ? transform(item.name) : item.name;
       result += '</a><span class="caret"></span></h3>';
 
-      if (showCount){
-        result += '<span class="badge">' + item.count + '</span>';
+      if (showCount) {
+        result += `<span class="badge">${item.count}</span>`;
       }
-      
-      result += '<div class="panel-body">';
-      var posts = item.posts;
-      var j = 0;
-      for (j = 0; j < plimit && j < posts.length; j++){
-        result += '<p><a href="' + self.url_for_lang(posts[j].path) + '">' + posts[j].title + '</a></p>';
-      }
-      result += '</div>';
+      result += '</div>\n';
+      result += `<div class="panel-body">\n`;
 
-      result += '</div>';
+      for (let j = 0; j < plimit && j < item.posts.length; j++) {
+        const post2 = item.post[j];
+        result += `<p><a href="${self.url_for_lang(post2.path)}">${post2.title}</a></p>`;
+      }
+      result += '</div>\n';
     }
-    result += '</div>';
+    result += '</div>\n';
+  }
+  else if (style === 'page') {
+    const plimit = options.hasOwnProperty('post_limit') ? options.post_limit : (archivePerPage || 10);
+    result += `<section class="${className}-wrap">\n`;
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i];
+
+      result += `<div class="${className}-heading">\n`;
+
+      result += `<h1><a class="${className}-heading-link" href="${link(item)}">`;
+      result += transform ? transform(item.name) : item.name;
+      result += '</a>';
+
+      if (showCount) {
+        result += `<span class="badge">${item.count}</span>`;
+      }
+
+      result += '</h1><hr></div>\n';
+
+      result += `<div class="${className}-body">\n`;
+      for (let j = 0; j < plimit && j < item.posts.length; j++) {
+        const post2 = item.posts[j];
+        result += `<article class="${className}-article archive-type-${post2.layout}">\n`;
+        result += `<header class="${className}-article-header">\n`;
+        result += `<h3><a href="${self.url_for_lang(post2.path)}">${post2.title} <small>${post2.date.format('YYYY-MM-DD')}</small></a></h3>\n`;
+        result += '</header>\n';
+        result += '</article>\n';
+      }
+      result += '</div>\n';
+    }
+    result += '</section>\n';
   }
   else {
-    for (i = 0, len = data.length; i < len; i++){
-      item = data[i];
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i];
 
       if (i) result += separator;
 
-      result += '<a class="' + className + '-item" href="' + link(item) + '">';
+      result += `<a class="${className}-item" href="#{link(item)}">`;
       result += transform ? transform(item.name) : item.name;
 
-      if (showCount){
-        result += '<span class="badge">' + item.count + '</span>';
+      if (showCount) {
+        result += `<span class="badge">${item.count}</span>`;
       }
 
       result += '</a>';
@@ -241,3 +161,6 @@ function listArchivesHelper(options){
 
   return result;
 }
+
+hexo.extend.helper.register('nova_list_archives', listArchivesHelper);
+hexo.extend.helper.register('nova_archives', listArchivesHelper);
