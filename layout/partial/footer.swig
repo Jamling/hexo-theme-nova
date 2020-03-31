@@ -10,7 +10,7 @@
       {%- endif %}
     </div>
     <div>
-      <a href="http://www.miitbeian.gov.cn" target="_blank">{{theme.icp}}</a>
+      <a href="http://www.beian.miit.gov.cn" target="_blank">{{theme.icp}}</a>
     </div>
   </div>
 </footer>
