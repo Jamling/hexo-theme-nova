@@ -8,25 +8,25 @@ page_new: false
 
 # script and css，站点使用的全局脚本及css文件
 js_css:
-- url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js #jquery
-- url: //cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css
-- url: //cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css
-- url: //cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js
-#- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css
-#- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/css/ripples.min.css
-#- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/material.min.js
-#- url: //cdn.bootcss.com/bootstrap-material-design/0.5.10/js/ripples.min.js
-- url: //cdn.bootcss.com/sidr/2.2.1/jquery.sidr.min.js
+- url: //cdn.staticfile.org/jquery/2.2.0/jquery.min.js #jquery
+- url: //cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css
+- url: //cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap-theme.min.css
+- url: //cdn.usebootstrap.com/bootstrap/3.3.7/js/bootstrap.min.js
+#- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css
+#- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/css/ripples.min.css
+#- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/js/material.min.js
+#- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/js/ripples.min.js
+- url: //cdn.staticfile.org/sidr/2.2.1/jquery.sidr.min.js
 - url: js/jquery.bootstrap-autohidingnavbar.min.js
-- url: //cdn.bootcss.com/sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css
-- url: //cdn.bootcss.com/highlight.js/9.15.10/styles/github.min.css
-- url: //cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js
+- url: //cdn.staticfile.org/sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css
+- url: //cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css
+- url: //cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js
 - url: //cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css
 - url: //cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
-- url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
-- url: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
-- url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
-- url: //cdn.bootcss.com/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js
+- url: //cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.pack.js
+- url: //cdn.staticfile.org/fancybox/2.1.5/jquery.fancybox.min.css
+- url: //cdn.staticfile.org/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css
+- url: //cdn.staticfile.org/fancybox/2.1.5/helpers/jquery.fancybox-buttons.js
 - url: //cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
 - url: //cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css
 - url: css/nova_font.css

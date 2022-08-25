@@ -5,7 +5,7 @@
   var page_layout = '{{is_home()}}'
   var lc_debug = false;
   if(typeof AV === 'undefined') {
-    $.getScript('//cdn1.lncld.net/static/js/av-min-1.2.1.js',function() {
+    $.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.2.1/Valine.min.js',function() {
       lc_debug && console.log('init AV after av.js loaded');
         AV.init({
           appId : '{{theme.lc.app_id}}',
