@@ -4,7 +4,7 @@
 
 ## 简介 ##
 
-nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方便快速地创建为github项目创建一个简单的静态网站，如[Github-Pages]。
+nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方便快速地为github项目创建一个简单的静态网站，如[Github-Pages]。
 
 本主题主要使用以下三种布局来展现页面：
 
@@ -14,22 +14,32 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 
 本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](https://www.ieclipse.cn) (https://www.ieclipse.cn)。
 
-一些好玩的东东[https://www.ieclipse.cn/en/demo/](https://www.ieclipse.cn/en/demo/).
+另有一些好玩的东东，请访问[https://www.ieclipse.cn/en/demo/](https://www.ieclipse.cn/en/demo/)查看.
 
 ## 预览截屏
 
-![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
+![screenshot](https://dingdi.ieclipse.cn/hexo-theme-nova/screenshots/bootstrap.png)
 
 ## 特性
 
 - Bootstrap 响应式设计，支持移动端浏览
 - 生成唯一的页面ID, 无需担心站点切换
-- 多种第三方评论组件，支持disqus, valine, ~~duoshuo~~, ~~gentie~~, changyan, ~~uayn~~ 等
-- 支持博客文章加密，须通过输入正确的密码访问
+- 多种第三方评论组件，支持disqus, valine, ~~duoshuo~~, ~~gentie~~, ~~changyan~~, ~~uayn~~ 等
+- 支持博客文章加密（无法通过查看源代码解密），须通过输入正确的密码访问
+- 支持文章阅读数
+- 支持捐赠
 - 含前端代码高亮及复制功能
-- 支持微数据，提供更好的SEO
+- 支持微数据(micro-data)，提供更好的SEO
+- 支持国际化（一次生成多个语言站点内容）
+- 支持思维导图，个人简历
 
 ## 变更 
+
+### V0.3.0
+- 停止百度站内搜索及url链接提交，请使用`hexo-generator-search`及`hexo-submit-urls-to-search-engine`或其它相似插件代替 
+- 更新leancloud文章计数功能，兼容Valine文章计数（不推荐，Valine 1.4之后不开放源码，无法修改bug）本主题文章计数功能更准确，更友好。
+  
+  迁移指南，登录LeanCloud控制台，修改Counter计数表，pageId修改为xid，views修改为time。
 
 ### V0.2.0 (重大更新)
 
@@ -165,6 +175,7 @@ layout:
 
 详情请参考[nova plugins](https://ieclipse.cn/p/hexo-theme-nova/plugins.html)
 
+[Github-Pages]: https://www.ieclipse.cn
 [lodash]: https://github.com/lodash/lodash
 [cheerio]: https://github.com/cheeriojs/cheerio
 [hexo-renderer-sass]: https://github.com/knksmith57/hexo-renderer-sass

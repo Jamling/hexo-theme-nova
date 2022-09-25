@@ -2,7 +2,9 @@
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-theme-nova.svg)](https://github.com/Jamling/hexo-theme-nova/releases/latest)
 
 
-## Introduction ##
+## Introduction
+
+[简体中心](./README_zh.md)
 
 The nova is a [hexo](https://hexo.io) theme using swig template aimed to build your github project site conveniently.
 
@@ -20,18 +22,28 @@ Welcome to visit [My blog](https://www.ieclipse.cn/en/) (https://www.ieclipse.cn
 
 ## ScreenShot
 
-![screenshot](https://raw.githubusercontent.com/Jamling/hexo-theme-nova/master/screenshots/bootstrap.png)
+![screenshot](https://dingdi.ieclipse.cn/hexo-theme-nova/screenshots/bootstrap.png)
 
 ## Features
 
 - Bootstrap responsible style
 - Unique page ID for each page, there is nothing to worry about deploying blog to any site
-- Multi-comment components support, include disqus, valine, ~~duoshuo~~, ~~gentie~~, changyan, ~~uayn~~ 3rd comment plugin
+- Multi-comment components support, include disqus, valine, ~~duoshuo~~, ~~gentie~~, ~~changyan~~, ~~uayn~~ 3rd comment plugin
 - Encrypt/decrypt for private post
+- Page views counter
+- Donate
 - Frontend code highlight and copy feature
 - Mircodata supported
+- Multi-language
+- Mind style categories, resume
 
 ## Change 
+
+### V0.3.0
+- disable baidu search and url-submit，please use `hexo-generator-search` and `hexo-submit-urls-to-search-engine` instead
+- Update leancloud article views counter
+  
+  Migrate: visit LeanCloud console，update Counter class，update pageId to xid，views to time。
 
 ### V0.2.0 (Huge)
 

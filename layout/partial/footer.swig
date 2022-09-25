@@ -6,7 +6,9 @@
       &copy; {{ moment(Date.now()).year() }} <a href="{{ config.url }}" target="_blank">{{ config.author }}</a> powered by <a href="http://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Jamling/hexo-theme-nova" target="_blank">Nova</a><br>
       <!-- Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>. -->
       {%- if is_home() %}
-      {{__('page.visits')}}<span class="lc-count"></span>
+      <span class="leancloud_visitors" id="{{page_uid()}}" data-flag-title=“{{page_title()}}”>
+      {{__('page.visits')}}<span class="count lc-count leancloud-visitors-count"></span>
+      </span>
       {%- endif %}
     </div>
     <div>

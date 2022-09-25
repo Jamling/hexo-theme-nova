@@ -8,10 +8,10 @@ page_new: false
 
 # script and css，站点使用的全局脚本及css文件
 js_css:
-- url: //cdn.staticfile.org/jquery/2.2.0/jquery.min.js #jquery
-- url: //cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css
-- url: //cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap-theme.min.css
-- url: //cdn.usebootstrap.com/bootstrap/3.3.7/js/bootstrap.min.js
+- url: //cdn.bootcss.com/jquery/2.2.0/jquery.min.js #jquery
+- url: //cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css
+- url: //cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css
+- url: //cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js
 #- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css
 #- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/css/ripples.min.css
 #- url: //cdn.staticfile.org/bootstrap-material-design/0.5.10/js/material.min.js
@@ -49,7 +49,7 @@ menu:
 
 # post widgets. see layout/post/widget_xxx.swig
 post_widgets:
-#  - search
+  - search
   - announce
 #  - ds_recent_visitors
   - about
@@ -124,26 +124,30 @@ comments:
   gentie: #网易云跟贴 停止服务了
     productKey: 23838455a080402bb4661a959a6e21ad
   valine: # Valine
-    app_id: rYUER9KxmGUXSpfEtu7wCFMo-gzGzoHsz
-    app_key: k7hzTkcS0blxgry4VT9rJjYj
+    app_id: C45xzaBLva5G5IfKxOwGXuVb-gzGzoHsz
+    app_key: QwGBjKlSYOBtjMa5aTGeO3cb
+    visitor: false #是否支持文章阅读数，建议关闭此项，开启lc
+    url: //lc.ieclipse.cn
 
 # comments的补充，文章阅读数保存在leanclound上
+# valine 新版本已支持，无需开启了
 lc:
   enable: true # true|false
   class: Counter # leanclound上的class名称
-  app_id: rYUER9KxmGUXSpfEtu7wCFMo-gzGzoHsz
-  app_key: k7hzTkcS0blxgry4VT9rJjYj
+  app_id: C45xzaBLva5G5IfKxOwGXuVb-gzGzoHsz
+  app_key: QwGBjKlSYOBtjMa5aTGeO3cb
+  url: https://lc.ieclipse.cn
 
 ## share
 share:
   footer:
     enable: true #开启文章末尾分享
-    layout: share_js #portial 下在分享模板名称
+    layout: share_js #portial 下的分享模板名称
   jiathis: #停止服务了
     uid: 2064663
 ## 站点分析统计代码功能组件，本主题提供了google统计和baidu统计
 analytics:
-  enable: false #
+  enable: false #小网站要个毛统计！
   using: baidu
   baidu:
     id: d028209965ae024527844754f50cbd94
@@ -152,11 +156,14 @@ analytics:
 
 ## search
 search:
+  using: hexo_generator_search
   baidu:
     verified: true # false使用极速搜索，无需验证站点；true使用自定义搜索，可以定制高级功能
     site: www.ieclipse.cn # 你的站点名称，极速搜索要用到
     sid: "11812712506721118476" #如不清楚，将baidu_search_script.swig里面的script全部替换掉
     domain: //search.ieclipse.cn #CNAME到zhannei.baidu.com的域名，未配置留空
+  hexo_generator_search:
+    
 
 rss: atom.xml
 

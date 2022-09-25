@@ -1,24 +1,24 @@
 
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex.min.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex.min.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex-parser.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex-parser.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex-jit.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex-jit.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex-builderbase.min.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex-builderbase.min.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex-async.min.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex-async.min.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/jscex/jscex-async-powerpack.min.js"></script>
+  src="//dingdi.ieclipse.cn/jscex/jscex-async-powerpack.min.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/lovetree/functions.js" charset="utf-8"></script>
+  src="//dingdi.ieclipse.cn/lovetree/functions.js" charset="utf-8"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/lovetree/love.js" charset="utf-8"></script>
+  src="//dingdi.ieclipse.cn/lovetree/love.js" charset="utf-8"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/lovetree/calendar.js"></script>
+  src="//dingdi.ieclipse.cn/lovetree/calendar.js"></script>
 <script type="text/javascript"
-  src="http://olx8kgiw6.bkt.clouddn.com/lovetree/addon.js" charset="utf-8"></script>
+  src="//dingdi.ieclipse.cn/lovetree/addon.js" charset="utf-8"></script>
   <style type="text/css">
   body {
     font-size: 16px;
@@ -138,7 +138,7 @@
           dayAddon.display();
           // 本人七牛上的歌曲有:天空之城等
           if (dayAddon.festival === '生日') {
-            $('#bg').attr("src", "http://olx8kgiw6.bkt.clouddn.com/lovetree/Happy_Birthday.mp3");
+            $('#bg').attr("src", "//dingdi.ieclipse.cn/lovetree/Happy_Birthday.mp3");
             $('#bg')[0].play();
           }
 

@@ -157,6 +157,14 @@ progress::-moz-progress-value {
   padding: 20px;
   background-color: white;
 }
+@media print {
+  .side {
+    width: 33.3%;
+  }
+  .main {
+    width: 66.6%
+  }
+}
 
 .info-header:hover {
   background-color: #d4dee4;
@@ -321,6 +329,7 @@ if (!String.prototype.format) {
 
 
 jQuery(document).ready(function($) {
+    {%- if !page.readonly %}
     $(".left-label").attr('contenteditable', 'true');
     $(".label-value").attr('contenteditable', 'true');
     $(".info-title").attr('contenteditable', 'true');
@@ -331,6 +340,7 @@ jQuery(document).ready(function($) {
     $("#persona-tag").attr('contenteditable', 'true');
     $(".info-unit ul li").append('<span class="item-remove"><span class="glyphicon glyphicon-remove"></span></span>');
     $(".link").attr('contenteditable', 'false');
+    {%- endif %}
 
     $(".info-unit").filter(function(index) {
         return ($(this).children('ul').length);

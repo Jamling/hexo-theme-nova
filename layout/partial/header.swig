@@ -16,8 +16,6 @@
         <ul class="nav navbar-nav">
         {{ header_menu('main-nav') }}
         </ul>
-        <!-- search input -->
-        {{ partial('baidu_search_site') }}
         <ul class="nav navbar-nav navbar-right">
           {%- if get_langs().length > 1 %}
           <li class="dropdown">
