@@ -73,11 +73,13 @@ widget:
   recent: 最近文章
   search: 搜索
   hot:
-    zero: 暂无热评文章
-    other: 热评文章
+    zero: 暂无热点文章
+    other: 热点文章
     users: 热评用户
     news: 热门新闻
-  recent_comments: 最新评论
+  recent_comments: 
+    zero: 暂无评论文章，快去发表第一个评论吧～
+    other: 最新评论
   recent_visitors: 最近访客
   announce: 公告
   about: 关于
@@ -87,6 +89,7 @@ widget:
 ajax:
   loading: 正在载入...
   error: 加载失败
+  empty: 暂无内容
 
 # hexo-filter-highlight 代码高亮插件
 hljs:

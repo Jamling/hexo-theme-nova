@@ -31,6 +31,8 @@ js_css:
 - url: //cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css
 - url: css/nova_font.css
 - url: css/bs/nova.css
+- url: //unpkg.com/leancloud-storage@4.13.2/dist/av-min.js
+- url: js/leancloud.js
 
 # menu, all menu name must be translated, see language/lang.yml
 menu:
@@ -57,10 +59,10 @@ post_widgets:
   - tag
 #  - archive
 #  - recent_posts
-#  - ds_hot
+  - top_views
 #  - cy_hot_news
 #  - cy_hot_users
-#  - cy_recent_comments
+  - recent_comments
   - links
 
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.

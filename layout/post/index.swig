@@ -24,10 +24,16 @@
             </div>
             <div class="divider"></div>
 
-            <div class="card-action">
-              <a class="icon nova-bubbles action-item" href="{{ url_for_lang(post.path) }}#comment"><span class="count"></span><span class="hidden-xs">{{__('sns.comment')}}</span></a>
-              <a class="icon nova-eye action-item leancloud_visitors" id="{{page_uid(post)}}" data-flag-title="{{page_title(post)}}" href="{{ url_for_lang(post.path) }}"><span class="count leancloud-visitors-count"></span><span class="hidden-xs">{{__('article.views')}}</span></a>
-              <a class="icon nova-hand-right action-item" href="{{ url_for_lang(post.path) }}" ><span>{{__('page.more')}}</span></a>
+            <div class="card-action xxx-count" data-xid="{{page_uid(post)}}" data-url="{{post.path || post.permalink}}">
+              <a class="icon nova-bubbles action-item comment-count" href="{{ url_for_lang(post.path) }}#comment">
+                <span class="count"></span><span class="hidden-xs">{{__('sns.comment')}}</span>
+              </a>
+              <a class="icon nova-eye action-item view-count" href="{{ url_for_lang(post.path) }}">
+                <span class="count"></span><span class="hidden-xs">{{__('article.views')}}</span>
+                </a>
+              <a class="icon nova-hand-right action-item" href="{{ url_for_lang(post.path) }}" >
+                <span>{{__('page.more')}}</span>
+              </a>
             </div>
             <meta itemprop="url" content="{{ post.permalink }}">
             <meta itemprop="dateModified" content="{{ date_xml(post.updated) }}">

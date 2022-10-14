@@ -231,14 +231,12 @@ hexo.extend.helper.register('page_path', function(post, options) {
     // ret += '<ol class="breadcrumb path">';
     ret += '<a class="' + _class + '" href="' + _self.url_for_lang('/') + '">' + this.__('page.blog') + '</a>';
     var cats = post.categories;
-    if (cats == null || cats.length == 0) {
-      // ret += '</ol>';
-      return ret;
-    }
+    let empty_cats = (cats == null || cats.length == 0);
 
-    cats.forEach(function(item) {
+    !empty_cats && cats.forEach(function(item) {
       ret += '<a class="' + _class + '" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
     });
+    ret += `<a class="${_class}">${_self.page_title()}</a>`;
     // ret += '</ol>';
   }
   /*

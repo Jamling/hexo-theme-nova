@@ -46,7 +46,9 @@
             <span class="glyphicon glyphicon-refresh"></span> 恢复
         </button>
       </div>
-      {{ markdown(page.content) }}
+      {% block content %}
+        {{ page.content }}
+      {% endblock %}
     </div>
   </div>
 </div>

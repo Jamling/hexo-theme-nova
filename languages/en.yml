@@ -77,7 +77,9 @@ widget:
     other: Hot Posts
     users: Hot Users
     news: Hot News
-  recent_comments: Recent Comments
+  recent_comments: 
+    zero: No comments~
+    other: Recent Comments
   recent_visitors: Recent Visitors
   announce: Announce
   about: About
@@ -87,6 +89,7 @@ widget:
 ajax:
   loading: Loading...
   error: Load failed
+  empty: No data
 
 # hexo-filter-highlight plugin
 hljs:
