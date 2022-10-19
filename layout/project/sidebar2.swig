@@ -1,7 +1,7 @@
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     {%- set hasChild = false %}
     {%- for menu in prj %}
-      {%- if _.isObject(menu) %}
+      {%- if isObject(menu) %}
         {%- set hasChild = true %}
       {%- endif %}
     {%- endfor %}
@@ -10,7 +10,7 @@
     {%- for menu in prj %}
     {%- set name1 = name + '.' + loop.key %}
     <div class="panel panel-primary">
-    {%- if _.isString(menu) %}
+    {%- if isString(menu) %}
     <div class="panel-heading" role="tab" id="p_menu_{{loop.key}}">
       <h4 class="panel-title">
         <a href="{{menu}}">{{ _p(name1)}}</a>

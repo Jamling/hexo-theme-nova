@@ -113,46 +113,33 @@ donate:
 comments:
   enable: true
   using: valine
-  uyan: # 数据不能导出，停止服务了
-    su: path #path|source
-    uid: 2064663
-  duoshuo: #停止服务了
-    short_name: ieclipse
-  disqus: # 外国的，在大陆速度慢
-    shortname: ieclipse
-  changyan: #搜狐畅言（需备案）
-    appid: cysUkdVDy
-    conf: prod_3ca4177ead29d04b50f37440b9445c0a
-  gentie: #网易云跟贴 停止服务了
-    productKey: 23838455a080402bb4661a959a6e21ad
   valine: # Valine
-    app_id: C45xzaBLva5G5IfKxOwGXuVb-gzGzoHsz
-    app_key: QwGBjKlSYOBtjMa5aTGeO3cb
+    app_id: your_leancloud_app_id
+    app_key: your_leancloud_app_key
     visitor: false #是否支持文章阅读数，建议关闭此项，开启lc
-    url: //lc.ieclipse.cn
+    url: your_leancloud_domain
 
-# comments的补充，文章阅读数保存在leanclound上
-# valine 新版本已支持，无需开启了
+# 开启LeanCloud公告、文章阅读计数、打赏等功能
 lc:
-  enable: true # true|false
+  enable: true # true|false 总开关
   class: Counter # leanclound上的class名称
-  app_id: C45xzaBLva5G5IfKxOwGXuVb-gzGzoHsz
-  app_key: QwGBjKlSYOBtjMa5aTGeO3cb
-  url: https://lc.ieclipse.cn
+  app_id: your_leancloud_app_id
+  app_key: your_leancloud_app_key
+  url: your_leancloud_domain # //lc.ieclipse.cn
+  visitors_index: home # home|total (首页阅读量|总阅读量)
+
 
 ## share
 share:
   footer:
     enable: true #开启文章末尾分享
     layout: share_js #portial 下的分享模板名称
-  jiathis: #停止服务了
-    uid: 2064663
 ## 站点分析统计代码功能组件，本主题提供了google统计和baidu统计
 analytics:
   enable: false #小网站要个毛统计！
   using: baidu
   baidu:
-    id: d028209965ae024527844754f50cbd94
+    id: 
   google:
     id:
 
@@ -164,8 +151,7 @@ search:
     site: www.ieclipse.cn # 你的站点名称，极速搜索要用到
     sid: "11812712506721118476" #如不清楚，将baidu_search_script.swig里面的script全部替换掉
     domain: //search.ieclipse.cn #CNAME到zhannei.baidu.com的域名，未配置留空
-  hexo_generator_search:
-    
+  hexo_generator_search: # see hexo_generator_search plugin config
 
 rss: atom.xml
 

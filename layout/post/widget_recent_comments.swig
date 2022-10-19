@@ -22,19 +22,26 @@
     			dom.html('');
     			for (var i = 0; i < arr.length; i++) {
     				let item = arr[i].toJSON();
-					let link = item.link;
-					let nick = item.nick ? (item.nick.length > 5 ? (item.nick.substring(0, 5) + "...") : item.nick) : '';
-					let comment = item.comment.length > 20 ? (item.comment.substring(0, 20) + "...") : item.comment;
+					let link = item.link || '';
+					let nick = item.nick || '';
+					let comment = item.comment;
     				var url = item.url;
     				// TODO need fix url issue
-					let span = $('<span></span').addClass('list-group-item');
-					let nickNode = $('<a></a>').text(nick);
+					let span = $('<div></div').addClass('list-group-item');
+					let nickNode = $('<a></a>').text(nick).addClass('normal-color').css('margin-left', 'auto');
 					if (link) {
 						nickNode.attr('href', link);
 					}
-					span.append(nickNode);
-    				var a = $('<a></a>').text(comment).attr('href', url);
+					let line1 = $('<small/>').addClass('nova-row-center');
+					if (item.title) {
+						$post = $('<span/>').text(item.title).addClass('normal-color text-line-1');
+						line1.append($post);
+					}
+					line1.append(nickNode);
+
+    				var a = $('<a></a>').text(comment).attr('href', url).addClass('text-line-2 normal-color');
 					span.append(a);
+					span.append(line1);
     				dom.append(span);
     			}
     		}

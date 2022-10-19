@@ -1,5 +1,12 @@
 @import '_variables.scss';
-//@import "_colors.scss";
+$nova-divider-color: $divider-color;
+$nova-border-color: $divider-color;
+
+$nova-text-color:#333;//基本色
+$nova-text-color-second:#666;//次要色
+$nova-text-color-inverse:#fff;//反色
+$nova-text-color-grey:#999;//辅助灰色
+$nova-rounded: 6px;
 
 /*布局*/
 .nova-flex {
@@ -34,6 +41,44 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+}
+
+@mixin text-ellipsis() {
+    overflow: hidden;
+    @include text-overflow(ellipsis);
+    white-space: nowrap;
+}
+
+.text-line-1 {
+    @include line-clamp(1);
+}
+.text-line-2 {
+    @include line-clamp(2);
+}
+
+/*使用media来实现*/
+@mixin border-width-1px($dir: all) {
+    @if $dir = all {
+        @media screen and (-webkit-min-device-pixel-ratio: 1) {
+            border-width: 1px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {
+            border-width: 0.5px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 3) {
+            border-width: 0.5px;
+        }
+    } @else {
+        @media screen and (-webkit-min-device-pixel-ratio: 1) {
+            border-#{$dir}-width: 1px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {
+            border-#{$dir}-width: 0.5px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 3) {
+            border-#{$dir}-width: 0.5px;
+        }
+    }
 }
 
 .circle {
@@ -106,6 +151,9 @@ a.list-group-item {
     &:hover {
         color: $a-color-active;
     }
+}
+a.normal-color {
+    color: $nova-text-color;
 }
 
 var {
@@ -332,9 +380,12 @@ img.donate {
 }
 
 .post-header {
+    @extend .nova-row-center;
+    color: $nova-text-color-second;
     clear: both;
     .post-share {
         float: right;
+        margin-left: auto;
         a {
             margin-left: 1em;
         }
@@ -397,12 +448,15 @@ img.donate {
 .tag-item {
     display: inline-block;
     position: relative;
-    padding: 0.25em 0.25em 0.25em 0.25em;
-    background: $tag-bg;
-    line-height: 1em;
+    padding: 0 4px;
+    //background: $tag-bg;
+    //line-height: 1em;
     border-radius: 0px;
     color: $tag-color;
-    font-size: 0.8em;
+    // font-size: 0.8em;
+    &::after {
+        @include border-1px($tag-color, 2px);
+    }
     &:not(:first-child) {
         margin-left: 0.25em;
     }
@@ -430,14 +484,14 @@ img.donate {
     //     left: -0.125em;
     //     border-radius: 0.125em;
     // }
-    &:nth-of-type(2) {
-        background-color: $tag-bg-2;
+    &:nth-of-type(2)::after {
+        border-color: $tag-bg-2;
         // &:before {
         //     border-right-color: $tag-bg-2;
         // }
     }
-    &:nth-of-type(3) {
-        background-color: $tag-bg-3;
+    &:nth-of-type(3)::after {
+        border-color: $tag-bg-3;
         // &:before {
         //     border-right-color: $tag-bg-3;
         // }
@@ -652,17 +706,16 @@ footer.post-item-footer {
 
     .card-action {
         padding: 1em 1em;
+        @extend .nova-row-center;
         .action-item:not(:first-of-type) {
             margin-left: 1em;
         }
         .action-item:last-of-type {
-            float: right;
+            margin-left: auto;
         }
         /* special */
-        .nova-eye::before {
-            font-size: 1.4em;
-            top: 0.15em;
-            position: relative;
+        .nova-bubbles:before {
+            font-size: 0.8em;
         }
     }
 }

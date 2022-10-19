@@ -76,12 +76,93 @@
 
   }
   </style>
+
+<div class="container-fluid">
+  <div class="formusic" style="z-index: -99999 !important; height: 0;">
+    <audio
+      style="visibility: hidden; width: 0 !important; height: 0 !important;"
+      autoplay="true" controls="false">
+      <source id="bg" src="//dingdi.ieclipse.cn/lovetree/Valentine_s_Day.mp3" type="audio/mpeg">
+      <!-- 背景音乐, 可以替换成自己喜欢的 -->
+    </audio>
+  </div>
+  <div id="main" class="container">
+    {%- if !page.love %}
+    <div id="error">
+      
+    </div>
+    {%- else %}
+    <div id="wrap" class="row">
+      <div id="love" class="col-xs-12 col-md-12">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div id="clock-box" class="col-xs-12">
+        <span class="author">{{page.love.from}}</span>与<span class="lover">{{page.love.to}}</span>已经相恋了
+        <div id="clock"></div>
+      </div>
+
+      <div id="text" class="col-xs-12 col-md-6">
+        <div id="code">
+          <div class="say">献给我挚爱的：<span class="lover">{{page.love.to}}</span></div>
+          {%- for line in page.love.says %}
+              <div class="say"> </div> <div class="say">{{line}}</div>
+          {% endfor %}
+          <div class="say"> </div> <div class="say"><span class="festival">XX节</span>快乐！</div>
+          <div class="say"> </div> <div class="say">
+          <span class="space"></span> -- <span class="author">{{page.love.from}}</span>--</div>
+        </div>
+      </div>
+      <div id="screen-detect" class="hidden-xs">
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</div>
+{%- if !page.love %}
   {% block content %}
     {{ page.content }}
   {% endblock %}
-
+{%- endif %}
   <script type="text/javascript">
         (function() {
+          function parseStart(str) {
+            console.log('start', str);
+            let d = {
+              y: 2013, // 2013年
+              M: 3, // 3 月
+              d: 23,
+              h: 8,
+              m: 10,
+              s: 0
+            }
+            let a1 = str.split(' ');
+            if (a1.length > 1) {
+              let a3 = a1[1].split(":");
+              d.h = parseInt(a3[0]);
+              d.m = parseInt(a3[1]);
+              d.s = parseInt(a3[2]);
+            }
+              let a2 = a1[0].split('-');
+              d.y = parseInt(a2[0]);
+              d.M = parseInt(a2[1]);
+              d.d = parseInt(a2[2]);
+              return d;
+          }
+          function parseSpecial(name, date,bg) {
+            let d = date.split(',');
+            let yy = parseInt(d[0]);
+            let mm = parseInt(d[1]);
+            let dd = parseInt(d[2]);
+            let lunar = d.length > 3 ? parseInt(d[3]) : false;
+            dayAddon.addSpecial(name, yy, mm, dd, lunar);
+            if (bg && bg !== 'undefined') {
+              bgaudios.push({
+                name: name,
+                bg: bg
+              })
+            }
+          }
           var divLove = $('#love');
           var divText = $('#text');
           var canvas = $('#canvas');
@@ -101,18 +182,11 @@
             height = 600;
           }
 
-          var dayAddon = new DayAddon(calendar, 'Jamling', 'Jasmin', {
-            y: 2013, // 2013年
-            M: 3, // 3 月
-            d: 23,
-            h: 8,
-            m: 10,
-            s: 0
-          });
-          // 每年的7月13日
-          dayAddon.addSpecial('生日', 0, 07, 13);
-          dayAddon.addSpecial('恋爱五周年纪念日', 2018, 03, 23);
-          dayAddon.addSpecial('恋爱周年纪念日', 0, 03, 23);
+          let bgaudios = [];
+          var dayAddon = new DayAddon(calendar, '{{page.love.from}}', '{{page.love.to}}', parseStart('{{page.love.start}}'));
+          {%- for day in page.love.days %}
+              parseSpecial('{{day.name}}', '{{day.date}}', '{{day.bg || ""}}');
+          {% endfor %}
           // 每年的阴历七月初七
           dayAddon.addSpecial('新年', 0, 1, 1, true);
           dayAddon.addSpecial('乞巧节', 0, 7, 7, true);
@@ -141,6 +215,12 @@
             $('#bg').attr("src", "//dingdi.ieclipse.cn/lovetree/Happy_Birthday.mp3");
             $('#bg')[0].play();
           }
+          bgaudios.forEach(item=>{
+            if (dayAddon.festival === item.name) {
+              $('#bg').attr("src", item.bg);
+              $('#bg')[0].play();
+            }
+          });
 
           var treeAddon = new TreeAddon(width, height, {
               maxCount: Math.floor(dayAddon.days / 100),

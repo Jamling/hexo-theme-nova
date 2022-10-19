@@ -22,7 +22,7 @@
     						let item = arr[i].toJSON();
     						var url = item.url;
                 // TODO need fix url issue
-    						var a = $('<a></a>').text(item.title).attr('href', url).addClass('list-group-item');
+    						var a = $('<a></a>').text(item.title).attr('href', url).addClass('list-group-item text-line-1');
     						$dom.append(a);
     					}
     				}

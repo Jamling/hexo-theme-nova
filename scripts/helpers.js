@@ -1,7 +1,6 @@
 'use strict';
 
 var pathFn = require('path');
-var _ = require('../../../node_modules/lodash');
 var url = require('url');
 var util = require('util');
 var crypto = require('crypto');
@@ -85,11 +84,11 @@ hexo.extend.helper.register('head_jscss', function(options={}) {
   var _self = this;
   var page = this.page;
   var ret = '';
-  _.each(jc, function(item) {
+  jc.forEach(function(item) {
     var include = true;
     var fn = item.url.substring(item.url.lastIndexOf('/') + 1).toLowerCase();
     var ext = fn.substring(fn.lastIndexOf('.')).toLowerCase();
-    if (_.startsWith(ext, ".js")) {
+    if (ext.startsWith(".js")) {
       include = options.hasOwnProperty('js') ? options.js : true
       if (include && item.layout && page && page.layout) {
         include = item.layout.indexOf(page.layout)>=0;
@@ -98,7 +97,7 @@ hexo.extend.helper.register('head_jscss', function(options={}) {
         ret += _self.js(item.url);
       }
     }
-    else if (_.startsWith(ext, ".css")) {
+    else if (ext.startsWith(".css")) {
       include = options.hasOwnProperty('css') ? options.css : true
       if (include && item.layout && page && page.layout) {
         include = item.layout.indexOf(page.layout)>=0;
@@ -171,7 +170,7 @@ hexo.extend.helper.register('header_menu', function(className) {
   var result = '';
   var _self = this;
 
-  _.each(menu, function(m) {
+  menu.forEach(function(m) {
     var name = _self.__('menu.' + m.name);
     if (name === '') {
       name = m.name;
@@ -285,7 +284,7 @@ hexo.extend.helper.register('page_excerpt', function(post) {
 
 // wether page is new
 hexo.extend.helper.register('page_new', function(post) {
-  if (_.isUndefined(this.theme.page_new) && this.theme.page_new === true) {
+  if ((typeof this.theme.page_new === 'undefined') && this.theme.page_new === true) {
     var p = post ? post : this.page;
     var m = p.updated;
     var d = p.date;
@@ -398,12 +397,24 @@ hexo.extend.helper.register('widget_tags_data', function() {
   var cats = this.site.tags || [];
   var tags = [];
   var _self = this;
-  cats.schema.virtual('path').get(function() {
-    var tagDir = _self.config.tag_dir;
-    if (tagDir[tagDir.length - 1] !== '/') tagDir += '/';
+  if (cats.schema) {
+    cats.schema.virtual('path').get(function() {
+      var tagDir = _self.config.tag_dir;
+      if (tagDir[tagDir.length - 1] !== '/') tagDir += '/';
 
-    return _self.url_for_lang(tagDir + this.slug + '/');
-  });
+      return _self.url_for_lang(tagDir + this.slug + '/');
+    });
+  } else {
+    let tagDir = _self.config.tag_dir;
+    if (tagDir[tagDir.length - 1] !== '/') tagDir += '/';
+    cats.forEach(function(item) {
+      Object.defineProperty(item, "path", {
+        get() {
+          return _self.url_for_lang(tagDir + item.slug + '/');
+        }
+      });
+    });
+  }
   return cats;
 });
 
@@ -434,9 +445,6 @@ hexo.extend.helper.register('page_uid', function(page, options) {
   if (combined && this.get_langs().indexOf(lang) >= 0) {
     paths.shift();
     var ret = paths.join('/');
-    // if (!_.endsWith(path, '/')) {
-    // ret += '/';
-    // }
     return hash ? md5(ret) : ret;
   }
   return hash ? md5(path) : path;
@@ -483,6 +491,20 @@ hexo.extend.helper.register('lang_name', function(lang) {
   return data.name || data;
 });
 
+hexo.extend.helper.register('isString', function(str) {
+  if (str != null && typeof str.valueOf() === "string") {
+    return true
+  }
+  return false
+});
+
+hexo.extend.helper.register('isObject', function(str) {
+  if (str != null && typeof str.valueOf() === "object") {
+    return true
+  }
+  return false
+});
+
 hexo.extend.helper.register('page_encrypt', function(page, options) {
   function enc(hexo, p) {
     var ext = pathFn.extname(p.source);
@@ -502,7 +524,7 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
   code = code + '';
   var tip = p.password_tip || this.__('page.password_tip');
   var emsg = p.password_emsg || this.__('page.password_error');
-  var o = _.extend({v:2, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
+  var o = Object.assign({v:2, dom:'.article-content', tip: encodeURI(tip), emsg: encodeURI(emsg), src: '/js/encrypt.min.js'}, options);
   if (o.v == 1) {
     var c = String.fromCharCode(code.charCodeAt(0) + code.length);
     for(var i=1; i < code.length; i++) {
@@ -520,7 +542,8 @@ hexo.extend.helper.register('page_encrypt', function(page, options) {
   var url = o.src + '?';
   delete o.src;
   var arr = [];
-  _.each(o, function(v,k){
+
+  Object.entries(o).forEach(function([k, v], index){
     arr.push(k + "=" + v);
   });
   url += arr.join('&');

@@ -48,7 +48,7 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 - 将畅言评论换成了valine，（因为畅言去广告要收费，而且畅言的评论不好导出）
 - 将代码复制zero clipboard组件换成clipboard.js（因为flash陆续不被各大浏览器厂商所支持）
 - 重新组织了nova css，使用内联样式风格，可读性得到了增强
-- 通过W3C校验
+- 通过W3C校验
 
 ## 安装
 Cd到博客/站点根目录，然后检出代码
@@ -58,7 +58,7 @@ $ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 最后在站点<var>_config.yml</var> 配置文件中设置 `theme: nova` 来使用nova主题。
 
 ## 依赖
-本主题使用了一些第3方的插件，在使用之前，请在博客站点根目录下安装这些插件
+本主题使用了一些第三方的插件，在使用之前，请在博客站点根目录下安装这些插件
 
 ```powershell
 npm install hexo-renderer-sass --save
@@ -66,10 +66,19 @@ npm install hexo-generator-i18n --save
 
 npm install hexo-generator-github --save
 npm install hexo-filter-highlight --save
+
+npm install cheerio --save // hexo >= 5.0
 ```
 
 - <var>hexo-generator-github</var>不是必需的，如果sources中没有`project`布局页面，则可以不安装此插件。
 - <var>hexo-filter-highlight</var>不是必需的，如果不想用本主题代码高亮方案，则可以不安装此插件。
+
+## 常见问题
+`Error: Cannot find module '../../../node_modules/cheerio'`
+`Error: Cannot find module '../../../node_modules/lodash'`
+
+从hexo 5.0之后，lodash与cheerio已从依赖中移除，请在博客根目录安装cheerio或lodash
+
 
 ## 主题配置
 
@@ -174,6 +183,11 @@ layout:
 - [hexo-filter-highlight] 用于代码高亮
 
 详情请参考[nova plugins](https://ieclipse.cn/p/hexo-theme-nova/plugins.html)
+
+## 联系我们
+
+请在QQ中搜索hexo-theme-nova群（群号：756721335）以获取支持
+
 
 [Github-Pages]: https://www.ieclipse.cn
 [lodash]: https://github.com/lodash/lodash

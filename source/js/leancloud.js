@@ -251,6 +251,56 @@ function NovaLC() {
         debug && console.log('announce', json);
         return json;
     }
+    NovaLC.prototype.getVisitors = async function (options) {
+        options = options || {}
+        let debug = options.hasOwnProperty('debug') ? options.debug : this._config.debug;
+
+        let query = new AV.Query(this._config.configTable);
+        query.equalTo('name', 'visitors');
+        query.select(['-objectId', '-createdAt', '-updatedAt']);
+        let res = await query.find();
+        let json = res[0].toJSON();
+        debug && console.log('visitors', json);
+        return json;
+    }
+    NovaLC.prototype.topDonateAmount = async function (options) {
+        options = options || {}
+        let debug = options.hasOwnProperty('debug') ? options.debug : this._config.debug;
+        let limit = options.hasOwnProperty('limit') ? options.limit : 5;
+        let res = await AV.Cloud.run('donateTopAmount', {limit: limit});
+        return res;
+    }
+    NovaLC.prototype.topDonateCount = async function (options) {
+        options = options || {}
+        let debug = options.hasOwnProperty('debug') ? options.debug : this._config.debug;
+        let limit = options.hasOwnProperty('limit') ? options.limit : 5;
+        let res = await AV.Cloud.run('donateTopCount', {limit: limit});
+        return res;
+    }
+    NovaLC.prototype.listDonate = async function (options) {
+        options = options || {}
+        let debug = options.hasOwnProperty('debug') ? options.debug : this._config.debug;
+        let limit = options.hasOwnProperty('limit') ? options.limit : 5;
+        let page = options.hasOwnProperty('page') ? options.page : 0;
+        //let res = await AV.Cloud.run('donateList', {limit: limit, page: page});
+        let ret = {
+            list: [],
+            total: 0
+        }
+        let query = new AV.Query('Donate');
+        if (page == 0) {
+            ret.total = await query.count();
+        }
+        query.addDescending('donatedAt');
+        query.limit(limit);
+        query.skip(limit * page);
+        query.select(['-objectId', '-createdAt', '-updatedAt']);
+        let res = await query.find();
+        if (res !== undefined && res.length > 0) {
+            res.forEach(item => ret.list.push(item.toJSON()));
+        }
+        return ret;
+    }
     // end
     return this;
 }

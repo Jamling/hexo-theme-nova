@@ -8,7 +8,7 @@
   /* 首页阅读数 */
   lc.countCounter({
       selector: '.home-count',
-      subSelector: '.count'
+      subSelector: '.count-home'
   });
 {%- else %}
   lc.countCounter({});

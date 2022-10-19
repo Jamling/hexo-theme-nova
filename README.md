@@ -2,9 +2,9 @@
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-theme-nova.svg)](https://github.com/Jamling/hexo-theme-nova/releases/latest)
 
 
-## Introduction
+[简体中文](./README_zh.md)
 
-[简体中心](./README_zh.md)
+## Introduction
 
 The nova is a [hexo](https://hexo.io) theme using swig template aimed to build your github project site conveniently.
 
@@ -13,6 +13,8 @@ The theme provided three layouts to demonstrate the page.
  1. `post` for blog
  2. `project` for github project page
  3. `page` for other pages
+ 4. `resume` for resume pages
+ 5. `donate` for danate pages
 
 Nova also provided lots of helper scripts as plugins to co-work with the theme, e.g. donate, toc, project side bar.
 
@@ -59,7 +61,11 @@ Cd to your blog root directory
 ```bash
 $ git clone git@github.com:Jamling/hexo-theme-nova.git themes/nova
 ```
-Then change site <var>_config.yml</var> set `theme: nova` to use the theme
+Then 
+1. Change site <var>_config.yml</var> set `theme: nova` to use the theme.
+2. Make _config.nova.yml under blog dir to overide theme default config.
+3. Install dependencies under blog dir. 
+
 
 ## Dependencies
 Nova theme used some 3rd plugins to help. Need to install these plugins in your site/blog before using nova.
@@ -70,10 +76,17 @@ npm install hexo-generator-i18n --save
 
 npm install hexo-generator-github --save
 npm install hexo-filter-highlight --save
+npm install cheerio --save // hexo >= 5.0
 ```
 
 - <var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.
 - <var>hexo-filter-highlight</var> is unnecessary if you don't like the nova highlight solution.
+
+## Problems
+`Error: Cannot find module '../../../node_modules/cheerio'`
+`Error: Cannot find module '../../../node_modules/lodash'`
+
+Since hexo 5.0, lodash and cheerio is removed from dependencies, please install them.
 
 ## Config
 
