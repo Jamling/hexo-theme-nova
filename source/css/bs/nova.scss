@@ -96,9 +96,13 @@ $nova-rounded: 6px;
     height: 0;
     overflow: hidden;
 }
-
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
 /* bootstrap fixed top nav */
 body {
+    font-family: "Vollkorn", Palatino, Times;
     padding-top: 60px;
     font-size: 16px;
     color: $body-color;

@@ -77,6 +77,7 @@ npm install hexo-generator-i18n --save
 npm install hexo-generator-github --save
 npm install hexo-filter-highlight --save
 npm install cheerio --save // hexo >= 5.0
+npm install hexo-renderer-swig --save // hexo >= 5.0
 ```
 
 - <var>hexo-generator-github</var> is unnecessary if no `project` layout page in your sources.

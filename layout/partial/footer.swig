@@ -12,7 +12,7 @@
       <script>
         $(document).ready(function(e) {
           lc.getVisitors({debug: false}).then(res => {
-            $('.home-count .count').html(res.value);
+            $('.home-count .count-total').html(res.value);
           });
         })
         

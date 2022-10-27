@@ -35,35 +35,37 @@ js_css:
 - url: js/leancloud.js
 
 # menu, all menu name must be translated, see language/lang.yml
+# 主菜单，
 menu:
-- name: home
+- name: home # 首页
   url: /
-- name: project
+- name: project # 项目，需hexo-generator-github插件及github配置
   url: /p/
-- name: category
+- name: category # 分类
   url: /categories/
-- name: archive
+- name: archive # 归档
   url: /archives/
-- name: donate
+- name: donate # 打赏列表，需lc支持，并创建Donate表
   url: /donate/
-- name: about
+- name: about # 关于
   url: /about/
 
 # post widgets. see layout/post/widget_xxx.swig
+# 首页右侧边栏小部件
 post_widgets:
-  - search
-  - announce
+  - search #搜索
+  - announce #公告，需要lc的支持，Config表中配置name=announce,value就是内容
 #  - ds_recent_visitors
-  - about
-  - category
-  - tag
-#  - archive
-#  - recent_posts
-  - top_views
+  - about # 关于
+  - category # 文章分类
+  - tag # 文章标签云
+#  - archive #文章归档
+#  - recent_posts #最新文章
+  - top_views # 热点文章
 #  - cy_hot_news
 #  - cy_hot_users
-  - recent_comments
-  - links
+  - recent_comments # 最近评论
+  - links #友情链接
 
 # TODO fetch widgets use ajax, widgets e.g. tag, archive, is sample in all pages.
 # used ajax to get widget_xxx contents dynamicly to avoid change all pages.
@@ -120,6 +122,11 @@ comments:
     url: your_leancloud_domain
 
 # 开启LeanCloud公告、文章阅读计数、打赏等功能
+# Counter阅读计数表：time:Number阅读数，title：文章标题, url：文章链接，xid：页面唯一id
+# Comment评论表表：参考valine，会自动生成,本主题扩展了一个title字段
+# Config配置表：name:String参数名，value：String参数值，tag：String标签，type:String类型
+# config表，name=visitors表示总访问数，name=announce,type=html，表示公告，内容类型为html
+# Donate捐赠表：amount:Number金额，
 lc:
   enable: true # true|false 总开关
   class: Counter # leanclound上的class名称

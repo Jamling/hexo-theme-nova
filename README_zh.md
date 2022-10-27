@@ -4,7 +4,7 @@
 
 ## 简介 ##
 
-nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方便快速地为github项目创建一个简单的静态网站，如[Github-Pages]。
+nova是使用swig模板引擎编写的[hexo]主题，旨在方便快速地为github项目创建一个简单的静态网站，如[Github-Pages]。
 
 本主题主要使用以下三种布局来展现页面：
 
@@ -12,9 +12,9 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
  2. `project` 用于github项目页面
  3. `page` 用于其它页面，如关于我
 
-本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页](https://www.ieclipse.cn) (https://www.ieclipse.cn)。
+本主题还使用了一些插件作为辅助函数。如TOC目录生成，项目侧边导航栏等。详情请访问[我的主页] (https://www.ieclipse.cn)。
 
-另有一些好玩的东东，请访问[https://www.ieclipse.cn/en/demo/](https://www.ieclipse.cn/en/demo/)查看.
+另有一些好玩的东东，请访问[主题特色功能]查看.
 
 ## 预览截屏
 
@@ -40,7 +40,6 @@ nova是使用swig模板引擎编写的[hexo](https://hexo.io)主题，旨在方�
 - 更新leancloud文章计数功能，兼容Valine文章计数（不推荐，Valine 1.4之后不开放源码，无法修改bug）本主题文章计数功能更准确，更友好。
   
   迁移指南，登录LeanCloud控制台，修改Counter计数表，pageId修改为xid，views修改为time。
-
 ### V0.2.0 (重大更新)
 
 - 删除已停止服务的友加分享，换上了share.js
@@ -68,17 +67,52 @@ npm install hexo-generator-github --save
 npm install hexo-filter-highlight --save
 
 npm install cheerio --save // hexo >= 5.0
+npm install hexo-renderer-swig --save // hexo >= 5.0
+
+```
+
+示例依赖（博客根目录）
+```
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12", // toc目录需要使用
+    "hexo": "^6.3.0", // 可用hexo最新版本
+    "hexo-addlink": "^1.0.4",
+    "hexo-algolia": "^1.3.2",
+    "hexo-deployer-git": "^2.1.0",
+    "hexo-filter-highlight": "1.0.0", // 代码高亮
+    "hexo-fs": "^2.0.1",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-feed": "^2.2.0",
+    "hexo-generator-github": "^1.0.1", // 同步github项目或页面插件
+    "hexo-generator-i18n": "^0.0.7", // 多语言
+    "hexo-generator-index2": "^0.2.0", // 首页过滤
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-renderer-marked": "^6.0.0", // markdown渲染
+    "hexo-renderer-sass": "^0.4.0", // css
+    "hexo-renderer-stylus": "^1.1.0",
+    "hexo-renderer-swig": "^2.0.0", // 渲染引擎
+    "hexo-server": "^1.0.0",
+    "hexo-submit-urls-to-search-engine": "^2.1.0" // 提交链接到搜索引擎
+  }
 ```
 
 - <var>hexo-generator-github</var>不是必需的，如果sources中没有`project`布局页面，则可以不安装此插件。
 - <var>hexo-filter-highlight</var>不是必需的，如果不想用本主题代码高亮方案，则可以不安装此插件。
 
 ## 常见问题
+### 找不到cheerio 
 `Error: Cannot find module '../../../node_modules/cheerio'`
-`Error: Cannot find module '../../../node_modules/lodash'`
 
-从hexo 5.0之后，lodash与cheerio已从依赖中移除，请在博客根目录安装cheerio或lodash
+从hexo 5.0之后，lodash与cheerio已从依赖中移除，请在博客根目录安装`cheerio`插件
 
+### 首页空白
+首页内容为一堆 {{xxxx}}
+从hexo 5.0?，默认的渲染引擎从`swig`换成了`nunjucks`，请在博客根目录安装`hexo-renderer-swig`插件
+
+### 捐献，文章阅读，访客数，公告等无法使用
+请配置leancloud，数据库设计可参考[leancloud_schemal.zip](./leancloud_schemal.zip)
 
 ## 主题配置
 
@@ -187,8 +221,11 @@ layout:
 ## 联系我们
 
 请在QQ中搜索hexo-theme-nova群（群号：756721335）以获取支持
+![qq group](http://hexo.ieclipse.cn/hexo-theme-nova/qq_group.jpg)
 
-
+[hexo]: https://hexo.io
+[我的主页]: https://www.ieclipse.cn
+[主题特色功能]: https://www.ieclipse.cn/en/demo/
 [Github-Pages]: https://www.ieclipse.cn
 [lodash]: https://github.com/lodash/lodash
 [cheerio]: https://github.com/cheeriojs/cheerio

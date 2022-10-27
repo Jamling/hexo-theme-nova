@@ -22,16 +22,34 @@
         <div class="panelx-body">
         {%- if group.type == 'tag' %}
         {{ tagcloud(group.items, {color:true,start_color:'#795548', end_color:'#212121'})}}
+        {%- elif group.type == 'ul' %}
+        <ul>
+        {%- for item in group.items %}
+        <li class="info-list">
+          {%- if item.icon %}
+          <span class="glyphicon glyphicon-{{item.icon}}"></span>
+          {%- endif %}
+          <span class="info-label">{{item.label}}</span>
+        </li>
+        {%- endfor %}
         {%- else %}
         {%- for item in group.items %}
         <div class="info-list">
+          {%- if item.icon %}
+          <span class="glyphicon glyphicon-{{item.icon}}"></span>
+          {%- endif %}
           <span class="info-label">{{item.label}}</span>
+          {%- if item.value %}
           <span class="info-value">
           {%- if item.type == 'md' %} {{markdown(item.value)}} 
           {%- else %} {{item.value}}{%- endif %}
           </span>
+          {%- endif %}
         </div>
         {%- endfor %}
+        {%- if group.type == 'ul' %}
+        </ul>
+        {%- endif %}
         {%- endif %}
         </div><!-- end panel-boxy -->
       </div><!-- end group -->

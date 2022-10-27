@@ -1,10 +1,11 @@
+$hl_color: #4183C4;
 h1,
 h2,
 h3,
 h4,
 h5 {
     font-weight: 500;
-    color: #5bc0de;
+    color: $hl_color;
     line-height: 1.5;
 }
 
@@ -104,9 +105,13 @@ ul li {
 .side {
     padding: 0;
     background-color: whitesmoke;
-    .glyphicon {
+    .panelx-title .glyphicon {
         top: 3px;
         margin-right: 0.5rem;
+    }
+    .info-list .glyphicon {
+        top: 2px;
+        margin-right: 0.2rem;
     }
     .me {
         display: flex;
@@ -150,6 +155,9 @@ ul li {
                 }
             }
         }
+        li.info-list {
+            display: list-item;
+        }
     }
 }
 
@@ -172,7 +180,7 @@ ul li {
     h2:first-of-type {
         margin-top: 0;
     }
-    h3 {
+    h3,h2 {
         > .glyphicon {
             top: 5px;
         }
@@ -189,6 +197,15 @@ ul li {
 }
 
 @media print {
+    body {
+        font-size: 12px !important;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        color: $hl_color !important;
+        small, span {
+            color: 000 !important;
+        }
+    }
     .side {
         width: 33.3%;
     }

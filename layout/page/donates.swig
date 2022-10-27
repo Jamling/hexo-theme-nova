@@ -46,7 +46,7 @@
         </table>
       </div>
       {%- endif %}
-      {%- if page.donate && page.donate.top_amout %}
+      {%- if page.donate && page.donate.top_amount %}
       <!-- 2nd -->
       <div class="panel panel-primary">
         <!-- Default panel contents -->
