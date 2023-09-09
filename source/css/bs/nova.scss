@@ -58,7 +58,7 @@ $nova-rounded: 6px;
 
 /*使用media来实现*/
 @mixin border-width-1px($dir: all) {
-    @if $dir = all {
+    @if $dir == all {
         @media screen and (-webkit-min-device-pixel-ratio: 1) {
             border-width: 1px;
         }
@@ -384,7 +384,7 @@ img.donate {
 }
 
 .post-header {
-    @extend .nova-row-center;
+    //@extend .nova-row-center;
     color: $nova-text-color-second;
     clear: both;
     .post-share {
